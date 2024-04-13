@@ -1,0 +1,24 @@
+-Revoir le font 
+-Revoir les logos du côté gauche en noir (les remettre en blanc)
+-Commenté et documenté le code
+-Revoir l’architecture du system de base de données et établie les différentes relation entre les tables 
+-Envoyer les données du local Storage vers laravel.(déja)
+
+-Dans impression pro forma,
+ afficher une liste exhaustive des factures type pro forma, 
+donner la possibilité de faire des recherches avec le numéro de facture
+ (afficher les détails le concernant) 
+et ajouter l’option de suppression de produits,
+ passer à la facture normalisée, télécharger,visualisé, impression, envoie par mail.
+
+
+-Supprimer l’option bordereau de livraison dans impression
+-Dans impression facture normalisé faire une recherche des factures pro forma qui sont passer a factures normalisés
+-Demandés des renseignements par rapport à tout ce que le comptable fourni avec son travail
+-Option statistique : faire les statistiques sur les produits vendu, le meilleures clients du mois,le chiffres d’affaires
+
+-Historique de tout ce qui a été faire, ajout produit vente, option de le voir par date 
+-Profil information concernant le profil
+-sold out les produits en quantité finisable, 80 pourcents de leur stock intial
+-heures de pointe
+

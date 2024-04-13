@@ -1,0 +1,122 @@
+
+@font-face{
+    font-family: 'FP-Playkiddo';
+    src:url('../Font/titre/Playkiddo.ttf') format('truetype')
+}
+@font-face{
+    font-family: 'FP-Oswald';
+    src:url('../Font/static/Oswald-Regular.ttf') format('truetype')
+}
+@font-face{
+    font-family: 'FP-Menu';
+    src:url('../Font/menu/Righteous-Regular.ttf') format('truetype')
+}
+@font-face{
+    font-family: 'FP-error';
+    src:url('../Font/error/Rajdhani-Regular.ttf') format('truetype')
+}
+@font-face{
+    font-family: 'FP-succes';
+    src:url('../Font/error/OpenSans-VariableFont_wdth,wght.ttf') format('truetype')
+}
+.FP-error {
+    font-family: FP-error;
+}
+.FP-succes {
+    font-family: FP-succes;
+}
+.FP-titre {
+    font-family: FP-Playkiddo;
+}
+.FP-static{
+    font-family: FP-Oswald ;
+}
+.FP-Menu{
+    font-family: FP-Menu;
+}
+.S_Menu
+{
+    display: none;
+}
+.V_Menu
+{
+    display: block;
+}
+.Cfocus
+{
+ input:focus{
+    border: 2px solid blue;
+ }
+}
+@keyframes pop
+{
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+    100%
+    {
+        opacity: 1;
+        transform: translateY(0px) scale(1);
+    }
+}
+@keyframes pops
+{
+        0% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        100% {
+            opacity: 0;
+            transform: translateY(30px) scale(0.9);
+        }
+
+}
+.Popt
+{
+        animation: pop 1s;
+
+}
+.Pops
+{
+
+        animation: pops 1s;
+
+}
+.alert {
+
+    width: 200px;
+    height: 50px;
+    background-color: #dff0d8;
+
+    right: -200px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: right 1s ease-in-out, transform 0.5s 10s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: alerte 3s;
+}
+
+@keyframes alerte
+{
+        0% {
+            margin-right: -400px;
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        100% {
+            opacity: 0;
+            margin-right: 0;
+            transform: translateY(30px) scale(0.9);
+        }
+
+}
+
+
+
+
+
+
+
