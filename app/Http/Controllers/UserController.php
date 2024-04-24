@@ -27,104 +27,53 @@ class UserController extends Controller
    public function Dashboard()
    {
     //Dashboard User
-    return view('User.DashbordUser');
+    return view('User.dashboard.dashboardUser');
 
    }
    public function Stock()
    {
     //Dashboard User
-    return view('User.PageStock');
+    return view('Stock.PageStock');
 
    }
 
-   public function P_Produit()
-   {
-    //Page Produit
-    return view('User.Produit');
 
-   }
-
-   public function P_Ajout_produit()
-   {
-    //Page Ajout nouveau produit
-    return view('User.AjouterProduit');
-
-   }
-
+   
    public function P_Profil()
    {
     //Page Profil
-    return view('User.Profil');
+    return view('User.profil.Profil');
 
    }
 
    public function P_comptabilite()
    {
     //Page Comptability
-    return view('User.Comptability');
+    return view('User.comptability.comptability');
 
    }
 
    public function P_Historique()
    {
     //Page Historique
-    return view('User.Historique');
+    return view('User.historique.historique');
 
    }
 
-   public function P_Impression()
-   {
-    //Page Impression
-    return view('User.Impression');
+   
 
-   }
-
-   public function P_Recherche()
-   {
-    //Page Recherche
-    return view('User.RechercheProduit');
-
-   }
 
    public function P_Statistique()
    {
     //Page Statistique
-    return view('User.Statistique');
+    return view('User.statistique.statistique');
 
    }
 
-   public function P_Bordereau_livraison()
-   {
-    //Page Statistique
-    return view('User.BordereauLivraison');
+  
 
-   }
-
-   public function P_Pro_format()
-   {
-    //Page Statistique
-    return view('User.Proformat');
-
-   }
-
-
-
-
-   // Fonctionnalité
-
-   public function Modifier()
-   {
-    //Modifier Produit
-    
-
-   }
-
-   public function Suppression()
-   {
-    //Suppression Produit
-    
-
-   }
+   
+   
 
 
 

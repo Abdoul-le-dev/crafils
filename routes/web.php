@@ -142,6 +142,9 @@ Route::get('/facture',[VenteController::class,'View_facture']);
 Route::get('/pro-forma',[Proformat::class,'view_proformat'])->name('proforma');
 Route::post('/searchdata',[Proformat::class,'search'])->name('search');
 Route::get('/details',[Proformat::class,'details'])->name('details');
+Route::get('/modifier_facture',[Proformat::class,'modifier_facture'])->name('modifier_facture');
+Route::get('/visualiser',[Proformat::class,'visualiser'])->name('visualiser');
+Route::get('/normaliser',[Proformat::class,'normaliser'])->name('normaliser');
 
 
 

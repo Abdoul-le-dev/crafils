@@ -1,7 +1,7 @@
 @extends('PageStatic.Dashboard')
 
 @section('page_titre')
-   Comptabilite
+   Comptability
 @endsection
 
 @section('page_container')

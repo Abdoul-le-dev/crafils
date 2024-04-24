@@ -68,3 +68,7 @@ function Facture_details()
 {
     
 }
+function ListeFacture()
+{
+    
+}

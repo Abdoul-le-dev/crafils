@@ -39,4 +39,19 @@ class Proformat extends Controller
         $donne_facture = Facture::where('num_factures',$num_facture)->get();
         return view('impression.modeldetail',compact('donne_facture'));
     }
+    public function modifier_facture( Request $request)
+    {
+        $num_facture = $request->query('numero_facture');
+        return view('impression.model_modifier_facture');
+    }
+    public function visualiser(Request $request)
+    {
+        $num_facture = $request->query('numero_facture');
+        return view('impression.model_visualiser');
+    }
+    public function normaliser(Request $request)
+    {
+        $num_facture = $request->query('numero_facture');
+        return view('impression.model_normailser');
+    }
 }

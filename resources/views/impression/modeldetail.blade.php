@@ -20,7 +20,14 @@
             </div>
 
             <div class=" flex flex-row mx-10 ">
-                <p class="FP-error mr-2 font-bold">Type client:</p> <span class="FP-error">{{$item->client_anonyme}}</span>
+                <p class="FP-error mr-2 font-bold">Type client:</p> 
+                
+                    @if ($item->client_id !== null)
+                    <span class="FP-error">Client enregistré   </span>
+                    @else
+                    <span class="FP-error">Client anonyme   </span>
+                    @endif
+                    
             </div>
             <div class=" flex flex-row mx-10">
                 <p class="FP-error mr-2 font-bold">Nom du client:</p> <span class="FP-error">{{$item->client_anonyme}}</span>

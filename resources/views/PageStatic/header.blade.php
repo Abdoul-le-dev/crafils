@@ -75,7 +75,7 @@
 
                     <img src="Icons/calculator.svg" alt="" class="mr-2 ">
 
-                    <h2 class="FP-Menu">Comptabilité</h2>
+                    <h2 class="FP-Menu"> <a href="{{ route('Comptability')}}">Comptabilité</a> </h2>
 
                 </div>
 
@@ -83,7 +83,7 @@
 
                     <img src="Icons/chat-arrow-grow.svg" alt="" class="mr-2">
 
-                    <h2 class="FP-Menu">statistique</h2>
+                    <h2 class="FP-Menu"><a href="{{ route('Statistique')}}">Statistique</a> </h2>
 
                 </div>
 
@@ -91,7 +91,7 @@
 
                     <img src="Icons/time-past.svg" alt="" class="mr-2">
 
-                    <h2 class="FP-Menu">Historique</h2>
+                    <h2 class="FP-Menu"><a href="{{ route('Historique')}}">Historique</a> </h2>
 
                  </div>
 
@@ -99,7 +99,7 @@
 
                     <img src="Icons/user.svg" alt="" class="mr-2">
 
-                    <h2 class="FP-Menu">Profil</h2>
+                    <h2 class="FP-Menu"><a href="{{route('Profil')}}">Profil</a> </h2>
 
                 </div>
             </div>

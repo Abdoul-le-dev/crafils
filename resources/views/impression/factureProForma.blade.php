@@ -38,7 +38,7 @@
            <div class="flex flex-row " >
 
                 <button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:text-white" id="{{$facture->num_factures}}">
-                    <a href="" class="FP-error pointer">Modifier la facture</a>
+                    <a href="{{ route('modifier_facture', ['numero_facture' =>$facture->num_factures])}}" class="FP-error pointer">Modifier la facture</a>
                 </button>
 
                 <button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:text-white">
@@ -46,7 +46,7 @@
                 </button>
 
                 <button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:text-white">
-                    <a href="" class="FP-error pointer">Visualiser</a>
+                    <a href="{{ route('visualiser',['numero_facture'=>$facture->num_factures])}}" class="FP-error pointer">Visualiser</a>
                 </button>
 
                 <button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:text-white">
@@ -54,7 +54,7 @@
                 </button>
 
                 <button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:text-white">
-                    <a href="" class="FP-error pointer">Normaliser la facture</a>
+                    <a href="{{ route('normaliser',['numero_facture'=>$facture->num_factures])}}" class="FP-error pointer">Normaliser la facture</a>
                 </button>
                 
                
