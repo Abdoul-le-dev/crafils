@@ -125,7 +125,7 @@ Route::post('/login',[AuthController::class,'doConnexion'])->name('auth.login');
 //essaie
 Route::get('/essaie',[StockController::class,'essaie'])->name('essaie');
 Route::get('/clients',[StockController::class,'client'])->name('client');
-Route::post('/sentdata',[VenteController::class,'finalisationVentes']);
+Route::get('/sentdata',[VenteController::class,'finalisationVentes']);
 
 //creancier
 
@@ -145,6 +145,9 @@ Route::get('/details',[Proformat::class,'details'])->name('details');
 Route::get('/modifier_facture',[Proformat::class,'modifier_facture'])->name('modifier_facture');
 Route::get('/visualiser',[Proformat::class,'visualiser'])->name('visualiser');
 Route::get('/normaliser',[Proformat::class,'normaliser'])->name('normaliser');
+
+//normalisation
+Route::get('/normalisation',[Proformat::class,'normalisation']);
 
 
 

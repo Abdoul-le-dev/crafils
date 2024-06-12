@@ -18,8 +18,9 @@ return new class extends Migration
             $table->String('marque');
             $table->String('reference')->unique();
             $table->String('nom');
-            $table->String('prix');
-            $table->String('quantite');
+           
+            $table->float('prix');
+            $table->bigInteger('quantite');
             $table->timestamps();
 
             $table->foreign('categorie_id')->references('id')->on('categories');

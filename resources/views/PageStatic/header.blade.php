@@ -11,7 +11,7 @@
 
                 <div class="flex flex-row h-5 w-5 mb-5 mt-3">
 
-                    <img src="Icons/home.svg" alt="" class="mr-2">
+                    <img src="image/maison.png" alt="" class="mr-2">
 
                     <h2 class="FP-Menu" ><a href="{{route('Dashboard')}}">Dashboard</a></h2>
 
@@ -20,24 +20,24 @@
 
                 <div class="flex flex-row h-5 w-5 mb-5 mt-3 cursor-pointer">
 
-                    <img src="Icons/box-open.svg" alt="" class="mr-2">
+                    <img src="image/produit.png" alt="" class="mr-2">
 
                     <h2 class="FP-Menu Menu">Produit</h2>
 
-                    <i  class="principale" onclick="Activez()" ><img src="/Icons/caret-down.svg" alt="" class="ml-10 mt-1 h-5 w-5 cursor-pointer" ></i>
-                    <i onclick="Desactivez()" class="secondaire hidden " ><img src="/Icons/caret-up.png" alt="" class="ml-10 mt-1 h-5 w-5 cursor-pointer " ></i>
+                    <i  class="principale" onclick="Activez()" ><img src="image/bas.png" alt="" class="ml-10 mt-1 h-5 w-5 cursor-pointer" ></i>
+                    <i onclick="Desactivez()" class="secondaire hidden " ><img src="image/haut.png" alt="" class="ml-10 mt-1 h-5 w-5 cursor-pointer " ></i>
 
                 </div>
 
 
                 <div class="flex flex-row  mb-5 mt-3  cursor-pointer R1 hidden">
-                    <img src="Icons/plus.png" alt="" class="mr-2 ml-3 h-5 w-5">
+                    <img src="image/ajouter.png" alt="" class="mr-2 ml-3 h-5 w-5">
 
                     <h2 class="FP-Menu Menu" id="">Rechercher</h2>
 
                 </div>
                 <div class="flex flex-row  mb-5 mt-3 cursor-pointer A1 hidden">
-                    <a href="{{route('AjouterProduit')}}"><img src="Icons/plus.png" alt=""   class="mr-2 ml-3 h-5 w-5"></a>
+                    <a href="{{route('AjouterProduit')}}"><img src="image/ajouter.png" alt=""   class="mr-2 ml-3 h-5 w-5"></a>
 
                     <h2 class="FP-Menu Menu " id="S_Menuv" ><a href="{{route('AjouterProduit')}}">Ajouter</a>  </h2>
 
@@ -47,24 +47,24 @@
 
                 <div class="flex flex-row h-5 w-5 mb-5 mt-3 cursor-pointer">
 
-                    <img src="Icons/print.svg" alt="" class="mr-2 h-5 w-5">
+                    <img src="image/impression1.png" alt="" class="mr-2 h-5 w-5">
 
                     <h2 class="FP-Menu">Impression</h2><!--Faux format & Factures normaliser-->
 
-                    <i  class="principales" onclick="Activeez()" ><img src="/Icons/caret-down.svg" alt="" class="ml-10 mt-1 h-5 w-5 cursor-pointer" ></i>
-                    <i onclick="Desactiveez()" class="secondaires hidden " ><img src="/Icons/caret-up.png" alt="" class="ml-10 mt-1 h-5 w-5 cursor-pointer " ></i>
+                    <i  class="principales" onclick="Activeez()" ><img src="image/bas.png" alt="" class="ml-10 mt-1 h-5 w-5 cursor-pointer" ></i>
+                    <i onclick="Desactiveez()" class="secondaires hidden " ><img src="image/haut.png" alt="" class="ml-10 mt-1 h-5 w-5 cursor-pointer " ></i>
 
                 </div>
 
 
                 <div class="flex flex-row  mb-5 mt-3  cursor-pointer R11 hidden">
-                   <a href="{{route('proforma')}}"><img src="Icons/plus.png" alt="" class="mr-2 ml-3 h-5 w-5"></a> 
+                   <a href="{{route('proforma')}}"><img src="image/ajouter.png" alt="" class="mr-2 ml-3 h-5 w-5"></a> 
 
                     <a href="{{route('proforma')}}"><h2 class="FP-Menu Menu" id="">Pro Format</h2></a>
 
                 </div>
                 <div class="flex flex-row  mb-5 mt-3 cursor-pointer A11 hidden">
-                    <img src="Icons/plus.png" alt="" class="mr-2 ml-3 h-5 w-5">
+                    <img src="image/ajouter.png" alt="" class="mr-2 ml-3 h-5 w-5">
 
                     <h2 class="FP-Menu Menu " id="S_Menuv">Facture Normaliser  </h2>
 
@@ -73,7 +73,7 @@
 
                 <div class="flex flex-row h-5 w-5 mb-5 mt-3 cursor-pointer cursor-pointer">
 
-                    <img src="Icons/calculator.svg" alt="" class="mr-2 ">
+                    <img src="image/compta.png" alt="" class="mr-2 ">
 
                     <h2 class="FP-Menu"> <a href="{{ route('Comptability')}}">Comptabilité</a> </h2>
 
@@ -81,7 +81,7 @@
 
                 <div class="flex flex-row h-5 w-5 mb-5 mt-3 cursor-pointer">
 
-                    <img src="Icons/chat-arrow-grow.svg" alt="" class="mr-2">
+                    <img src="image/statistique.png" alt="" class="mr-2">
 
                     <h2 class="FP-Menu"><a href="{{ route('Statistique')}}">Statistique</a> </h2>
 
@@ -89,7 +89,7 @@
 
                 <div class="flex flex-row h-5 w-5 mb-5 mt-3 cursor-pointer">
 
-                    <img src="Icons/time-past.svg" alt="" class="mr-2">
+                    <img src="image/temps-passe.png" alt="" class="mr-2">
 
                     <h2 class="FP-Menu"><a href="{{ route('Historique')}}">Historique</a> </h2>
 
@@ -97,7 +97,7 @@
 
                  <div class="flex flex-row h-5 w-5 mb-5 mt-3 cursor-pointer">
 
-                    <img src="Icons/user.svg" alt="" class="mr-2">
+                    <img src="image/utilisateur.png" alt="" class="mr-2 w-8">
 
                     <h2 class="FP-Menu"><a href="{{route('Profil')}}">Profil</a> </h2>
 
@@ -154,7 +154,7 @@
 
 
                 </div>
-                <div class="flex flex-row space-x-10 mr-20  mb-5 mt-3 items-center">
+                <div class="hidden lg:flex lg:flex-row space-x-10 mr-20  mb-5 mt-3 items-center">
 
                         <!--Notification-->
 

@@ -47,6 +47,8 @@ $.ajax({
 
 
 
+
+
 function getClient()
 {
     var client = localStorage.getItem('client');
@@ -59,32 +61,36 @@ function getClient()
      return JSON.parse(client);
 }
 
-/*document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
     var checkCa = document.querySelector('.ca');
     var checkCe = document.querySelector('.ce');
     var checkPf = document.querySelector('.pf');
     var checkBl = document.querySelector('.bl');
     var checkfa = document.querySelector('.fa');
-
-    checkCa.addEventListener('change', function () {
-        var Addca = document.querySelector('.AddCa');
-
-        var AddChild = document.querySelector('.Addchild');
-        if(AddChild)
-        {
-            AddChild.remove();
-        }
-
-        var divQ = document.createElement('div');
-
-        Addca.appendChild(divQ);
-        divQ.className ='Addchild';
-        var AddChild = document.querySelector('.Addchild');
-
-
-
-        AddChild.innerHTML = '<div class="flex flex-row mx-4 my-4 w-full " > <label for="description" class="FP-Menu ml-2 py-2 text-xs " >Nom du client<span class="ml-2"></span></label><input type="text" name="nom" required  class="ClientName border-2 p-2 focus:outline-none focus:border-2 focus:border-blue-400 " required></div>';
-    });
+    var checktranche = document.querySelector('.Tranche');
+ 
+    if(checkCa)
+    {
+        checkCa.addEventListener('change', function () {
+            var Addca = document.querySelector('.AddCa');
+    
+            var AddChild = document.querySelector('.Addchild');
+            if(AddChild)
+            {
+                AddChild.remove();
+            }
+    
+            var divQ = document.createElement('div');
+    
+            Addca.appendChild(divQ);
+            divQ.className ='Addchild';
+            var AddChild = document.querySelector('.Addchild');
+    
+    
+    
+            AddChild.innerHTML = '<div class="flex flex-row mx-4 my-4 w-full " > <label for="description" class="FP-Menu ml-2 py-2 text-xs " >Nom du client<span class="ml-2"></span></label><input type="text" name="nom" required  class="ClientName border-2 p-2 focus:outline-none focus:border-2 focus:border-blue-400 " required></div>';
+        });
+    
 
     checkCe.addEventListener('change', function () {
         var AddChild = document.querySelector('.Addchild');
@@ -131,6 +137,12 @@ function getClient()
         {
             child.remove();
         }
+        var childTranche = document.querySelector('.childTranche');
+
+        if(childTranche)
+        {
+            childTranche.remove();
+        }
         var add = document.querySelector('.AddCa');
 
         var child = document.createElement('div');
@@ -138,7 +150,40 @@ function getClient()
         add.appendChild(child );
         child.className ="child";
 
-        child.innerHTML ='<div class="flex flex-row w-full "><label class="p-3 FP-Menu text-xs"> Type de règlements :</label>  <label class="p-2"> <input type="radio" name="reglement" class="ca  reglement" required value="A crédit" checked> <a class="FP-Menu text-xs">A crédit</a></label><label class="p-2"><input type="radio" name="reglement" class="p-2 ce" value="Payer cash"> <a class="FP-Menu text-xs">Payer cash</a></label></div>'
+        child.innerHTML ='<div class="flex flex-row w-full "><label class="p-3 FP-Menu text-xs">Règlements :</label>  <label class="p-2"> <input type="radio" name="reglement" class="ca  reglement Ac" required value="credit" > <a class="FP-Menu text-xs">A crédit</a></label> <label class="p-2"> <input type="radio" name="reglement" class="Tranche ca  reglement " required value="tranche" > <a class="FP-Menu text-xs ">En tranche</a></label><label class="p-2"><input type="radio" name="reglement" class="p-2 ce Pc" value="cash"> <a class="FP-Menu text-xs">Payer cash</a></label></div>'
+        var checktranche = document.querySelector('.Tranche');
+        checktranche.addEventListener('change', function()
+        {
+            
+            var divPage = document.querySelector('.AddCa')
+            var childtranche= document.createElement('div');
+            divPage.appendChild(childtranche);
+            childtranche.className = "childTranche";
+            var childTranche = document.querySelector('.childTranche');
+
+            childTranche.innerHTML = '<div class="flex flex-row mx-4 my-4 w-full " > <label for="description" class="FP-Menu ml-2 py-2 text-xs " >Montant<span class="ml-2"></span></label><input type="text" name="montant" required  class="ClientName border-2 FP-error p-2 focus:outline-none focus:border-2 focus:border-blue-400 " required></div>';
+  
+        });
+
+        var Ac = document.querySelector('.Ac');
+        var Pc = document.querySelector('.Pc');
+
+        Ac.addEventListener('change',function(){
+            
+            var childTranche = document.querySelector('.childTranche');
+            if(childTranche)
+                {
+                    childTranche.remove();
+                }
+        });
+
+        Pc.addEventListener('change',function(){
+            var childTranche = document.querySelector('.childTranche');
+            if(childTranche)
+                {
+                    childTranche.remove();
+                }
+        });
 
     });
 
@@ -146,11 +191,16 @@ function getClient()
     {
 
         var child = document.querySelector('.child');
+        var childTranche = document.querySelector('.childTranche');
 
-        if(child)
+        if(childTranche)
         {
-            child.remove();
+            childTranche.remove();
         }
+        if(child)
+            {
+                child.remove();
+            }
     });
     checkfa.addEventListener('change', function()
     {
@@ -167,18 +217,55 @@ function getClient()
         add.appendChild(child );
         child.className ="child";
 
-        child.innerHTML ='<div class="flex flex-row w-full "><label class="p-3 FP-Menu text-xs"> Type de règlements :</label>  <label class="p-2"> <input type="radio" name="reglement" class="ca reglement" > <a class="FP-Menu text-xs">A crédit</a></label><label class="p-2"><input type="radio" name="reglement" class="p-2 ce"> <a class="FP-Menu text-xs">Payer cash</a></label></div>'
+        child.innerHTML ='<div class="flex flex-row w-full "><label class="p-3 FP-Menu text-xs">Règlements :</label>  <label class="p-2"> <input type="radio" name="reglement" class="ca  reglement Ac" required value="A crédit" > <a class="FP-Menu text-xs">A crédit</a></label> <label class="p-2"> <input type="radio" name="reglement" class="Tranche ca  reglement " required value="tranche" > <a class="FP-Menu text-xs ">En tranche</a></label><label class="p-2"><input type="radio" name="reglement" class="p-2 ce Pc" value="Payer cash"> <a class="FP-Menu text-xs">Payer cash</a></label></div>'
+        var checktranche = document.querySelector('.Tranche');
+        checktranche.addEventListener('change', function()
+        {
+            
+            var divPage = document.querySelector('.AddCa')
+            var childtranche= document.createElement('div');
+            divPage.appendChild(childtranche);
+            childtranche.className = "childTranche";
+            var childTranche = document.querySelector('.childTranche');
+
+            childTranche.innerHTML = '<div class="flex flex-row mx-4 my-4 w-full " > <label for="description" class="FP-Menu ml-2 py-2 text-xs " >Montant<span class="ml-2"></span></label><input type="text" name="montant" required  class="ClientName border-2 FP-error p-2 focus:outline-none focus:border-2 focus:border-blue-400 " required></div>';
+  
+        });
+        var Ac = document.querySelector('.Ac');
+        var Pc = document.querySelector('.Pc');
+
+        Ac.addEventListener('change',function(){
+            
+            var childTranche = document.querySelector('.childTranche');
+            if(childTranche)
+                {
+                    childTranche.remove();
+                }
+        });
+
+        Pc.addEventListener('change',function(){
+            var childTranche = document.querySelector('.childTranche');
+            if(childTranche)
+                {
+                    childTranche.remove();
+                }
+        });
 
     });
 
+}
+   
 
 
 
 
-});*/
+
+
+
+});
 
 function validationFormulaire()
-{   var panier = getPanier();
+{   
     
     var Form =document.querySelector('.Formulaire');
     
@@ -190,7 +277,7 @@ function validationFormulaire()
             var Tfacture = document.querySelector('input[name="facture"]:checked');
             var Treglement = document.querySelector('input[name="reglement"]:checked');
     
-            var typeClient, nameCLients, idCLients,facture ,reglement;
+            var typeClient, nameCLients, idCLients,facture ,reglement,montant;
     
     
             if( Tclient!=null)
@@ -244,24 +331,52 @@ function validationFormulaire()
             {
                 facture =Tfacture.value ;
     
-                if(Tfacture.value ==='Bodereau de livraison' || Tfacture ==='Facture' )
+                if(facture ==='simple' || facture ==='normaliser')
                 {
                     if(Treglement!=null)
                     {
                         reglement =Treglement.value;
+
+                        if(reglement === 'tranche')
+                            
+                            {   if(typeClient ==='Client Anonyme')
+                                {   alert("Vous ne pouverz pas vendre à crédit a un client anonyme, veuillez enregistré le client");
+                                    e.preventDefault();
+                                    return;
+
+                                }
+                                var montantdiv = document.querySelector('input[name="montant"]');
+                                montant = montantdiv.value;
+                                
+                        }
+                        if(reglement === 'credit')
+                            {
+                                if(typeClient ==='Client Anonyme')
+                                    {   alert('Vous ne pouverz pas vendre à crédit a un client anonyme, veuillez enregistré le client');
+                                        e.preventDefault();
+                                        return;
+
+                                    }
+
+                            }
                     }
                     else{
                         alert('veuillez choisir le type de reglements');
                         e.preventDefault();
                         return;
                     }
+
+                    
     
                 }
+                
     
-                if(Tfacture.value ==='Proformat')
+               /* if(Tfacture.value ==='proformat')
                 {
                     reglement ='TypeProformat';
-                }
+                }*/
+
+                  
     
     
             }
@@ -273,7 +388,7 @@ function validationFormulaire()
             }
             if(typeClient != null && facture != null )
             {
-                e.preventDefault();
+                
             var   finalisationVente =
             {  "TypeClient"  :  typeClient ,
                 "nomCLients" : nameCLients ,
@@ -282,14 +397,18 @@ function validationFormulaire()
                 "Reglement"  : reglement,
     
             }
+            
             var _token = $('input[type="hidden"]').attr('value');
     
             e.preventDefault();
+           
+           
+            var panier = getPanier();
     
            $.ajax({
     
             url:'/sentdata',
-            type: 'POST',
+            type: 'get',
             data: {
                  panier,
                  typeClient ,
@@ -297,11 +416,16 @@ function validationFormulaire()
                  idCLients,
                  facture,
                  reglement,
+                 montant,
                  _token
             },
             success:  function(data)
             {   e.preventDefault();
-                alert(data);
+                PopR();
+                localStorage.removeItem('Panier');
+                var url = 'http://127.0.0.1:8000/visualiser?numero_facture=' + data;
+                window.location.href = url;
+                
             }
             
     
@@ -329,6 +453,9 @@ function validationFormulaire()
 
 
 }
+
+
+
 
 
 function finishValidation()
@@ -371,16 +498,21 @@ function finishValidation()
 
 $(document).ready(function()
 {
-    //validationFormulaire();
+    validationFormulaire();
     //envoi des donnees
 
 });
 
 document.addEventListener('DOMContentLoaded', function(){
 
-    validationFormulaire();
+   // validationFormulaire();
 
 });
+
+function returnBack()
+{
+    
+}
 
 
 

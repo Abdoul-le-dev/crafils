@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class Ajout_categorie extends FormRequest
+class UpdateNormalisationRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -22,16 +22,7 @@ class Ajout_categorie extends FormRequest
     public function rules(): array
     {
         return [
-            'categorie' =>'required|unique:categories,categorie',
-            
-        ];
-    }
-    public function messages()
-    {
-        return[
-            'categorie.required'=> "La categorie est requise",
-             "categorie.unique" =>"Cette categorie existe déja",
-        
+            //
         ];
     }
 }

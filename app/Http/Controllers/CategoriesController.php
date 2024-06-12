@@ -17,7 +17,7 @@ class CategoriesController extends Controller
             'user_id' => $user_id,
 
             'categorie' => $request->categorie,
-            'description' =>$request->description,
+           
         ]);
 
         $returnMessage = 'La categorie '. $request->categorie .' à été creer avec succes';

@@ -125,41 +125,149 @@ class VenteController extends Controller
     public function finalisationVentes(Request $request)
     {
         $panier = $request->panier;
+        
         $typeClient = $request->typeClient;
         $nameCLients  = $request->nameCLients; 
-        $nameCLient  = $request->nameCLients;
+        $montant  = $request->montant;
         $idCLients  = $request->idCLients;
         $facture  = $request->facture;
         $reglement  = $request->reglement;
-        $data ='Erreur de produit veuillez reprendre';
+        $data ='808';//erreur 808 cette action est impossible produit non existant ou stock insuffisant
 
         // generation du numero de facture
 
-         $derniere_factures = Facture::latest()->first();
+         //$derniere_factures = Facture::latest()->first();
 
-         $numero_factures = $derniere_factures->num_factures ? $derniere_factures->num_factures + 1 :1;
+         $derniere_facture = Facture::latest()-> first(); 
+
+         // recuperation du n° de facture
+  
+         $numero_factures = $derniere_facture ? (int)$derniere_facture->num_factures + 1:1; 
+
+        // $numero_factures = 1;
 
          $numero_factures = str_pad($numero_factures, 8,"0",STR_PAD_LEFT);
 
         // Enregistrement de la factures
         
-       if($derniere_factures =! null)
-        {   
+            //verfication data
+            if(!$facture ==='proformat' || !$facture ==='simple' || !$facture ==='normaliser')
+            {
+                return $data;
+            }
+            else
+            {
+                if($facture ==='proformat')
+                {
+                    $facture = 1;
+                }
+                if($facture ==='simple')
+                {
+                    $facture = 2;
+                }
+                if($facture ==='normaliser')
+                {
+                    $facture = 3;
+                }
+
+            }
+            if(!$reglement ==='credit' || !$reglement ==='tranche' || !$reglement ==='cash')
+            {
+                return $data;
+            }
+
+          if($derniere_factures =! null)
+          {   
             $users_id = Auth::id();
+            $total = 0;
+
+            foreach($panier as $item)
+            {
+             $reference = $item['reference'];
+     
+             $verif_produit = produit::where('reference',$reference)->first();
+
+             $id_reference =$verif_produit->id;
+     
+             if(!$verif_produit )
+             { 
+                     return $data;
+             }
+
+             if( (int)$verif_produit->quantite < (int)$item['quantite'] )
+
+             {
+                return $data;
+             }
+     
+             $prix_unitaire = produit::where('reference',$reference)->first();
+             
+             //$prix =$prix_unitaire->prix;
+             $quantite =  $item['quantite'];
+     
+             $tota = (int)$prix_unitaire->prix *  (int)$item['quantite']; 
+           // $tota = 0;
+             $total += 1;
+     
+                vente::create([
+     
+                 'num_facture'  => $numero_factures ,
+                 'produit_id'  => $id_reference,
+                 //'prix_unitaire' => $prix,
+                 'quantite'  => $quantite,
+                 'total' => $tota,
+     
+     
+               ]);
+
+            //soustraction
+
+               $total_produit = (int)$verif_produit->quantite - (int)$quantite;
+
+               $tab =[
+                'quantite' => $total_produit
+               ];
+               $verif_produit->update($tab);
+               
+     
+     
+            }
+
+            //Enregistrement facture
+            //1-Proformat
+            //2-facture simple sans TVA
+            //3-normaliser avec tva
             
-            $total = 10;
+            
             if($nameCLient =!null)
             {
-            Facture::create([
+                if($reglement ==='tranche')
+                {
+                    Facture::create([
 
-                'num_factures' => $numero_factures,
-                'user_id'      => $users_id,
-                'client_anonyme' =>(string) $nameCLients,
-                'type_reglement' =>(string )$reglement,
-                'type_facture'   =>(string)$facture,
-                'total'          =>(int) $total,
-                
-            ]);
+                        'num_factures' => $numero_factures,
+                        'user_id'      => $users_id,
+                        'client_anonyme' =>(string) $nameCLients,
+                        'type_reglement_first' =>(string )$reglement,
+                        'type_facture'   =>(string)$facture,
+                        'montant'   =>(string) $montant,
+                        'total'          =>(int) $total,
+                        
+                    ]);
+                }else
+                {
+                    Facture::create([
+
+                        'num_factures' => $numero_factures,
+                        'user_id'      => $users_id,
+                        'client_anonyme' =>(string) $nameCLients,
+                        'type_reglement_first' =>(string )$reglement,
+                        'type_facture'   =>(string)$facture,
+                        'total'          => $total,
+                        
+                    ]);
+                }
+          
             }
             else
             {
@@ -169,9 +277,9 @@ class VenteController extends Controller
                     'user_id'      => $users_id,
                     'client_id'    => $idCLients, 
                     'client_anonyme' =>(string) $nameCLients,
-                    'type_reglement' =>(string )$reglement,
+                    'type_reglement_first' =>(string )$reglement,
                     'type_facture'   =>(string)$facture,
-                    'total'          =>(int) $total,
+                    'total'          => $total,
                     
                 ]); 
             }
@@ -190,37 +298,7 @@ class VenteController extends Controller
             ]
         ];*/
 
-        foreach($panier as $item)
-       {
-        $reference = $item['reference'];
-
-        $verif_produit = produit::where('reference',$reference)->get();
-
-        if($verif_produit -> isEmpty() )
-        { 
-                return $data;
-        }
-
-        $prix_unitaire = produit::where('reference',$reference)->first();
-        
-        $prix =$prix_unitaire->prix;
-        $quantite =  $item['quantite'];
-
-        $tota = (int)$prix_unitaire->prix *  (int)$item['quantite']; 
-
-        vente::create([
-
-            'num_facture'  => $numero_factures ,
-            'reference_produit'  => $reference,
-            'prix_unitaire' => $prix,
-            'quantite'  => $quantite,
-            'total' => $tota,
-
-
-          ]);  
-
-
-       }
+       
 
         return    $numero_factures ;
 

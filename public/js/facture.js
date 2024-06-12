@@ -43,7 +43,7 @@ $(document).ready(function () {
                             next_contenu.classList.add('hidden');
                             Contenu_search.classList.remove('hidden');
                             data.forEach(item => {
-                                var contenu = '<div class="flex flex-row p-5 m-5  align-center bg-stone-300 justify-between"> <div class="flex flex-row "><h3 class="flex flex-row FP-error m-2"><img src="Icons/play.png" alt=""><span>N°</span>' + item.num_factures + '</h3><h3 class="FP-error m-2"><span class="">Client-</span>' + item.client_anonyme + '</h3></div><div class="flex flex-row"><button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:text-white" id="' + item.num_factures + '"><a href="" class="FP-error pointer">Modifier la facture</a></button><button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:text-white"><a href="" class="FP-error pointer">Détails</a></button><button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:text-white"><a href="" class="FP-error pointer">Visualiser</a></button><button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:text-white"><a href="" class="FP-error pointer">Envoyer par mail</a></button><button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:text-white"><a href="" class="FP-error pointer">Normaliser la facture</a></button></div></div>';
+                                var contenu = '<div class="flex flex-row p-5 m-5  align-center bg-stone-300 justify-between"> <div class="flex flex-row "><h3 class="flex flex-row FP-error m-2"><img src="Icons/play.png" alt=""><span>N°</span>' + item.num_factures + '</h3><h3 class="FP-error m-2"><span class="">Client-</span>' + item.client_anonyme + '</h3></div><div class="flex flex-row"><button onclick="redirection_modif('+item.num_factures+')" class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:text-white" id="' + item.num_factures + '"><a href=""  class="FP-error pointer">Modifier la facture</a></button><button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:text-white"><a href="" class="FP-error pointer">Détails</a></button><button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:text-white"><a href="" class="FP-error pointer">Visualiser</a></button><button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:text-white"><a href="" class="FP-error pointer">Envoyer par mail</a></button><button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:text-white"><a href="" class="FP-error pointer">Normaliser la facture</a></button></div></div>';
                                 Contenu_search.innerHTML = contenu;
                                 
                             });
@@ -71,4 +71,9 @@ function Facture_details()
 function ListeFacture()
 {
     
+}
+function redirection_modif(id)
+{
+    var url = 'http://127.0.0.1:8000/modifier_facture?numero_facture=' + id;
+    window.location.href = url;
 }

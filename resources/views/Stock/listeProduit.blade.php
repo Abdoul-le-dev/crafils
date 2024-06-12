@@ -150,9 +150,11 @@
         </table>
 
     </div>
-    @if($read == 1 )
+    <div class="px-10 FP-error">
+        @if($read == 1 )
     {{ $Produits ->appends(request()->input())->links() }}
     @endif
+    </div>
     </div>
  </div>
 

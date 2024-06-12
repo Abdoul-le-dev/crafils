@@ -79,14 +79,11 @@
             <div class="flex flex-row p-3 flex-wrap justify-center  ">
                 <div class="flex flex-row mx-4 my-4 w-full justify-center">
                     <label for="categorie" class="FP-Menu ml-2 p-2 justify-center " >Catégorie<span class="mx-1"></span></label>
-                    <input type="text" name="categorie" id="nom" class="border-2 p-2 focus:outline-none focus:border-2 focus:border-blue-400 " >
+                    <input type="text" name="categorie" id="nom" class="FP-error border-2 p-2 focus:outline-none focus:border-2 focus:border-blue-400 " >
                 </div>
 
 
-                <div class="flex flex-row mx-4 my-4 w-full ">
-                    <label for="description" class="FP-Menu ml-2 py-2  " >Description<span class="ml-2"></span></label>
-                    <input type="text" name="description"  class=" border-2 p-2 focus:outline-none focus:border-2 focus:border-blue-400 " >
-                </div>
+               
 
             </div>
 

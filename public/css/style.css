@@ -17,7 +17,7 @@
 }
 @font-face{
     font-family: 'FP-succes';
-    src:url('../Font/error/OpenSans-VariableFont_wdth,wght.ttf') format('truetype')
+    src:url('../Font/succes/OpenSans-VariableFont_wdth,wght.ttf') format('truetype')
 }
 .FP-error {
     font-family: FP-error;
@@ -112,6 +112,12 @@
             transform: translateY(30px) scale(0.9);
         }
 
+}
+.imgt
+{
+    background-image: url('../image/sig.png');
+    background-size: cover;
+    background-position: center;
 }
 
 

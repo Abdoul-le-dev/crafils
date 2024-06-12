@@ -17,6 +17,10 @@ class produit extends Model
     {
         return $this->belongsTo(categorie::class);
     }
+    public function ventes()
+    {
+        return $this->hasMany(Vente::class);
+    }
 
     public function scopeFilter(
         \Illuminate\Database\Eloquent\Builder $querry,

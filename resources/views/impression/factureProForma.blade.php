@@ -3,7 +3,80 @@
 @section('page')
 
 <div class="container p-10">
+    <div class="w-full h-full flex flex-row justify-center items-center ">
 
+        <div class="Pop hidden absolute bg-indigo-50 p-10 top-32  shadow-2xl flex flex-col justify-center items-center " style="width: 500px">
+
+            <div class="static flex flex-col justify-center items-center w-full">
+
+            <img src="Icons/trait.png" alt="" class="mr-2 ml-3 h-10 w-10 my-4 cursor-pointer" style="" >
+            <h3 class="FP-error m-2 ">Normalisation  proformat</h3>
+            </div>
+            <div class="w-full">
+
+
+                <form class="Normalisation" id="formulaire2" method="POST" >
+                    @csrf
+                    <div class="flex flex-row p-3 flex-wrap  ">
+                        <div class="num_facture hidden">
+
+                            <input type="text" id="inputId" class="mt-4 p-2 border rounded" placeholder="ID sera affiché ici" readonly>
+
+
+                        </div>
+                        <div class="flex flex-row   w-full justify-center">
+                            <label class="p-2">
+                                <input type="radio" name="client"  class="can" value="Client Anonyme" > <a class="FP-error text-xs" >Client Anonyme</a>
+                            </label>
+
+                            <label class="p-2">
+                                <input type="radio" name="client" class="p-2 cen" value="Client Enregister"> <a class="FP-error text-xs">Client Enregister</a>
+                            </label>
+
+
+
+                        </div>
+
+                        <div class="flex flex-row mt-2  w-full justify-center">
+                            <label class="p-2">
+                                <input type="radio" name="facture" class="pfn" value="Acredit" > <a class="FP-error text-xs">A credit</a>
+                            </label>
+
+                            <label class="p-2">
+                                <input type="radio" name="facture" class="p-2 bln" value="tranche"> <a class="FP-error text-xs">En tranche</a>
+                            </label>
+
+                            <label class="p-2">
+                                <input type="radio" name="facture" class="p-2 fan" value="Cash"> <a class="FP-error text-xs">Cash</a>
+                            </label>
+
+                        </div>
+
+                        <div class="AddCa">
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="flex justify-center mb-4">
+                        <div class="flex justify-between  mt-4  w-full">
+
+                            <button type="submit" class="FP-error bg-indigo-200 p-3 rounded-sm hover:bg-[#ADD8E6]">Normaliser </button>
+                            <a onclick="PopR()" class="FP-error bg-indigo-200 p-3 rounded-sm hover:bg-red-400 hover:cursor-pointer">Annuler </a>
+
+
+                        </div>
+                    </div>
+                </form>
+
+
+
+
+            </div>
+        </div>
+
+    </div>
     <div class="mt-6 bg-white min-h-[300px] p-4">
         
         <div class="flex justify-center p-2 mb-2">
@@ -54,7 +127,7 @@
                 </button>
 
                 <button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:text-white">
-                    <a href="{{ route('normaliser',['numero_facture'=>$facture->num_factures])}}" class="FP-error pointer">Normaliser la facture</a>
+                    <a   onclick="Pops('{{ $facture->num_factures }}')" class="FP-error pointer">Normaliser la facture</a>
                 </button>
                 
                
@@ -116,6 +189,8 @@
     </div>
 
 </div>
+
+
 
 
 @endsection
