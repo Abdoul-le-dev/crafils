@@ -19,57 +19,66 @@ Liste créanciers
         
     </div>
 
-    <div class="mt-5 flex justify-center w-full " style="min-width: 400px">
-        <table class="border-separate border border-slate-300 hidden md:block">
-            <thead>
-                <tr class="bg-[#F8FAFC]">
-                 <th class=" FP-Menu text-xs font-thin border  border-slate-300 py-3 md:px-6">
-                    Nom 
-                 </th>
-                 <th class="FP-Menu text-xs font-thin border  border-slate-300 py-3 md:px-6">
-                    Prénom
-                 </th>
-                 <th class="FP-Menu text-xs font-thin border  border-slate-300 py-3 md:px-6">
-                    Montant dû
-                 </th>
-                 <th class="FP-Menu text-xs font-thin border  border-slate-300 py-3 md:px-6">
-                    Email
-                 </th>
-                 <th class="FP-Menu text-xs font-thin border  border-slate-300 py-3 md:px-6">
-                    Numero
-                 </th>
-                 <th class="FP-Menu text-xs font-thin border  border-slate-300 py-3 md:px-6">
-                    société
-                 </th>
-               </tr>
-            </thead>
-            <tbody>
-               <tr>
-                  <td class="FP-Menu text-xs font-thin border  border-slate-300 py-3 md:px-6 ">
-                     contenue
-                  </td>
-                  <td class="FP-Menu text-xs font-thin border border-slate-300 py-3 md:px-6">
-                     contenue
-                  </td>
-                  <td class="FP-Menu text-xs font-thin border border-slate-300 py-3  md:px-6">
-                     contenue
-                  </td>
-                  <td class="FP-Menu text-xs font-thin border border-slate-300 py-3 md:px-6">
-                     contenue
-                  </td>
-                  <td class="FP-Menu text-xs font-thin border border-slate-300 py-3 md:px-6">
-                     contenue
-                  </td>
-                  <td class="FP-Menu text-xs font-thin border border-slate-300 py-3 md:px-6">
-                     contenue
-                  </td>
-               </tr>
-            </tbody>
-            
-           
-           
-        </table>
-    </div>
+ 
+    
+   <div class="mt-5 flex justify-center w-full " style="min-width: 400px">
+      <table class="border-separate border border-slate-300 hidden md:block">
+          <thead>
+              <tr class="bg-[#F8FAFC]">
+               <th class=" FP-Menu text-xs font-thin border  border-slate-300 py-3 md:px-6">
+                  Nom 
+               </th>
+               <th class="FP-Menu text-xs font-thin border  border-slate-300 py-3 md:px-6">
+                  Prénom
+               </th>
+               <th class="FP-Menu text-xs font-thin border  border-slate-300 py-3 md:px-6">
+                  Montant dû
+               </th>
+               <th class="FP-Menu text-xs font-thin border  border-slate-300 py-3 md:px-6">
+                  Email
+               </th>
+               <th class="FP-Menu text-xs font-thin border  border-slate-300 py-3 md:px-6">
+                  Numero
+               </th>
+               <th class="FP-Menu text-xs font-thin border  border-slate-300 py-3 md:px-6">
+                  société
+               </th>
+             </tr>
+          </thead>
+          @forelse ($Creanciers as $Creancier )
+          <tbody>
+             <tr>
+                <td class="FP-Menu text-xs font-thin border  border-slate-300 py-3 md:px-6 ">
+                   {{$Creancier->id}} 
+                <td class="FP-Menu text-xs font-thin border border-slate-300 py-3 md:px-6">
+                   contenue
+                </td>
+                <td class="FP-Menu text-xs font-thin border border-slate-300 py-3  md:px-6">
+                   contenue
+                </td>
+                <td class="FP-Menu text-xs font-thin border border-slate-300 py-3 md:px-6">
+                   contenue
+                </td>
+                <td class="FP-Menu text-xs font-thin border border-slate-300 py-3 md:px-6">
+                   contenue
+                </td>
+                <td class="FP-Menu text-xs font-thin border border-slate-300 py-3 md:px-6">
+                   contenue
+                </td>
+             </tr>
+          </tbody>
+
+          @empty
+
+          @endforelse
+          
+         
+         
+      </table>
+  </div>
+   
+      
+   
  
      
  

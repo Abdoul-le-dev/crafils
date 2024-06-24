@@ -144,10 +144,14 @@ Route::post('/searchdata',[Proformat::class,'search'])->name('search');
 Route::get('/details',[Proformat::class,'details'])->name('details');
 Route::get('/modifier_facture',[Proformat::class,'modifier_facture'])->name('modifier_facture');
 Route::get('/visualiser',[Proformat::class,'visualiser'])->name('visualiser');
+Route::get('/visualisers',[Proformat::class,'visualisers'])->name('visualisers');
 Route::get('/normaliser',[Proformat::class,'normaliser'])->name('normaliser');
+Route::get('/facture_simple',[Proformat::class,'facture_simple'])->name('facture_simple');
 
 //normalisation
 Route::get('/normalisation',[Proformat::class,'normalisation']);
+
+Route::get('/mail',[Proformat::class,'mail']);
 
 
 

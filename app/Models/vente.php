@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
+use Illuminate\Notifications\Notifiable;
 
 class vente extends Model
 {
-    use HasFactory;
+    use HasFactory,Notifiable;
     protected $guarded =[''];
 
     public static function boot()

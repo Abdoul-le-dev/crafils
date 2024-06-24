@@ -16,7 +16,7 @@
 
     @vite('resources/css/app.css')
 </head>
-<body class=" bg-slate-300 flex flex-col  items-center element">
+<body class=" bg-slate-300 flex flex-col bg-white items-center element">
     
    
         
@@ -34,12 +34,12 @@
                 <p class=" FP-error text-xs"># Benin, Cotonou,Gbedjromede</p>
                 <p class=" FP-error text-xs">Industrie automobile de pièces détachées</p>
                 <p class="text-xs text-[#4287f5]  FP-error">Logistique | | 229 974 110 00</p>
-                <P class=" FP-error text-[#4287f5]"><span>www.crafils.com </span><span class="text-black">-</span><span> contact@crafils.com</span></P>
+                <P class=" FP-error text-[#4287f5]"><span>www.crafils.com </span><span class="text-black ">-</span><span class=""> contact@crafils.com</span></P>
 
             </div>
         </div>
-        <div class="flex body flex-col  justify-center">
-            <div class="mt-4  flex flex-row justify-between items-center p-8 ">
+        <div class="flex body flex-col  justify-center ">
+            <div class="mt-4  flex flex-col lg:flex-row justify-between items-center p-8 mt-[200px] lg:mt-[1px]">
 
         
             
@@ -63,15 +63,14 @@
                     @endif
                      </span>n°{{$donne_facture->num_factures}}</p>
             
-                <p class="border-2 p-2 mx-4 border-[#4287f5] FP-error rounded-md namefacture"><span class="font-bold ">Client: </span> 
-                @if ($donne_facture->client_anonyme !=null )
+                <p class="border-2 p-2 mx-4 border-[#4287f5] FP-error rounded-md"><span class="font-bold">Client: </span> 
+                @if ($donne_facture->client_anonyme ==='' )
 
-                {{$donne_facture->client_anonyme }}
                 
 
                 @else
-                {{$donne_facture->client->nom }}-{{$donne_facture->client->n_societe }}
-               
+                {{$donne_facture->client_anonyme }}
+                
                 @endif
 
                 
@@ -84,7 +83,7 @@
                 <table class="border-separate   md:block ">
                     <thead>
                         <tr class="">
-                        <th class=" text-base FP-error font-bold border border-slate-300 py-1 md:px-6 ">
+                        <th class=" text-base FP-error font-bold border border-slate-300 py-1 md:px-6 hidden lg:flex">
                             Nom du produit
                         </th>
                         <th class=" text-base FP-error font-bold border border-slate-300 py-1 md:px-6">
@@ -106,7 +105,7 @@
 
                     <tbody>
                         <tr>
-                        <td class="text-sm FP-error font-thin  border  border-slate-300 py-1 md:px-4 text-black-100">
+                        <td class="text-sm FP-error font-thin  border  border-slate-300 py-1 md:px-4 text-black-100 hidden lg:flex">
                             {{ $produit->produit->nom}}
                         </td>
                         <td class="text-sm FP-error  font-thin border border-slate-300 py-1 md:px-4 text-blue-400">
@@ -240,9 +239,9 @@
 
         <div class="flex flex-col mt-[50px] justify-center items-center troisiemepart ">
 
-            <p class="FP-error text-xs mb-2 text-black">C/1090 Mininkpo Cotonou Tel: 97 41 10 00 64 86 29 06</p>
-            <p class="FP-error text-xs mb-2 text-black">RCCM: RB/COT/16B 16829 || IFU: 3201642255315 || Email: rcaetfils@gmail.com</p>
-            <p class="FP-error text-xs  text-black">Depuis 10 ans, qualité et prix compétitifs demeurent notre engagement pour vous satisfaire.</p>
+            <p class="FP-error text-xs mb-2 text-[#FDCC31]">C/1090 Mininkpo Cotonou Tel: 97 41 10 00 64 86 29 06</p>
+            <p class="FP-error text-xs mb-2 text-[#FDCC31] ">RCCM: RB/COT/16B 16829 || IFU: 3201642255315 || Email: rcaetfils@gmail.com</p>
+            <p class="FP-error text-xs  text-[#FDCC31]">Depuis 10 ans, qualité et prix compétitifs demeurent notre engagement pour vous satisfaire.</p>
 
         </div>
 
@@ -542,38 +541,9 @@
 </body>
 
 <script>
-    // Sélection de l'élément HTML à convertir en PDF
-
     var element = document.querySelector('.element');
-    // Récupération de la valeur du nom de la facture
-
-   
-    // Création d'une nouvelle instance de la date et de l'heure actuelle
-    let now = new Date();
-
- 
-
-    var namefacture =document.querySelector('.namefacture').textContent.trim() ;
-    namefacture = namefacture.replace(/Client/g,'').replace(/_/g, '').trim();
-    namefacture= namefacture + '_' + now.toISOString().slice(0, 10) + '.pdf';
-
-    
-
-
-
-
-    // Options pour la génération du fichier PDF
-    var opt = {
-        filename:namefacture , // Ajout de l'extension .pdf et formatage de la date
-       // Correction de la syntaxe
-    };
-
-    // Ajout d'une classe à l'élément HTML (décommenté si nécessaire)
-    // element.classList.add('bg-slate-300');
-
-    // Génération et sauvegarde du PDF
-    //html2pdf().set(opt).from(element).save();
-
-   // element.classList.remove('bg-slate-300');
+    element.classList.add('bg-slate-300');
+   //html2pdf(element);
+    element.classList.remove('bg-slate-300');
 </script>
 </html>

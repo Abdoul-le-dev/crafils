@@ -16,8 +16,17 @@ class CreancierController extends Controller
         return view("creancier.creancier");
     }
     public function ListeView()
-    {
-        return view("creancier.liste");
+    {   
+        $Creanciers = Creancier::where('montant', '>', 0)->get();
+        $data =[];
+        foreach($Creanciers as $creancier)
+        {
+            
+
+
+        }
+
+        return view("creancier.liste",compact('Creanciers'));
     }
     public function AjouterView()
     {

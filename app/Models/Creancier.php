@@ -9,4 +9,10 @@ class Creancier extends Model
 {
     use HasFactory;
     protected $guarded = [''];
+
+
+    public function client()
+    {
+        return $this->belongsTo(client::class);
+    }
 }

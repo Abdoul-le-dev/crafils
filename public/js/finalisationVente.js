@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', function () {
         add.appendChild(child );
         child.className ="child";
 
-        child.innerHTML ='<div class="flex flex-row w-full "><label class="p-3 FP-Menu text-xs">Règlements :</label>  <label class="p-2"> <input type="radio" name="reglement" class="ca  reglement Ac" required value="A crédit" > <a class="FP-Menu text-xs">A crédit</a></label> <label class="p-2"> <input type="radio" name="reglement" class="Tranche ca  reglement " required value="tranche" > <a class="FP-Menu text-xs ">En tranche</a></label><label class="p-2"><input type="radio" name="reglement" class="p-2 ce Pc" value="Payer cash"> <a class="FP-Menu text-xs">Payer cash</a></label></div>'
+        child.innerHTML ='<div class="flex flex-row w-full "><label class="p-3 FP-Menu text-xs">Règlements :</label>  <label class="p-2"> <input type="radio" name="reglement" class="ca  reglement Ac" required value="A crédit" > <a class="FP-Menu text-xs">A crédit</a></label> <label class="p-2"> <input type="radio" name="reglement" class="Tranche ca  reglement " required value="tranche" > <a class="FP-Menu text-xs ">En tranche</a></label><label class="p-2"><input type="radio" name="reglement" class="p-2 ce Pc" value="cash"> <a class="FP-Menu text-xs">Payer cash</a></label></div>'
         var checktranche = document.querySelector('.Tranche');
         checktranche.addEventListener('change', function()
         {
@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', function () {
             childtranche.className = "childTranche";
             var childTranche = document.querySelector('.childTranche');
 
-            childTranche.innerHTML = '<div class="flex flex-row mx-4 my-4 w-full " > <label for="description" class="FP-Menu ml-2 py-2 text-xs " >Montant<span class="ml-2"></span></label><input type="text" name="montant" required  class="ClientName border-2 FP-error p-2 focus:outline-none focus:border-2 focus:border-blue-400 " required></div>';
+            childTranche.innerHTML = '<div class="flex flex-row mx-4 my-4 w-full " > <label for="description" class="FP-Menu ml-2 py-2 text-xs " >Montant<span class="ml-2"></span></label><input type="number" name="montant" required  class="ClientName border-2 FP-error p-2 focus:outline-none focus:border-2 focus:border-blue-400 " required></div>';
   
         });
         var Ac = document.querySelector('.Ac');
@@ -332,10 +332,13 @@ function validationFormulaire()
                 facture =Tfacture.value ;
     
                 if(facture ==='simple' || facture ==='normaliser')
-                {
+                {   
+
                     if(Treglement!=null)
                     {
                         reglement =Treglement.value;
+
+                       
 
                         if(reglement === 'tranche')
                             
@@ -346,7 +349,23 @@ function validationFormulaire()
 
                                 }
                                 var montantdiv = document.querySelector('input[name="montant"]');
+                                
                                 montant = montantdiv.value;
+                                var panier = getPanier();
+                                var total = 0;
+                                panier.forEach(function(e)
+                                {
+                                total += parseFloat(e.total );
+
+                                })
+                                if(montant > total )
+                                {
+                                    alert('Le montant en tranche ne peut être supérieur au total de la facture');
+                                        e.preventDefault();
+                                        return;
+
+                                }
+                                
                                 
                         }
                         if(reglement === 'credit')
@@ -420,7 +439,9 @@ function validationFormulaire()
                  _token
             },
             success:  function(data)
-            {   e.preventDefault();
+            {   
+               
+                e.preventDefault();
                 PopR();
                 localStorage.removeItem('Panier');
                 var url = 'http://127.0.0.1:8000/visualiser?numero_facture=' + data;
@@ -464,7 +485,7 @@ function finishValidation()
     var panier = "getPanier()";
     var panierJSON = JSON.stringify(panier);
 
-    alert(panier)
+    //alert(panier)
 
 
 

@@ -572,7 +572,7 @@
     // element.classList.add('bg-slate-300');
 
     // Génération et sauvegarde du PDF
-    //html2pdf().set(opt).from(element).save();
+    html2pdf().set(opt).from(element).save();
 
    // element.classList.remove('bg-slate-300');
 </script>

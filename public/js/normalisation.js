@@ -109,6 +109,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
     }
+
+    Normaliser();
    
 
 
@@ -203,8 +205,9 @@ function Normaliser()
             if( Treglement!=null)
             {
                 reglement =Treglement.value ;
+                alert(reglement)
         
-                    if(reglement ==='Acredit' || reglement ==='cash' || reglement==='tranche')
+                    if(reglement ==='credit' || reglement ==='cash' || reglement==='tranche')
                     {
                         
     
@@ -239,7 +242,7 @@ function Normaliser()
             }
             else
             {
-                alert("veuillez remplir tous les champs");
+                alert("veuillez remplir tousl les champs");
                 e.preventDefault();
                 return;
             }
@@ -269,11 +272,18 @@ function Normaliser()
                  _token
             },
             success:  function(data)
-            {   e.preventDefault();
+            {   if(data ==='error')
+                {
+
+                }
+                else
+                {
+                    e.preventDefault();
                 PopR();
-              //  localStorage.removeItem('Panier');
-               // var url = 'http://127.0.0.1:8000/visualiser?numero_facture=' + data;
-               // window.location.href = url;
+                localStorage.removeItem('Panier');
+                var url = 'http://127.0.0.1:8000/visualiser?numero_facture=' + data;
+                window.location.href = url;
+                }
                 
             }
             

@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\FactureMail;
 use Illuminate\Http\Request;
 use App\Models\produit;
 use App\Models\Facture;
 use App\Models\vente;
 use App\Models\categorie;
-
+use App\Models\client;
+use App\Models\Creancier;
+use App\Models\CreancierTraçability;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 
 
@@ -19,6 +23,8 @@ class VenteController extends Controller
     {
         $resultat = [];
         $produit = produit::all();
+
+        
         
 
 
@@ -122,8 +128,30 @@ class VenteController extends Controller
 
 
     }
+
+
+    public function sendMail($num_factures)
+    {
+        $tomail='abdouledev@gmail.com';
+        $mailMessage ="La facture".$num_factures."  vient dêtre génerer par Madame Olivia veuillez cliquez sur le lien en dessous pour consulter la facture";
+        $href ="http://127.0.0.1:8000/visualiser?numero_facture=".$num_factures;
+        $subject ="CRAFILS système d'alerte";
+        $data =[
+            'subject'=>$subject,
+            'mailMessage'=> $mailMessage,
+            'href'=>$href,
+
+        ];
+        Mail::to($tomail)->send(new FactureMail($data));
+
+    }
+
+
+
+    
     public function finalisationVentes(Request $request)
     {
+
         $panier = $request->panier;
         
         $typeClient = $request->typeClient;
@@ -136,7 +164,7 @@ class VenteController extends Controller
 
         // generation du numero de facture
 
-         //$derniere_factures = Facture::latest()->first();
+         
 
          $derniere_facture = Facture::latest()-> first(); 
 
@@ -144,16 +172,24 @@ class VenteController extends Controller
   
          $numero_factures = $derniere_facture ? (int)$derniere_facture->num_factures + 1:1; 
 
-        // $numero_factures = 1;
+        
 
          $numero_factures = str_pad($numero_factures, 8,"0",STR_PAD_LEFT);
+         $montant_facture= 0;
+         $normaliser = false;
+
+         
 
         // Enregistrement de la factures
-        
+            if($facture ==='normaliser')
+            {
+                $normaliser=true;
+
+            }
             //verfication data
             if(!$facture ==='proformat' || !$facture ==='simple' || !$facture ==='normaliser')
             {
-                return $data;
+                return '811';
             }
             else
             {
@@ -173,13 +209,14 @@ class VenteController extends Controller
             }
             if(!$reglement ==='credit' || !$reglement ==='tranche' || !$reglement ==='cash')
             {
-                return $data;
+                return '8012';
             }
 
           if($derniere_factures =! null)
           {   
             $users_id = Auth::id();
             $total = 0;
+            
 
             foreach($panier as $item)
             {
@@ -191,13 +228,13 @@ class VenteController extends Controller
      
              if(!$verif_produit )
              { 
-                     return $data;
+                     return '810';
              }
 
              if( (int)$verif_produit->quantite < (int)$item['quantite'] )
 
              {
-                return $data;
+                return '8010';
              }
      
              $prix_unitaire = produit::where('reference',$reference)->first();
@@ -205,29 +242,30 @@ class VenteController extends Controller
              //$prix =$prix_unitaire->prix;
              $quantite =  $item['quantite'];
      
-             $tota = (int)$prix_unitaire->prix *  (int)$item['quantite']; 
-           // $tota = 0;
-             $total += 1;
-     
-                vente::create([
-     
-                 'num_facture'  => $numero_factures ,
-                 'produit_id'  => $id_reference,
-                 //'prix_unitaire' => $prix,
-                 'quantite'  => $quantite,
-                 'total' => $tota,
-     
-     
-               ]);
+             $tota = (float)$prix_unitaire->prix *  (int)$item['quantite']; 
+             $montant_facture += $tota;
+             // $tota = 0;
+                $total += 1;
+        
+                    vente::create([
+        
+                    'num_facture'  => $numero_factures ,
+                    'produit_id'  => $id_reference,
+                    //'prix_unitaire' => $prix,
+                    'quantite'  => $quantite,
+                    'total' => $tota,
+        
+        
+                ]);
 
-            //soustraction
+                //soustraction
 
-               $total_produit = (int)$verif_produit->quantite - (int)$quantite;
+                $total_produit = (int)$verif_produit->quantite - (int)$quantite;
 
-               $tab =[
-                'quantite' => $total_produit
-               ];
-               $verif_produit->update($tab);
+                $tab =[
+                    'quantite' => $total_produit
+                ];
+                $verif_produit->update($tab);
                
      
      
@@ -239,7 +277,7 @@ class VenteController extends Controller
             //3-normaliser avec tva
             
             
-            if($nameCLient =!null)
+            if($nameCLient =!null && $idCLients ==null )
             {
                 if($reglement ==='tranche')
                 {
@@ -248,43 +286,251 @@ class VenteController extends Controller
                         'num_factures' => $numero_factures,
                         'user_id'      => $users_id,
                         'client_anonyme' =>(string) $nameCLients,
-                        'type_reglement_first' =>(string )$reglement,
+                        'type_reglement' =>(string )$reglement,
                         'type_facture'   =>(string)$facture,
-                        'montant'   =>(string) $montant,
+                        'total_payer'   =>(string) $montant,
+                        'montant_facture' =>(string) $montant_facture,
+                        'normaliser'       =>$normaliser,
                         'total'          =>(int) $total,
                         
                     ]);
-                }else
+                } else if($reglement ==='cash')
                 {
                     Facture::create([
 
                         'num_factures' => $numero_factures,
                         'user_id'      => $users_id,
                         'client_anonyme' =>(string) $nameCLients,
-                        'type_reglement_first' =>(string )$reglement,
+                        'type_reglement' =>(string )$reglement,
                         'type_facture'   =>(string)$facture,
-                        'total'          => $total,
+                        'total_payer'   =>(string) $montant_facture,
+                        'montant_facture' =>(string) $montant_facture,
+                        'normaliser'       =>$normaliser,
+                        'total'          =>(int) $total,
                         
                     ]);
                 }
+                else if($reglement ==='credit')
+                {
+                    Facture::create([
+
+                        'num_factures' => $numero_factures,
+                        'user_id'      => $users_id,
+                        'client_anonyme' =>(string) $nameCLients,
+                        'type_reglement' =>(string )$reglement,
+                        'type_facture'   =>(string)$facture,
+                        'total_payer'   =>'0',
+                        'montant_facture' =>(string) $montant_facture,
+                        'normaliser'       =>$normaliser,
+                        'total'          => $total,
+                        
+                    ]);
+
+
+
+
+                }
+                else if($facture ===1)
+                {
+                    Facture::create([
+
+                        'num_factures' => $numero_factures,
+                        'user_id'      => $users_id,
+                        'client_anonyme' =>(string) $nameCLients,
+                        'type_reglement' =>(string )$reglement,
+                        'type_facture'   =>(string)$facture,
+                        'total_payer'   =>'0',
+                        'montant_facture' =>(string) $montant_facture,
+                        'normaliser'       =>$normaliser,
+                        'total'          =>(int) $total,
+                        
+                    ]); 
+                }
           
             }
-            else
-            {
-                Facture::create([
+            else if ($nameCLient == null && $idCLients != null) {
+              
+                if ($reglement === 'tranche') {
+                    Facture::create([
+                        'num_factures' => $numero_factures,
+                        'user_id'      => $users_id,
+                        'client_id'    => $idCLients, 
+                        // 'client_anonyme' => (string) $nameCLients,
+                        'type_reglement' => (string)$reglement,
+                        'type_facture'   => (string)$facture,
+                        'total_payer'    => (string)$montant,
+                        'montant_facture'=> (string)$montant_facture,
+                        'normaliser'     => $normaliser,
+                        'total'          => (int)$total,
+                    ]);
+            
+                    $du = $montant_facture - $montant;
+            
+                    CreancierTraçability::create([
+                        'user_id'      => $users_id,
+                        'id_client'    => $idCLients,
+                        'numero_facture' => $numero_factures,
+                        'montant_du'   => $du,
+                    ]);
+            
+                    $montant_du = CreancierTraçability::where('id_client', $idCLients)->get();
+            
+                    $montant_get = 0;
+            
+                    if ($montant_du) {
+                        foreach ($montant_du as $montant) {
+                            $montant_get += $montant->montant_du;
+                        }
+                    }
+            
+                    Creancier::create([
+                        'user_id'  => $users_id,
+                        'id_client'=> $idCLients,
+                        'montant'  => $montant_get, // corriger cette ligne, $montant_facture n'a pas de sens ici
+                    ]);
+            
+                } else if ($reglement === 'cash') {
+                    Facture::create([
+                        'num_factures'    => $numero_factures,
+                        'user_id'         => $users_id,
+                        'client_id'       => $idCLients, 
+                        'client_anonyme'  => (string)$nameCLients,
+                        'type_reglement'  => (string)$reglement,
+                        'type_facture'    => (string)$facture,
+                        'total_payer'     => (string)$montant_facture,
+                        'montant_facture' => (string)$montant_facture,
+                        'normaliser'      => $normaliser,
+                        'total'           => (int)$total,
+                    ]);
+            
+                } else if ($reglement === 'credit') {
+                    Facture::create([
+                        'num_factures'    => $numero_factures,
+                        'user_id'         => $users_id,
+                        'client_id'       => $idCLients, 
+                        // 'client_anonyme'  => (string)$nameCLients,
+                        'type_reglement'  => (string)$reglement,
+                        'type_facture'    => (string)$facture,
+                        'total_payer'     => '0',
+                        'montant_facture' => (string)$montant_facture,
+                        'normaliser'      => $normaliser,
+                        'total'           => (int)$total,
+                    ]);
+            
+                    CreancierTraçability::create([
+                        'user_id'      => $users_id,
+                        'id_client'    => $idCLients,
+                        'numero_facture' => $numero_factures,
+                        'montant_du'   => $montant_facture,
+                    ]);
+            
+                    $montant_du = CreancierTraçability::where('id_client', $idCLients)->get();
+            
+                    $montant_get = 0;
+            
+                    if ($montant_du) {
+                        foreach ($montant_du as $montant) {
+                            $montant_get += $montant->montant_du;
+                        }
+                    }
 
-                    'num_factures' => $numero_factures,
-                    'user_id'      => $users_id,
-                    'client_id'    => $idCLients, 
-                    'client_anonyme' =>(string) $nameCLients,
-                    'type_reglement_first' =>(string )$reglement,
-                    'type_facture'   =>(string)$facture,
-                    'total'          => $total,
+                    $creancier =  Creancier::where('id_client',$idCLients)->first();
+                    if($creancier)
+                    {
+                        $creancier->montant = $montant_get;
+                    }
+                    else
+                    {
+                        Creancier::create([
+                            'user_id'  => $users_id,
+                            'id_client'=> $idCLients,
+                            'montant'  => $montant_get,
+                        ]);
+
+                    }
+            
                     
-                ]); 
+                }else if($facture ===1)
+                {
+                    Facture::create([
+
+                        'num_factures' => $numero_factures,
+                        'user_id'      => $users_id,
+                        'client_anonyme' =>(string) $nameCLients,
+                        'type_reglement' =>(string )$reglement,
+                        'type_facture'   =>(string)$facture,
+                        'total_payer'   =>'0',
+                        'montant_facture' =>(string) $montant_facture,
+                        'normaliser'       =>$normaliser,
+                        'total'          =>(int) $total,
+                        
+                    ]); 
+                }
             }
             
-        }
+            else
+            {
+                return $data;
+            }
+            
+          }
+
+          $verification_facture = Facture::where('num_factures',$numero_factures)-> first(); 
+
+          if($verification_facture ==null)
+          {
+            //retirer les prodits vendu 
+
+            vente::where('num_facture',$numero_factures)->delete();
+            foreach($panier as $item)
+            {
+             $reference = $item['reference'];
+     
+             $verif_produit = produit::where('reference',$reference)->first();
+
+             $id_reference =$verif_produit->id;
+     
+            
+             
+             //$prix =$prix_unitaire->prix;
+             $quantite =  $item['quantite'];
+        
+                   
+
+                //adiction
+
+                $total_produit = (int)$verif_produit->quantite + (int)$quantite;
+
+                $tab =[
+                    'quantite' => $total_produit
+                ];
+                $verif_produit->update($tab);
+               
+     
+     
+            }
+
+            return '809';
+          }
+          else
+          {
+            $tomail='abdouledev@gmail.com';
+            $mailMessage ="Une facture de type ".$facture ." de numero ".$numero_factures."  vient dêtre génerer par Madame Olivia veuillez cliquez sur le lien en dessous pour consulter la facture";
+            $href ="http://127.0.0.1:8000/visualiser?numero_facture=".$numero_factures;
+            $subject ="CRAFILS SYSTEME D'ALERTE FACTURE";
+            $data =[
+                'subject'=>$subject,
+                'mailMessage'=> $mailMessage,
+                'href'=>$href,
+                
+
+            ];
+            Mail::to($tomail)->send(new FactureMail($data));
+        
+
+            return    $numero_factures ;
+          }
+
 
          // Enregistrement produit 
         /* $panier = [
@@ -296,13 +542,16 @@ class VenteController extends Controller
                 "quantiteStock" => "4",
                 "total" => "120000"
             ]
-        ];*/
-
+        ];
+        */
        
 
-        return    $numero_factures ;
+        
+        
 
-       }
+    }
+
+
 
     public function View_facture()
     {

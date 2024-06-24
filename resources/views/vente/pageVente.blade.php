@@ -105,7 +105,7 @@
 
                         <div class="">
                             <button type="">
-                              <img src="Icons/recherche.png" alt="search" onclick="rechercheProduits()" class="ml-4 cursor-pointer w-12">
+                              <img src="Icons/recherche.png" alt="search" onclick="rechercheProduits()" class="ml-4 cursor-pointer w-12 hover:w-14">
                             </button>
                         </div>
 
@@ -293,7 +293,7 @@
                   <div class=" flex justify-center mb-4" >
                         <div class="flex  mt-4 w-full">
 
-                            <a onclick="addProduit()"><button type="" class="FP-error font-bold bg-indigo-200 p-2 mx-1 rounded-sm hover:bg-[#ADD8E6]">Ajouter </button></a>
+                            <a onclick="addProduit()"><button type="" class="FP-error font-bold bg-indigo-200 p-2 mx-1 rounded-sm hover:bg-green-400">Ajouter </button></a>
                             <a onclick="" class="FP-error font-bold bg-indigo-200 p-2 rounded-sm 0 hover:bg-red-400 hover:cursor-pointer" style="margin-left: 150px" href="{{ route('Dashboard')}}">Annuler </a>
 
 

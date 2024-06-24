@@ -4,6 +4,7 @@ function Activeez() {
     const Btn1 = document.querySelector('.R11');
     const Btn2 = document.querySelector('.A11');
     const Btn3 = document.querySelector('.A12');
+   // const Btn4 = document.querySelector('.A13');
 
     Btn_p.classList.add('hidden');
     Btn_s.classList.remove('hidden');
@@ -17,6 +18,10 @@ function Activeez() {
 
     Btn3.classList.remove('hidden');
     Btn3.classList.add('block');
+
+    
+   // Btn4.classList.remove('hidden');
+   // Btn4.classList.add('block');
 }
 
 function Desactiveez() {
@@ -447,72 +452,86 @@ function   addProduit() {
 
     {
         recherchePr = paniers.find(item => item.reference === produitStock.reference); 
-    if (recherchePr != undefined) {
+        if (recherchePr != undefined) {
 
-        if (parseInt(produitStock.quantite) > parseInt(recherchePr.quantite)) {
-            recherchePr.quantite++;
-            savePanier(paniers);
+            if (parseInt(produitStock.quantite) > parseInt(recherchePr.quantite)) {
+                recherchePr.quantite++;
+                savePanier(paniers);
 
-            var id = '.quantity' + produitStock.reference;
+                var id = '.quantity' + produitStock.reference;
 
-            var inputQuantity = document.querySelector(id);
-            if(inputQuantity)
-            {
-                inputQuantity.value = recherchePr.quantite;
-            }
-
-           
-
-            var idInput = '.total' + produitStock.reference;
-          
-            recherchePr.total = parseInt(recherchePr.quantite) * parseInt(recherchePr.prix);
-
-            var nombre = parseInt(recherchePr.quantite) * recherchePr.prix;
-           
-            var idInputs = document.querySelector(idInput);
-           
-            if(idInputs)
-            {
-                if (nombre % 1 !== 0) { // Vérifie si le nombre a une partie décimale
-                    idInputs.textContent  = parseFloat(nombre.toFixed(2)); // Arrondit et convertit le nombre à un nombre à virgule flottante avec le nombre spécifié de chiffres après la virgule
-                }
-                else
+                var inputQuantity = document.querySelector(id);
+                if(inputQuantity)
                 {
-                    idInputs.textContent = recherchePr.total;
+                    inputQuantity.value = recherchePr.quantite;
                 }
-    
-            }
-           
+
             
 
-            savePanier(paniers);
-          
-            calculeTotal();
+                var idInput = '.total' + produitStock.reference;
+            
+                recherchePr.total = parseInt(recherchePr.quantite) * parseInt(recherchePr.prix);
 
-
-
-
-
-        }}
-
-
-    else {
+                var nombre = parseInt(recherchePr.quantite) * recherchePr.prix;
+            
+                var idInputs = document.querySelector(idInput);
+            
+                if(idInputs)
+                {
+                    if (nombre % 1 !== 0) { // Vérifie si le nombre a une partie décimale
+                        idInputs.textContent  = parseFloat(nombre.toFixed(2)); // Arrondit et convertit le nombre à un nombre à virgule flottante avec le nombre spécifié de chiffres après la virgule
+                    }
+                    else
+                    {
+                        idInputs.textContent = recherchePr.total;
+                    }
         
-        var alfa = 0;
-        create();
-        paniers.forEach(function(produitStock)
-         {
-            alfa++;
-         });
+                }
+            
+                
 
-        
+                savePanier(paniers);
+            
+                calculeTotal();
 
-       
-        //alert(alfa)
-        
-        if ( alfa % 4 == 0) {
-            nextPage();
+
+
+
+
+            }
         }
+
+
+        else {
+            
+            var alfa = 0;
+            var refrenceProduits = document.querySelector('.Rp').value;
+
+           var data = JSON.parse(localStorage.getItem('donnees')) || [];
+
+    // Effectuer la recherche dans le panier
+             var produitRecherche = data.find(item => item.reference === refrenceProduits);
+        if(parseInt(produitRecherche.quantite)>= 1)
+            {
+                create();
+                paniers.forEach(function(produitStock)
+                {
+                    alfa++;
+                });
+        
+                
+        
+            
+                //alert(alfa)
+                
+                if ( alfa % 4 == 0) {
+                    nextPage();
+                }
+            }
+            else
+            {
+                alert('stok insuffisant');
+            }
 
 }
 calculeTotal();
@@ -626,7 +645,7 @@ function  create()
     {   var value = event.target.value;
         var max = event.target.max;
         var nombre = produitStock.prix * parseInt(value);
-        alert( nombre)
+        //alert( nombre)
         if ( nombre % 1 !== 0) { // Vérifie si le nombre a une partie décimale
             td5.textContent= parseFloat( nombre.toFixed(2)); // Arrondit et convertit le nombre à un nombre à virgule flottante avec le nombre spécifié de chiffres après la virgule
         }else
@@ -1027,7 +1046,7 @@ function calculeTotal()
 
     })
     var Total = document.querySelector('.Total');
-    var Totaux = document.querySelector('.Totaaux');
+    var Totaux = document.querySelector('.Totaux');
 
     if(Totaux !== null)
     {
