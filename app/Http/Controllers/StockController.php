@@ -127,7 +127,7 @@ public function client()
 {   if(isset($_GET["client"]) && $_GET["client"] == 1 )
     {
 
-        $clients = Client::select('id', 'nom','n_societe')->get();
+        $clients = Client::select('id', 'nom','n_societe','prenom')->get();
         return response()->json(["Client" => $clients]);
 
         //var_dump($produit);

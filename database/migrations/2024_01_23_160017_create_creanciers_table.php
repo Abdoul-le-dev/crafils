@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('creanciers', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('id_client');
+            $table->unsignedBigInteger('client_id');
             $table->String('montant');
             $table->timestamps();
 
 
-            $table->foreign('id_client')->references('id')->on('clients');
+            $table->foreign('client_id')->references('id')->on('clients');
             $table->foreign('user_id')->references('id')->on('users');
 
         });

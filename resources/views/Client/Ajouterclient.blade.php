@@ -56,18 +56,18 @@
 
             <div class="flex flex-row mx-4 my-4 md:w-1/3  justify-center">
                 <label for="email" class="FP-Menu ml-2 p-2 justify-center" >Email <span class="mr-1"></span></label>
-                <input type="email" name="email"  class="border-2 p-2 focus:outline-none focus:border-2 focus:border-blue-400 " required >
+                <input type="email" name="email"  class="border-2 p-2 focus:outline-none focus:border-2 focus:border-blue-400 " required  >
             </div>
 
             <div class="flex flex-row mx-4 my-4 md:w-1/2 justify-center  ">
                 <label for="telephone" class="FP-Menu ml-2 p-2" >Télephone</label>
-                <input type="text" name="telephone" class="border-2  p-2  focus:outline-none focus:border-2 focus:border-blue-400 rf" required>
+                <input type="text" name="telephone" value="{{old('telephone')}}" class="Fp-error border-2  p-2  focus:outline-none focus:border-2 focus:border-blue-400 rf" required>
             </div>
 
 
             <div class="flex flex-row mx-4 my-4 md:w-1/3  ">
                 <label for="n_societe" class="FP-Menu ml-2 py-2  " >Nom société <span class="ml-2"></span></label>
-                <input type="text" name="n_societe"  class=" border-2 p-2 focus:outline-none focus:border-2 focus:border-blue-400 " required>
+                <input type="text" name="n_societe"  class=" border-2 p-2 focus:outline-none focus:border-2 focus:border-blue-400 " placeholder="Facultatif" >
             </div>
 
             <div class="flex flex-row mx-4 my-4  md:w-1/2  justify-center">

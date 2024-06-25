@@ -1,7 +1,7 @@
 @extends('PageStatic.Dashboard')
 
 @section('page_titre')
-   Produit
+   creancier
 @endsection
 
 @section('page')

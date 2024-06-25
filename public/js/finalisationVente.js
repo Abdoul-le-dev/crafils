@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     
     
-            AddChild.innerHTML = '<div class="flex flex-row mx-4 my-4 w-full " > <label for="description" class="FP-Menu ml-2 py-2 text-xs " >Nom du client<span class="ml-2"></span></label><input type="text" name="nom" required  class="ClientName border-2 p-2 focus:outline-none focus:border-2 focus:border-blue-400 " required></div>';
+            AddChild.innerHTML = '<div class="flex flex-row mx-4 my-4 w-full " > <label for="clientname" class="FP-Menu ml-2 py-2 text-xs " >Nom du client<span class="ml-2"></span></label><input type="text" name="nom" required  class="ClientName border-2 p-2 focus:outline-none focus:border-2 focus:border-blue-400 " required></div>';
         });
     
 
@@ -120,8 +120,19 @@ document.addEventListener('DOMContentLoaded', function () {
             var options = document.createElement('option');
 
             options.value = option.id;
-            options.text = option.nom +' ' + option.n_societe
+            if(option.n_societe == null)
+            {
+                options.text = option.nom +' ' + option.prenom
+               
+            }
+            else
+            {
 
+                options.text = option.nom +' ' + option.n_societe 
+               
+
+            }
+           
            selected.add(options);
 
         });

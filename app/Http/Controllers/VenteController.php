@@ -368,12 +368,12 @@ class VenteController extends Controller
             
                     CreancierTraçability::create([
                         'user_id'      => $users_id,
-                        'id_client'    => $idCLients,
+                        'client_id'    => $idCLients,
                         'numero_facture' => $numero_factures,
                         'montant_du'   => $du,
                     ]);
             
-                    $montant_du = CreancierTraçability::where('id_client', $idCLients)->get();
+                    $montant_du = CreancierTraçability::where('client_id', $idCLients)->get();
             
                     $montant_get = 0;
             
@@ -382,12 +382,24 @@ class VenteController extends Controller
                             $montant_get += $montant->montant_du;
                         }
                     }
+
+                    $creancier =  Creancier::where('client_id',$idCLients)->first();
+                    if($creancier)
+                    {
+                        $creancier->montant = $montant_get;
+                        $creancier->save();
+                    }
+                    else
+                    {
+                        Creancier::create([
+                            'user_id'  => $users_id,
+                            'client_id'=> $idCLients,
+                            'montant'  => $montant_get,
+                        ]);
+
+                    }
             
-                    Creancier::create([
-                        'user_id'  => $users_id,
-                        'id_client'=> $idCLients,
-                        'montant'  => $montant_get, // corriger cette ligne, $montant_facture n'a pas de sens ici
-                    ]);
+                   
             
                 } else if ($reglement === 'cash') {
                     Facture::create([
@@ -419,12 +431,12 @@ class VenteController extends Controller
             
                     CreancierTraçability::create([
                         'user_id'      => $users_id,
-                        'id_client'    => $idCLients,
+                        'client_id'    => $idCLients,
                         'numero_facture' => $numero_factures,
                         'montant_du'   => $montant_facture,
                     ]);
             
-                    $montant_du = CreancierTraçability::where('id_client', $idCLients)->get();
+                    $montant_du = CreancierTraçability::where('client_id', $idCLients)->get();
             
                     $montant_get = 0;
             
@@ -434,16 +446,17 @@ class VenteController extends Controller
                         }
                     }
 
-                    $creancier =  Creancier::where('id_client',$idCLients)->first();
+                    $creancier =  Creancier::where('client_id',$idCLients)->first();
                     if($creancier)
                     {
                         $creancier->montant = $montant_get;
+                        $creancier->save();
                     }
                     else
                     {
                         Creancier::create([
                             'user_id'  => $users_id,
-                            'id_client'=> $idCLients,
+                            'client_id'=> $idCLients,
                             'montant'  => $montant_get,
                         ]);
 
@@ -532,24 +545,16 @@ class VenteController extends Controller
           }
 
 
-         // Enregistrement produit 
-        /* $panier = [
-            [
-                "nom" => "RT450",
-                "reference" => "123456",
-                "prix" => 120000,
-                "quantite" => 1,
-                "quantiteStock" => "4",
-                "total" => "120000"
-            ]
-        ];
-        */
+        
+        
        
 
         
         
 
-    }
+    } 
+
+    
 
 
 

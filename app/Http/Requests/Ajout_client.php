@@ -24,9 +24,8 @@ class Ajout_client extends FormRequest
         return [
             'nom'    => 'required|min:3',
             'prenom' => 'required|min:3',
-            'email'  => 'email',
+            'email'  => 'email|required',
             'telephone' => 'required|min:8',
-            'n_societe' => 'required',
             'address' =>'required'
         ];
     }
@@ -45,7 +44,9 @@ class Ajout_client extends FormRequest
             'telephone.required' => 'Le numero de telephone du client est requis',
             'telephone.min' => 'Le numero de telephone du client doit contenir au moins huit chiffres',
 
-            'n_societe.min' => 'Le nom de la société du client est requis',
+            'email.required' => 'L\'email du client est requis',
+
+           
 
             'address.min' => 'Address est requis',
 

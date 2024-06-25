@@ -21,7 +21,7 @@ return new class extends Migration
 
             $table->string('telephone');
 
-            $table->string('n_societe');
+            $table->string('n_societe')->nullable();
             $table->string('address');
             $table->timestamps();
 

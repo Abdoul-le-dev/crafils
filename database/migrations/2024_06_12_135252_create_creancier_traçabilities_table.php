@@ -15,11 +15,10 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->String('numero_facture')->unique();
-            $table->unsignedBigInteger('id_client');
+            $table->unsignedBigInteger('client_id');
             $table->String('montant_du');
-
             $table->timestamps();
-            $table->foreign('id_client')->references('id')->on('clients');
+            $table->foreign('client_id')->references('id')->on('clients');
             $table->foreign('user_id')->references('id')->on('users');
         });
     }

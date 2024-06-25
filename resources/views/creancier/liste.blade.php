@@ -3,7 +3,31 @@
 Liste créanciers
 @endsection
 @section("page")
+@if ($errors)
 
+
+
+
+        @foreach ($errors ->all()  as $error )
+
+           <div class="p-3 absolute bg-white m-2 right-0 mr-10">
+
+
+                <li class="text-red-300 FP-error"> {{ $error}}</li>
+
+            </div>
+
+
+
+        @endforeach
+
+
+
+
+
+
+
+@endif
 <div class="container p-10 h-full ">
 
   
@@ -41,7 +65,13 @@ Liste créanciers
                   Numero
                </th>
                <th class="FP-Menu text-xs font-thin border  border-slate-300 py-3 md:px-6">
-                  société
+                  Société
+               </th>
+               <th class="FP-Menu text-xs font-thin border  border-slate-300 py-3 md:px-6">
+                  Address
+               </th>
+               <th class="FP-Menu text-xs font-thin border  border-slate-300 py-3 md:px-6">
+                 Historique
                </th>
              </tr>
           </thead>
@@ -49,24 +79,39 @@ Liste créanciers
           <tbody>
              <tr>
                 <td class="FP-Menu text-xs font-thin border  border-slate-300 py-3 md:px-6 ">
-                   {{$Creancier->id}} 
-                <td class="FP-Menu text-xs font-thin border border-slate-300 py-3 md:px-6">
-                   contenue
+                   {{$Creancier->client->nom}} 
+                <td class="FP-Menu text-xs font-thin border border-slate-300 py-3 md:px-6 ">
+                  {{$Creancier->client->prenom}} 
                 </td>
-                <td class="FP-Menu text-xs font-thin border border-slate-300 py-3  md:px-6">
-                   contenue
-                </td>
-                <td class="FP-Menu text-xs font-thin border border-slate-300 py-3 md:px-6">
-                   contenue
+                <td class="FP-Menu text-xs font-thin border border-slate-300 py-3  md:px-6 text-blue-400">
+                  {{$Creancier->montant}} FCFA
                 </td>
                 <td class="FP-Menu text-xs font-thin border border-slate-300 py-3 md:px-6">
-                   contenue
+                  {{$Creancier->client->email}} 
                 </td>
                 <td class="FP-Menu text-xs font-thin border border-slate-300 py-3 md:px-6">
-                   contenue
+                  {{$Creancier->client->telephone}} 
                 </td>
+                <td class="FP-Menu text-xs font-thin border border-slate-300 py-3 md:px-6">
+                  @if($Creancier->client->n_societe != null)
+                  {
+                     {{$Creancier->client->n_societe}}
+                  }@else
+                  
+                     ---
+                  
+                  @endif
+                </td>
+                <td class="FP-Menu text-xs font-thin border border-slate-300 py-3 md:px-6">
+                  {{$Creancier->client->address}} 
+                </td>
+                <td class="FP-Menu text-xs font-thin border border-slate-300 py-3 md:px-6">
+                 <a href="{{route('details_creancier',['id'=>$Creancier->id])}}"><img src="image/dettes.png" class="w-10 h-10" alt=""></a> 
+                </td>
+                
              </tr>
           </tbody>
+         
 
           @empty
 

@@ -19,4 +19,9 @@ class client extends Model
     public function creancier(){
         return $this->hasOne(Creancier::class);
     }
+    public function totalDette($id)
+    {
+        $facture = Creancier::where('Client_id', $id)->first();
+        return $facture ? $facture->montant : null;
+    }
 }

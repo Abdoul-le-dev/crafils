@@ -272,12 +272,12 @@ class Proformat extends Controller
              
                     CreancierTraçability::create([
                         'user_id'      => $users_id,
-                        'id_client'    => $idCLients,
+                        'client_id'    => $idCLients,
                         'numero_facture' => $num_facture,
                         'montant_du'   => $du,
                     ]);
             
-                    $montant_du = CreancierTraçability::where('id_client', $idCLients)->get();
+                    $montant_du = CreancierTraçability::where('client_id', $idCLients)->get();
             
                     $montant_get = 0;
             
@@ -290,7 +290,7 @@ class Proformat extends Controller
             
                     Creancier::create([
                         'user_id'  => $users_id,
-                        'id_client'=> $idCLients,
+                        'client_id'=> $idCLients,
                         'montant'  => $montant_get, // corriger cette ligne, $montant_facture n'a pas de sens ici
                     ]);
             
@@ -304,12 +304,12 @@ class Proformat extends Controller
              
                     CreancierTraçability::create([
                         'user_id'      => $users_id,
-                        'id_client'    => $idCLients,
+                        'client_id'    => $idCLients,
                         'numero_facture' => $num_facture,
                         'montant_du'   => $du,
                     ]);
             
-                    $montant_du = CreancierTraçability::where('id_client', $idCLients)->get();
+                    $montant_du = CreancierTraçability::where('client_id', $idCLients)->get();
             
                     $montant_get = 0;
             
@@ -322,7 +322,7 @@ class Proformat extends Controller
             
                     Creancier::create([
                         'user_id'  => $users_id,
-                        'id_client'=> $idCLients,
+                        'client_id'=> $idCLients,
                         'montant'  => $montant_get, // corriger cette ligne, $montant_facture n'a pas de sens ici
                     ]);
             

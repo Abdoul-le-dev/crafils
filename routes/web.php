@@ -30,128 +30,142 @@ Route::get('/', function () {
 });
 
 
-//Dashboard
-Route::get('/dashboard',[UserController::class,'Dashboard'])->name('Dashboard');
+Route::middleware(['auth'])->group(function()
+{
 
-//tâche principale
-Route::get('/stock',[UserController::class,'Stock'])->name('Stock');
+            //Dashboard
+        Route::get('/dashboard',[UserController::class,'Dashboard'])->name('Dashboard');
 
-
-
-//Produit
-Route::get('/produit',[UserController::class,'P_Produit'])->name('Produit');
-
-//AjouterProduit
-Route::get('/ajout_produit',[UserController::class,'P_Ajout_produit'])->name('Ajout_Produit');
-
-//AjouterProduit
-Route::get('/modifier_produit',[UserController::class,'Modifier'])->name('Ajout_Produits');
-
-
-//SupprimerProduit
-Route::get('/supprimer_produit',[UserController::class,'Suppression'])->name('Suppression');
-
-//Profil
-Route::get('/profil',[UserController::class,'P_Profil'])->name('Profil');
-
-//Comptabilité
-Route::get('/comptability',[UserController::class,'P_comptabilite'])->name('Comptability');
-
-//Historique
-Route::get('/historique',[UserController::class,'P_Historique'])->name('Historique');
-
-//Impression
-Route::get('/impression',[UserController::class,'P_Impression'])->name('Impression');
-
-//Recherche
-Route::get('/recherche',[UserController::class,'P_Recherche'])->name('Recherche');
-
-
-//Statistique
-Route::get('/statistique',[UserController::class,'P_Statistique'])->name('Statistique');
-
-//Proformat
-Route::get('/pro_format',[UserController::class,'P_Pro_format'])->name('Pro_format');
-
-//Bordereau de livraison
-Route::get('/bordereau_livraison',[UserController::class,'P_Bordereau_livraison'])->name('Bordereau_livraison');
-
-//AjouterProduit
-Route::get('/client',[clients::class,'P_Ajout_client'])->name('Ajout_Client');
+        //tâche principale
+        Route::get('/stock',[UserController::class,'Stock'])->name('Stock');
 
 
 
+        //Produit
+        Route::get('/produit',[UserController::class,'P_Produit'])->name('Produit');
 
-// page stock
-Route::get('/ajouter_produit',[StockController::class,'AjouterProduitView'])->name('AjouterProduit');
+        //AjouterProduit
+        Route::get('/ajout_produit',[UserController::class,'P_Ajout_produit'])->name('Ajout_Produit');
 
-Route::get('/ajouter_categorie',[StockController::class,'AjouterCategorieView'])->name('AjouterCategorie');
-Route::get('/liste_produit',[StockController::class,'ListeProduitView'])->name('ListeProduit');
-
-//Page de vente
-Route::get('/vendre',[VenteController::class,'PageVenteView'])->name('PageVente');
-Route::post('/vendre',[VenteController::class,'Search'])->name('Search');
-
-//page creancier
-Route::get('/creancier',[CreancierController::class,'CreancierView'])->name('PageCreancier');
-Route::get('/ajouter_creancier',[CreancierController::class,'AjouterView'])->name('AjouterCreancier');
-Route::get('/liste_creancier',[CreancierController::class,'ListeView'])->name('ListeCreancier');
-Route::get('/reglements_creancier',[CreancierController::class,'ReglementsView'])->name('ReglementsCreancier');
+        //AjouterProduit
+        Route::get('/modifier_produit',[UserController::class,'Modifier'])->name('Ajout_Produits');
 
 
-Route::get('/listeproduits/',[StockController::class,'__invoke'])->name('tri');
+        //SupprimerProduit
+        Route::get('/supprimer_produit',[UserController::class,'Suppression'])->name('Suppression');
+
+        //Profil
+        Route::get('/profil',[UserController::class,'P_Profil'])->name('Profil');
+
+        //Comptabilité
+        Route::get('/comptability',[UserController::class,'P_comptabilite'])->name('Comptability');
+
+        //Historique
+        Route::get('/historique',[UserController::class,'P_Historique'])->name('Historique');
+
+        //Impression
+        Route::get('/impression',[UserController::class,'P_Impression'])->name('Impression');
+
+        //Recherche
+        Route::get('/recherche',[UserController::class,'P_Recherche'])->name('Recherche');
+
+
+        //Statistique
+        Route::get('/statistique',[UserController::class,'P_Statistique'])->name('Statistique');
+
+        //Proformat
+        Route::get('/pro_format',[UserController::class,'P_Pro_format'])->name('Pro_format');
+
+        //Bordereau de livraison
+        Route::get('/bordereau_livraison',[UserController::class,'P_Bordereau_livraison'])->name('Bordereau_livraison');
+
+        //AjouterProduit
+        Route::get('/client',[clients::class,'P_Ajout_client'])->name('Ajout_Client');
 
 
 
-// post request
 
-// ajout client
+        // page stock
+        Route::get('/ajouter_produit',[StockController::class,'AjouterProduitView'])->name('AjouterProduit');
 
-Route::post('/client',[clients::class,'Ajout_client'])->name('Ajout_Client');
+        Route::get('/ajouter_categorie',[StockController::class,'AjouterCategorieView'])->name('AjouterCategorie');
+        Route::get('/liste_produit',[StockController::class,'ListeProduitView'])->name('ListeProduit');
 
-Route::post('/stock',[CategoriesController::class,'AjouterCategorie'])->name('Add_Categorie');
+        //Page de vente
+        Route::get('/vendre',[VenteController::class,'PageVenteView'])->name('PageVente');
+        Route::post('/vendre',[VenteController::class,'Search'])->name('Search');
 
-Route::post('/ajouter_produit',[ProduitController::class,'AjouterProduit'])->name('Add_produit');
+        //page creancier
+        Route::get('/creancier',[CreancierController::class,'CreancierView'])->name('PageCreancier');
+        Route::get('/ajouter_creancier',[CreancierController::class,'AjouterView'])->name('AjouterCreancier');
+        Route::get('/liste_creancier',[CreancierController::class,'ListeView'])->name('ListeCreancier');
+        Route::get('/reglements_creancier',[CreancierController::class,'ReglementsView'])->name('ReglementsCreancier');
 
 
-////// renouveau
+        Route::get('/listeproduits/',[StockController::class,'__invoke'])->name('tri');
 
-Route::post('/listeproduits/',[StockController::class,'trie'])->name('trie');
 
-// connexion
-Route::get('/login',[AuthController::class,'viewConnexion'])->name('connexion');
+
+        // post request
+
+        // ajout client
+
+        Route::post('/client',[clients::class,'Ajout_client'])->name('Ajout_Client');
+
+        Route::post('/stock',[CategoriesController::class,'AjouterCategorie'])->name('Add_Categorie');
+
+        Route::post('/ajouter_produit',[ProduitController::class,'AjouterProduit'])->name('Add_produit');
+
+
+        ////// renouveau
+
+        Route::post('/listeproduits/',[StockController::class,'trie'])->name('trie');
+
+        // connexion
+      //  Route::get('/login',[AuthController::class,'viewConnexion'])->name('connexion');
+      
+
+        //essaie
+        Route::get('/essaie',[StockController::class,'essaie'])->name('essaie');
+        Route::get('/clients',[StockController::class,'client'])->name('client');
+        Route::get('/sentdata',[VenteController::class,'finalisationVentes']);
+
+        //creancier
+
+        Route::post('/ajouter_creancier',[CreancierController::class,'Ajout_creancier'])->name('Ajout_creancier');
+
+        Route::post('/reglements_creancier',[CreancierController::class,'Reglements_creancier'])->name('Reglements_creancier');
+
+        Route::get('/details_creancier',[CreancierController::class,'details_creancier'])->name('details_creancier');
+
+        //facture
+
+        Route::get('/facture',[VenteController::class,'View_facture']);
+
+        //Impression
+
+        Route::get('/pro-forma',[Proformat::class,'view_proformat'])->name('proforma');
+        Route::post('/searchdata',[Proformat::class,'search'])->name('search');
+        Route::get('/details',[Proformat::class,'details'])->name('details');
+        Route::get('/modifier_facture',[Proformat::class,'modifier_facture'])->name('modifier_facture');
+        Route::get('/visualiser',[Proformat::class,'visualiser'])->name('visualiser');
+        Route::get('/visualisers',[Proformat::class,'visualisers'])->name('visualisers');
+        Route::get('/normaliser',[Proformat::class,'normaliser'])->name('normaliser');
+        Route::get('/facture_simple',[Proformat::class,'facture_simple'])->name('facture_simple');
+
+        //normalisation
+        Route::get('/normalisation',[Proformat::class,'normalisation']);
+
+        Route::get('/mail',[Proformat::class,'mail']);
+
+
+});
+
+Route::get('/login',[AuthController::class,'viewConnexion'])->name('login');
 Route::post('/login',[AuthController::class,'doConnexion'])->name('auth.login');
 
-//essaie
-Route::get('/essaie',[StockController::class,'essaie'])->name('essaie');
-Route::get('/clients',[StockController::class,'client'])->name('client');
-Route::get('/sentdata',[VenteController::class,'finalisationVentes']);
 
-//creancier
 
-Route::post('/ajouter_creancier',[CreancierController::class,'Ajout_creancier'])->name('Ajout_creancier');
-
-Route::post('/reglements_creancier',[CreancierController::class,'Reglements_creancier'])->name('Reglements_creancier');
-
-//facture
-
-Route::get('/facture',[VenteController::class,'View_facture']);
-
-//Impression
-
-Route::get('/pro-forma',[Proformat::class,'view_proformat'])->name('proforma');
-Route::post('/searchdata',[Proformat::class,'search'])->name('search');
-Route::get('/details',[Proformat::class,'details'])->name('details');
-Route::get('/modifier_facture',[Proformat::class,'modifier_facture'])->name('modifier_facture');
-Route::get('/visualiser',[Proformat::class,'visualiser'])->name('visualiser');
-Route::get('/visualisers',[Proformat::class,'visualisers'])->name('visualisers');
-Route::get('/normaliser',[Proformat::class,'normaliser'])->name('normaliser');
-Route::get('/facture_simple',[Proformat::class,'facture_simple'])->name('facture_simple');
-
-//normalisation
-Route::get('/normalisation',[Proformat::class,'normalisation']);
-
-Route::get('/mail',[Proformat::class,'mail']);
 
 
 

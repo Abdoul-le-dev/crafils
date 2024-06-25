@@ -15,4 +15,6 @@ class Creancier extends Model
     {
         return $this->belongsTo(client::class);
     }
+
+    
 }
