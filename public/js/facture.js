@@ -134,6 +134,6 @@ function ListeFacture()
 }
 function redirection_modif(id)
 {
-    var url = 'http://127.0.0.1:8000/modifier_facture?numero_facture=' + id;
+    var url = 'http://www.crafils.com/modifier_facture?numero_facture=' + id;
     window.location.href = url;
 }

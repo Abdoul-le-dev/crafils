@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Creancier;
 use App\Models\CreancierTraçability;
 use Illuminate\Http\Request;
-use App\models\Facture;
+use App\models\Facturee;
 use App\models\vente;
 use Illuminate\Support\Carbon;
 
@@ -17,7 +17,7 @@ class Proformat extends Controller
         return view('welcome');
     }
     public function view_proformat()
-    {   $derniere_facture = Facture::where('type_facture','1')->where('normaliser', 0)->limit(3)->get();
+    {   $derniere_facture = Facturee::where('type_facture','1')->where('normaliser', 0)->limit(3)->get();
         return view('impression.factureProForma',compact('derniere_facture'));
     }
 
@@ -28,18 +28,18 @@ class Proformat extends Controller
 
         if($type == 1)
         {
-            $num_facture = Facture::where('num_factures',$data_facture)
+            $num_facture = Facturee::where('num_factures',$data_facture)
                                 ->where('type_facture',1)->get();
         }
 
         if($type == 2)
         {
-            $num_facture = Facture::where('num_factures',$data_facture)
+            $num_facture = Facturee::where('num_factures',$data_facture)
                                 ->where('type_facture',2)->get();
         }
         if($type == 3)
         {
-            $num_facture = Facture::where('num_factures',$data_facture)
+            $num_facture = Facturee::where('num_factures',$data_facture)
                                 ->where('type_facture',3)->get();
         }
        
@@ -63,7 +63,7 @@ class Proformat extends Controller
     }
     public function details(Request $request)
     {   $num_facture = $request->query('numero_facture');
-        $donne_facture = Facture::where('num_factures',$num_facture)->get();
+        $donne_facture = Facturee::where('num_factures',$num_facture)->get();
         $produits = vente::where('num_facture',$num_facture)->get();
         return view('impression.modeldetail',compact('donne_facture','produits'));
     }
@@ -76,7 +76,7 @@ class Proformat extends Controller
     {   
        
         $num_facture = $request->query('numero_facture');
-        $donne_facture = Facture::where('num_factures',$num_facture)->first();
+        $donne_facture = Facturee::where('num_factures',$num_facture)->first();
         
         $produits = vente::where('num_facture',$num_facture)->get();
 
@@ -148,7 +148,7 @@ class Proformat extends Controller
 {   
     
     $num_facture = $request->query('numero_facture');
-    $donne_facture = Facture::where('num_factures',$num_facture)->first();
+    $donne_facture = Facturee::where('num_factures',$num_facture)->first();
     
     $produits = vente::where('num_facture',$num_facture)->get();
 
@@ -219,7 +219,7 @@ class Proformat extends Controller
 
     public function normaliser(Request $request)
     {
-        $derniere_facture = Facture::where('type_facture','3')
+        $derniere_facture = Facturee::where('type_facture','3')
                                 ->where('normaliser', 1) 
                                 ->limit(3)->get();
         return view('impression.model_normailser',compact('derniere_facture'));
@@ -228,7 +228,7 @@ class Proformat extends Controller
     public function facture_simple()
     {
 
-        $derniere_facture = Facture::where('type_facture','2')->where('normaliser', 0) ->limit(3)->get();
+        $derniere_facture = Facturee::where('type_facture','2')->where('normaliser', 0) ->limit(3)->get();
         return view('impression.visualise_facture',compact('derniere_facture'));
 
     }
@@ -247,7 +247,7 @@ class Proformat extends Controller
 
         if($num_facture != null)
         {
-           $facture = Facture::where('num_factures',$num_facture)->first();
+           $facture = Facturee::where('num_factures',$num_facture)->first();
 
            $facture->normaliser = true ;
            //dd($reglement);
