@@ -455,7 +455,7 @@ function validationFormulaire()
                 e.preventDefault();
                 PopR();
                 localStorage.removeItem('Panier');
-                var url = 'http://127.0.0.1:8000/visualiser?numero_facture=' + data;
+                var url = 'http://www.crafils.com/visualiser?numero_facture=' + data;
                 window.location.href = url;
                 
             }

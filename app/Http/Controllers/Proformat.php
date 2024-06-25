@@ -17,7 +17,7 @@ class Proformat extends Controller
         return view('welcome');
     }
     public function view_proformat()
-    {   $derniere_facture = Facture::where('type_facture','1')->where('normaliser', 0) ->limit(3)->get();
+    {   $derniere_facture = Facture::where('type_facture','1')->where('normaliser', 0)->limit(3)->get();
         return view('impression.factureProForma',compact('derniere_facture'));
     }
 

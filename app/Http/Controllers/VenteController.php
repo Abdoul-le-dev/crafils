@@ -134,7 +134,7 @@ class VenteController extends Controller
     {
         $tomail='abdouledev@gmail.com';
         $mailMessage ="La facture".$num_factures."  vient dêtre génerer par Madame Olivia veuillez cliquez sur le lien en dessous pour consulter la facture";
-        $href ="http://127.0.0.1:8000/visualiser?numero_facture=".$num_factures;
+        $href ="http://www.crafils.com/visualiser?numero_facture=".$num_factures;
         $subject ="CRAFILS système d'alerte";
         $data =[
             'subject'=>$subject,
