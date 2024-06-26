@@ -29,7 +29,7 @@ class Sale extends Model
 
     public function produit()
     {
-        return $this->belongsTo(Produit::class);
+        return $this->belongsTo(produit::class);
     }
     public function user()
     {
