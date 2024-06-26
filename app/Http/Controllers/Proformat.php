@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Creancier;
 use App\Models\CreancierTraçability;
 use Illuminate\Http\Request;
-use App\models\vente;
+use App\models\VenteProduit;
 use Illuminate\Support\Carbon;
 
 class Proformat extends Controller
@@ -65,7 +65,7 @@ class Proformat extends Controller
     public function details(Request $request)
     {   $num_facture = $request->query('numero_facture');
         $donne_facture = CompteFacture::where('num_factures',$num_facture)->get();
-        $produits = vente::where('num_facture',$num_facture)->get();
+        $produits = VenteProduit::where('num_facture',$num_facture)->get();
         return view('impression.modeldetail',compact('donne_facture','produits'));
     }
     public function modifier_facture( Request $request)
@@ -79,7 +79,7 @@ class Proformat extends Controller
         $num_facture = $request->query('numero_facture');
         $donne_facture = CompteFacture::where('num_factures',$num_facture)->first();
         
-        $produits = vente::where('num_facture',$num_facture)->get();
+        $produits = VenteProduit::where('num_facture',$num_facture)->get();
 
         $tht = 0;
         foreach($produits as $produit)
@@ -151,7 +151,7 @@ class Proformat extends Controller
     $num_facture = $request->query('numero_facture');
     $donne_facture = CompteFacture::where('num_factures',$num_facture)->first();
     
-    $produits = vente::where('num_facture',$num_facture)->get();
+    $produits = VenteProduit::where('num_facture',$num_facture)->get();
 
     $tht = 0;
     foreach($produits as $produit)

@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use Illuminate\Notifications\Notifiable;
 
-class vente extends Model
+class VenteProduit extends Model
 {
-    use HasFactory,Notifiable;
+    use HasFactory;
     protected $guarded =[''];
 
     public static function boot()

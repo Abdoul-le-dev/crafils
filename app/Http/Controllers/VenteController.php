@@ -6,7 +6,7 @@ use App\Mail\FactureMail;
 use Illuminate\Http\Request;
 use App\Models\produit;
 use App\Models\CompteFacture;
-use App\Models\vente;
+use App\Models\VenteProduit;
 use App\Models\categorie;
 use App\Models\client;
 use App\Models\Creancier;
@@ -107,7 +107,7 @@ class VenteController extends Controller
              $prix_unitaire = produit::where('reference',$reference)->get();
 
              $tota = $prix_unitaire->prix *  $item['quantite']; 
-              vente::create([
+              VenteProduit::create([
 
                 'num_facture'  => $num_facture,
                 'reference_produit'  => $item['reference'],
@@ -247,7 +247,7 @@ class VenteController extends Controller
              // $tota = 0;
                 $total += 1;
         
-                    vente::create([
+                    VenteProduit::create([
         
                     'num_facture'  => $numero_factures ,
                     'produit_id'  => $id_reference,
@@ -494,7 +494,7 @@ class VenteController extends Controller
           {
             //retirer les prodits vendu 
 
-            vente::where('num_facture',$numero_factures)->delete();
+            VenteProduit::where('num_facture',$numero_factures)->delete();
             foreach($panier as $item)
             {
              $reference = $item['reference'];
