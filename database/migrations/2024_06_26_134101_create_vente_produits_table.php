@@ -19,7 +19,6 @@ return new class extends Migration
             $table->bigInteger('quantite');
             $table->string('total');
             $table->bigInteger('edit')->default(false);
-            $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('produit_id')->references('id')->on('produits');
             $table->timestamps();
