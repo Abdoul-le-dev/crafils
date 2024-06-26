@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\FactureMail;
 use Illuminate\Http\Request;
 use App\Models\produit;
-use App\Models\Facturee;
+use App\Models\CompteFacture;
 use App\Models\vente;
 use App\Models\categorie;
 use App\Models\client;
@@ -64,7 +64,7 @@ class VenteController extends Controller
 
         // recuperetion de la derniere facture 
 
-        $derniere_facture = Facturee::latest()-> first(); 
+        $derniere_facture = CompteFacture::latest()-> first(); 
 
        // recuperation du n° de facture
 
@@ -166,7 +166,7 @@ class VenteController extends Controller
 
          
 
-         $derniere_facture = Facturee::latest()-> first(); 
+         $derniere_facture = CompteFacture::latest()-> first(); 
 
          // recuperation du n° de facture
   
@@ -488,7 +488,7 @@ class VenteController extends Controller
             
           }
 
-          $verification_facture = Facturee::where('num_factures',$numero_factures)-> first(); 
+          $verification_facture = CompteFacture::where('num_factures',$numero_factures)-> first(); 
 
           if($verification_facture ==null)
           {

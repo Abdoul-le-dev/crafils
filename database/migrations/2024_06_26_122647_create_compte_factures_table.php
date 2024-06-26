@@ -13,6 +13,20 @@ return new class extends Migration
     {
         Schema::create('compte_factures', function (Blueprint $table) {
             $table->id();
+            $table->String('num_factures')->unique();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('client_id')->nullable();
+            $table->String('client_anonyme')->nullable();
+            $table->String('type_facture');
+            $table->boolean('normaliser')->default(false);
+            $table->String('type_reglement')->nullable();
+            $table->String('montant_facture');
+            $table->String('total_payer');
+            $table->string('total');
+            $table->boolean('modifier')->default(false); 
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('client_id')->references('id')->on('clients');
+            
             $table->timestamps();
         });
     }
