@@ -10,6 +10,7 @@ use Illuminate\Notifications\Notifiable;
 class ListingVente extends Model
 {
     use HasFactory;
+    protected $table = 'listing_ventes'; 
     protected $guarded =[''];
 
     public static function boot()
