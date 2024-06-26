@@ -11,7 +11,7 @@ use App\Models\categorie;
 use App\Models\client;
 use App\Models\Creancier;
 use App\Models\CreancierTraçability;
-
+use App\Models\Sale;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
@@ -107,7 +107,7 @@ class VenteController extends Controller
              $prix_unitaire = produit::where('reference',$reference)->get();
 
              $tota = $prix_unitaire->prix *  $item['quantite']; 
-              ListingVente::create([
+              Sale::create([
 
                 'num_facture'  => $num_facture,
                 'reference_produit'  => $item['reference'],
@@ -125,6 +125,7 @@ class VenteController extends Controller
 
 
         return  $num_facture ;
+       
 
 
     }
@@ -247,7 +248,7 @@ class VenteController extends Controller
              // $tota = 0;
                 $total += 1;
         
-                    ListingVente::create([
+                    Sale::create([
         
                     'num_facture'  => $numero_factures ,
                     'produit_id'  => $id_reference,
@@ -494,7 +495,7 @@ class VenteController extends Controller
           {
             //retirer les prodits vendu 
 
-            ListingVente::where('num_facture',$numero_factures)->delete();
+            Sale::where('num_facture',$numero_factures)->delete();
             foreach($panier as $item)
             {
              $reference = $item['reference'];

@@ -66,7 +66,7 @@ class Proformat extends Controller
     public function details(Request $request)
     {   $num_facture = $request->query('numero_facture');
         $donne_facture = CompteFacture::where('num_factures',$num_facture)->get();
-        $produits = ListingVente::where('num_facture',$num_facture)->get();
+        $produits = Sale::where('num_facture',$num_facture)->get();
         return view('impression.modeldetail',compact('donne_facture','produits'));
     }
     public function modifier_facture( Request $request)
@@ -152,7 +152,7 @@ class Proformat extends Controller
     $num_facture = $request->query('numero_facture');
     $donne_facture = CompteFacture::where('num_factures',$num_facture)->first();
     
-    $produits = ListingVente::where('num_facture',$num_facture)->get();
+    $produits = Sale::where('num_facture',$num_facture)->get();
 
     $tht = 0;
     foreach($produits as $produit)
