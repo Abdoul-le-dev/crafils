@@ -82,7 +82,7 @@ class VenteController extends Controller
             
             $total = 10;
         /* 
-           Facture::create([
+           CompteFacture::create([
                 'num_factures'  => $num_facture,
                 'user_id'       => $user_id,
                 'client_id'     => $idCLients,
@@ -149,7 +149,7 @@ class VenteController extends Controller
 
 
     
-   /* public function finalisationVentes(Request $request)
+    public function finalisationVentes(Request $request)
     {
 
         $panier = $request->panier;
@@ -281,7 +281,7 @@ class VenteController extends Controller
             {
                 if($reglement ==='tranche')
                 {
-                    Facture::create([
+                    CompteFacture::create([
 
                         'num_factures' => $numero_factures,
                         'user_id'      => $users_id,
@@ -296,7 +296,7 @@ class VenteController extends Controller
                     ]);
                 } else if($reglement ==='cash')
                 {
-                    Facture::create([
+                    CompteFacture::create([
 
                         'num_factures' => $numero_factures,
                         'user_id'      => $users_id,
@@ -312,7 +312,7 @@ class VenteController extends Controller
                 }
                 else if($reglement ==='credit')
                 {
-                    Facture::create([
+                    CompteFacture::create([
 
                         'num_factures' => $numero_factures,
                         'user_id'      => $users_id,
@@ -332,7 +332,7 @@ class VenteController extends Controller
                 }
                 else if($facture ===1)
                 {
-                    Facture::create([
+                    CompteFacture::create([
 
                         'num_factures' => $numero_factures,
                         'user_id'      => $users_id,
@@ -351,7 +351,7 @@ class VenteController extends Controller
             else if ($nameCLient == null && $idCLients != null) {
               
                 if ($reglement === 'tranche') {
-                    Facture::create([
+                    CompteFacture::create([
                         'num_factures' => $numero_factures,
                         'user_id'      => $users_id,
                         'client_id'    => $idCLients, 
@@ -402,7 +402,7 @@ class VenteController extends Controller
                    
             
                 } else if ($reglement === 'cash') {
-                    Facture::create([
+                    CompteFacture::create([
                         'num_factures'    => $numero_factures,
                         'user_id'         => $users_id,
                         'client_id'       => $idCLients, 
@@ -416,7 +416,7 @@ class VenteController extends Controller
                     ]);
             
                 } else if ($reglement === 'credit') {
-                    Facture::create([
+                    CompteFacture::create([
                         'num_factures'    => $numero_factures,
                         'user_id'         => $users_id,
                         'client_id'       => $idCLients, 
@@ -465,7 +465,7 @@ class VenteController extends Controller
                     
                 }else if($facture ===1)
                 {
-                    Facture::create([
+                    CompteFacture::create([
 
                         'num_factures' => $numero_factures,
                         'user_id'      => $users_id,
@@ -552,7 +552,7 @@ class VenteController extends Controller
         
         
 
-    } */
+    } 
    
 
 
