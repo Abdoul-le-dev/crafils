@@ -14,7 +14,7 @@ class client extends Model
 
     public function factures()
     {
-        return $this->hasMany(Facture::class);
+        return $this->hasMany(CompteFacture::class);
     }
     public function creancier(){
         return $this->hasOne(Creancier::class);

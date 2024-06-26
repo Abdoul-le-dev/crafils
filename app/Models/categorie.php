@@ -12,7 +12,7 @@ class categorie extends Model
     use HasFactory;
     protected $guarded=[''];
 
-    public function produits():HasMany
+    public function produits()
     {
         return $this->hasMany(produit::class);
     }

@@ -19,7 +19,7 @@ class produit extends Model
     }
     public function ventes()
     {
-        return $this->hasMany(Vente::class);
+        return $this->hasMany(Sale::class);
     }
 
     public function scopeFilter(
