@@ -16,16 +16,16 @@
 
     
 </head>
-<body class=" bg-white flex flex-col  items-center w-full">
+<body class=" bg-white flex flex-col element items-center w-full lg:hidden">
     
    
         
     
         
-    <div class="px-5  w-full bg-white m-10 flex flex-col">
+    <div class="px-5  w-full bg-white m-10 flex flex-col ">
 
-        <div class="flex flex-row justify-between w-full ">
-            <div class="w-1/2">
+        <div class="flex flex-row justify-center items-center w-full ">
+            <div class="w-1/2 mr-6">
                 <img src="./image/Cra.png" alt="" class="w-48 ">
                 <p class="FP-titre hidden">Votre Partenaire Fidel</p>
             </div>
@@ -238,9 +238,7 @@
             <table class="border-separate   md:block ">
                      <thead>
                         <tr class="">
-                        <th class=" text-base FP-error font-bold border border-slate-300 py-1 md:px-6 ">
-                            Nom du produit
-                        </th>
+                       
                         <th class=" text-base FP-error font-bold border border-slate-300 py-1 md:px-6">
                             N° Référence
                         </th>
@@ -250,9 +248,7 @@
                         <th class="text-base FP-error font-bold border border-slate-300 py-1 px-4  min-w-20">
                             Prix unitaire
                         </th>
-                        <th class=" text-base FP-error font-bold border border-slate-300 py-1 px-4 min-w-40">
-                        Prix total
-                        </th>
+                       
                         
                     </tr>
                     </thead>
@@ -260,9 +256,7 @@
 
                 <tbody>
                     <tr>
-                    <td class="text-sm FP-error font-thin  border  border-slate-300 py-1 md:px-4 text-black-100">
-                        {{ $produit->produit->nom}}
-                    </td>
+                   
                     <td class="text-sm FP-error  font-thin border border-slate-300 py-1 md:px-4 text-blue-400">
                         {{ $produit->produit->reference}}
                     </td>
@@ -273,9 +267,7 @@
                     <td class="text-sm FP-error font-thin border border-slate-300 py-1 md:px-4">
                             {{ $produit->produit->prix}}
                     </td>
-                    <td class="text-sm FP-error font-thin border border-slate-300 py-3 md:px-8">
-                            {{ $produit->total}}
-                    </td>
+                    
                     
     
                     </tr>
@@ -289,12 +281,7 @@
                     <tr class="">
                     
                     
-                        <td class="">
-                        
-                        </td>
-                        <td class="">
-                        
-                        </td>
+                      
                         <td class="text-base FP-error font-bold  bg-blue-400 py-3 px-2">
                             Prix Total Hors Taxe
                         </td>
@@ -315,12 +302,7 @@
                     <tr class="">
                     
                     
-                        <td class="">
                         
-                        </td>
-                        <td class=" ">
-                        
-                        </td>
                         
                         <td class="text-base FP-error font-bold border border-slate-300 py-1 md:px-4 ">
                         {{ $tht}}
@@ -380,7 +362,7 @@
         //alert("e")
         var taille = document.querySelector('.body');
 
-        taille.classList.add('h-[50vh]');
+        taille.classList.add('h-[45vh]');
         taille.classList.add('mt-[30px]');
 
         var tailles = document.querySelector('.secondpart');
