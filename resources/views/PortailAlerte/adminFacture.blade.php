@@ -22,10 +22,10 @@
         
     
         
-    <div class="py-10 px-5   h-[160vh] w-full bg-white m-10 flex flex-col">
+    <div class="px-5  w-full bg-white m-10 flex flex-col">
 
         <div class="flex flex-row justify-between w-full ">
-            <div>
+            <div class="w-1/2">
                 <img src="./image/Cra.png" alt="" class="w-48 ">
                 <p class="FP-titre hidden">Votre Partenaire Fidel</p>
             </div>
@@ -38,16 +38,16 @@
 
             </div>
         </div>
-        <div class="flex body flex-col  justify-center w-full">
-            <div class="mt-4  flex flex-col justify-between items-center  ">
+        <div class="flex body flex-col mt- justify-center w-full">
+            <div class="mt-10  flex flex-col justify-between items-center  ">
 
         
             
-                <p class="FP-error"><span class="font-bold">Date: {{$date}}</span></p>
+                <p class="FP-error mt-4"><span class="font-bold">Date: {{$date}}</span></p>
             
             
                 
-                <p class="FP-error"><span class="font-bold">
+                <p class="FP-error mt-5"><span class="font-bold">
                     @if($donne_facture->type_facture == 1 && $donne_facture->normaliser ===0)
 
                    <span class="text-[#4287f5]"> Proforma:</span>
@@ -63,7 +63,7 @@
                     @endif
                      </span>n°{{$donne_facture->num_factures}}</p>
             
-                <p class="border-2 p-2 mx-4 border-[#4287f5] FP-error rounded-md namefacture"><span class="font-bold ">Client: </span> 
+                <p class="border-2 mt-4 p-2 mx-4 border-[#4287f5] FP-error rounded-md namefacture"><span class="font-bold ">Client: </span> 
                 @if ($donne_facture->client_anonyme !=null )
 
                 {{$donne_facture->client_anonyme }}
@@ -84,9 +84,7 @@
                 <table class="border-separate   md:block ">
                     <thead>
                         <tr class="">
-                        <th class=" text-base FP-error font-bold border border-slate-300 py-1 md:px-6 ">
-                            Nom du produit
-                        </th>
+                       
                         <th class=" text-base FP-error font-bold border border-slate-300 py-1 md:px-6">
                             N° Référence
                         </th>
@@ -96,9 +94,7 @@
                         <th class="text-base FP-error font-bold border border-slate-300 py-1 px-4  min-w-20">
                             Prix unitaire
                         </th>
-                        <th class=" text-base FP-error font-bold border border-slate-300 py-1 px-4 min-w-40">
-                        Prix total
-                        </th>
+                       
                         
                     </tr>
                     </thead>
@@ -106,9 +102,7 @@
 
                     <tbody>
                         <tr>
-                        <td class="text-sm FP-error font-thin  border  border-slate-300 py-1 md:px-4 text-black-100">
-                            {{ $produit->produit->nom}}
-                        </td>
+                        
                         <td class="text-sm FP-error  font-thin border border-slate-300 py-1 md:px-4 text-blue-400">
                             {{ $produit->produit->reference}}
                         </td>
@@ -119,9 +113,7 @@
                         <td class="text-sm FP-error font-thin border border-slate-300 py-1 md:px-4">
                                 {{ $produit->produit->prix}}
                         </td>
-                        <td class="text-sm FP-error font-thin border border-slate-300 py-3 md:px-8">
-                                {{ $produit->total}}
-                        </td>
+                       
                         
         
                         </tr>
@@ -134,9 +126,7 @@
 
                         <tbody>
                             <tr>
-                            <td class="text-sm FP-error font-thin  border  border-slate-300 py-3 md:px-8 text-black-100">
-                                {{ $produit->produit->nom}}
-                            </td>
+                           
                             <td class="text-sm FP-error  font-thin border border-slate-300 py-3 md:px-8 text-blue-400">
                                 {{ $produit->produit->reference}}
                             </td>
@@ -163,12 +153,7 @@
                         <tr class="">
                         
                         
-                            <td class="">
-                            
-                            </td>
-                            <td class="">
-                            
-                            </td>
+                           
                             <td class="text-base FP-error font-bold  bg-blue-400 py-3 px-2">
                                 Prix Total Hors Taxe
                             </td>
@@ -189,12 +174,6 @@
                         <tr class="">
                         
                         
-                            <td class="">
-                            
-                            </td>
-                            <td class=" ">
-                            
-                            </td>
                             
                             <td class="text-base FP-error font-bold border border-slate-300 py-1 md:px-4 ">
                             {{ $tht}}
@@ -401,7 +380,7 @@
         //alert("e")
         var taille = document.querySelector('.body');
 
-        taille.classList.add('h-[40vh]');
+        taille.classList.add('h-[60vh]');
         taille.classList.add('mt-[30px]');
 
         var tailles = document.querySelector('.secondpart');
