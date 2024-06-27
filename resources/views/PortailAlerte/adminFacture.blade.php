@@ -29,7 +29,7 @@
                 <img src="./image/Cra.png" alt="" class="w-48 ">
                 <p class="FP-titre hidden">Votre Partenaire Fidel</p>
             </div>
-            <div class="flex flex-col ">
+            <div class="flex-end flex-col justify-end ">
 
                 <p class=" FP-error text-xs"># Benin, Cotonou,Gbedjromede</p>
                 <p class=" FP-error text-xs">Industrie automobile de pièces détachées</p>
@@ -380,7 +380,7 @@
         //alert("e")
         var taille = document.querySelector('.body');
 
-        taille.classList.add('h-[60vh]');
+        taille.classList.add('h-[50vh]');
         taille.classList.add('mt-[30px]');
 
         var tailles = document.querySelector('.secondpart');
@@ -394,7 +394,7 @@
         //alert("e")
         var taille = document.querySelector('.body');
 
-        taille.classList.add('h-[40vh]');
+        taille.classList.add('h-[50vh]');
         taille.classList.add('mt-[30px]');
 
         var tailles = document.querySelector('.secondpart');
