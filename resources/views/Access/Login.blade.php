@@ -111,7 +111,7 @@
                             <div class="mt-3">
                                 <input type="text" name="email" value="{{old('email')}}" placeholder="Identifiants" class=" text-xs shadow-lg border-2 rounded-lg p-2 border-indigo-500/50 w-60 focus:outline-none focus:border-2 focus:border-indigo-500/10 focus:rounded-lg " >
                                 @error('email')
-                                   <li class="  text-red-500 text-xs">
+                                   <li class="  text-red-500 text-xs mt-5">
                                     {{ $message}}
                                    </li>
                                 @enderror
@@ -120,7 +120,7 @@
 
                                 <input type="text"  name="password" placeholder="Password" class="text-xs shadow-lg border-2 rounded-lg p-2 border-indigo-500/50 w-60 focus:outline-none focus:border-2 focus:border-indigo-500/10 focus:rounded-lg" >
                                 @error('password')
-                                <li class="text-red-500 text-xs">
+                                <li class="text-red-500 text-xs mt-5">
                                  {{ $message}}
                                 </li>
                              @enderror
