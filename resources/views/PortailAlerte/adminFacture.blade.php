@@ -39,7 +39,7 @@
             </div>
         </div>
         <div class="flex body flex-col  justify-center">
-            <div class="mt-4  flex flex-row justify-between items-center p-8 ">
+            <div class="mt-4  flex flex-col justify-between items-center p-8 ">
 
         
             
