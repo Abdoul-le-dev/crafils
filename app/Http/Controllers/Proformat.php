@@ -357,7 +357,7 @@ class Proformat extends Controller
 
     public function alerte_facture(Request $request)
     {
-        $num_facture = $request->numero_facturem;
+        $num_facture = $request->numero_facture;
         $donne_facture = CompteFacture::where('num_factures',$num_facture)->first();
         
         $produits = Sale::where('num_facture',$num_facture)->get();
@@ -417,7 +417,7 @@ class Proformat extends Controller
         if($donne_facture != null)
         {   
             
-        return view('PortailAlerte.admin_vue_facture_phone', compact('donne_facture', 'premiere','deuxieme_session','nombre','ttc', 'tht', 'tva', 'date'));
+        return view('PortailAlerte.adminFacture', compact('donne_facture', 'premiere','deuxieme_session','nombre','ttc', 'tht', 'tva', 'date'));
           
         
     }

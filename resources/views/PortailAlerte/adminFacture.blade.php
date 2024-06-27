@@ -1,10 +1,21 @@
-@extends('PageStatic.Dashboard')
-@section('page_titre')
-view facture
-@endsection
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+   
+    <script src="jquery/jquery.js"></script>
+    <script src="js/dashbord.js"></script>
+    <script src="js/finalisationVente.js"></script>
+    <script src="js/facture.js"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js" integrity="sha512-pdCVFUWsxl1A4g0uV6fyJ3nrnTGeWnZN2Tl/56j45UvZ1OMdm9CIbctuIHj+yBIRTUUyv6I9+OivXj4i0LPEYA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-@section('page')
-
+    
+</head>
 <body class=" bg-slate-300 flex flex-col  items-center element">
     
    
@@ -530,4 +541,39 @@ view facture
 
 </body>
 
-@endsection
+<script>
+    // Sélection de l'élément HTML à convertir en PDF
+
+    var element = document.querySelector('.element');
+    // Récupération de la valeur du nom de la facture
+
+   
+    // Création d'une nouvelle instance de la date et de l'heure actuelle
+    let now = new Date();
+
+ 
+
+    var namefacture =document.querySelector('.namefacture').textContent.trim() ;
+    namefacture = namefacture.replace(/Client/g,'').replace(/_/g, '').trim();
+    namefacture= namefacture + '_' + now.toISOString().slice(0, 10) + '.pdf';
+
+    
+
+
+
+
+    // Options pour la génération du fichier PDF
+    var opt = {
+        filename:namefacture , // Ajout de l'extension .pdf et formatage de la date
+       // Correction de la syntaxe
+    };
+
+    // Ajout d'une classe à l'élément HTML (décommenté si nécessaire)
+    // element.classList.add('bg-slate-300');
+
+    // Génération et sauvegarde du PDF
+    //html2pdf().set(opt).from(element).save();
+
+   // element.classList.remove('bg-slate-300');
+</script>
+</html>
