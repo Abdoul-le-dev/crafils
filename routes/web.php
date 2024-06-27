@@ -167,6 +167,8 @@ Route::middleware(['auth'])->group(function()
 
 Route::get('/login',[AuthController::class,'viewConnexion'])->name('login');
 Route::post('/login',[AuthController::class,'doConnexion'])->name('auth.login');
+//Alerte admin 
+Route::get('/alerte_facture',[Proformat::class,'alerte_facture']);
 
 
 

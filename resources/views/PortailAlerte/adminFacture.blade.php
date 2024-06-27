@@ -16,7 +16,7 @@
 
     
 </head>
-<body class=" bg-slate-300 flex flex-col  items-center element">
+<body class=" bg-slate-300 flex flex-col  items-center element w-full">
     
    
         
