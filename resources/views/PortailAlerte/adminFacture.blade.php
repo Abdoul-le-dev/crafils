@@ -22,7 +22,7 @@
         
     
         
-    <div class="py-10 px-5   h-[160vh]  bg-white m-10 flex flex-col">
+    <div class="py-10 px-5   h-[160vh] w-full bg-white m-10 flex flex-col">
 
         <div class="flex flex-row justify-between ">
             <div>
@@ -39,7 +39,7 @@
             </div>
         </div>
         <div class="flex body flex-col  justify-center">
-            <div class="mt-4  flex flex-col justify-between items-center p-8 ">
+            <div class="mt-4  flex flex-col justify-between items-center  ">
 
         
             
@@ -80,7 +80,7 @@
         
             </div>
         
-            <div class="mt-2 flex  w-full lg:px-8 :t-8 " >
+            <div class="mt-2 flex  w-full  " >
                 <table class="border-separate   md:block ">
                     <thead>
                         <tr class="">
@@ -253,7 +253,7 @@
 
 
 
-    <div class="py-10 px-5 dixproduits h-[150vh]  bg-white m-10 flex flex-col hidden">
+    <div class="py-10 px-5 dixproduits h-[150vh] w-full bg-white m-10 flex flex-col hidden">
 
         <div class="mt-2 flex  w-full lg:px-8 :t-8 " >
             <table class="border-separate   md:block ">
