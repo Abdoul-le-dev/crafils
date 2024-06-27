@@ -530,7 +530,7 @@ class VenteController extends Controller
           {
             $tomail='abdouledev@gmail.com';
             $mailMessage ="Une facture de type ".$facture ." de numero ".$numero_factures."  vient dêtre génerer par Madame Olivia veuillez cliquez sur le lien en dessous pour consulter la facture";
-            $href ="http://127.0.0.1:8000/visualiser?numero_facture=".$numero_factures;
+            $href ="http://www.crafils.com/alerte_facture?numero_facture=".$numero_factures;
             $subject ="CRAFILS SYSTEME D'ALERTE FACTURE";
             $data =[
                 'subject'=>$subject,

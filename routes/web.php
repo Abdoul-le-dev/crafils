@@ -158,6 +158,10 @@ Route::middleware(['auth'])->group(function()
 
         Route::get('/mail',[Proformat::class,'mail']);
 
+        //Alerte admin 
+        Route::get('/alerte_facture',[Proformat::class,'alerte_facture']);
+
+
 
 });
 
