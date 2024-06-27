@@ -16,7 +16,7 @@
 
     
 </head>
-<body class=" bg-slate-300 flex flex-col  items-center element w-full">
+<body class=" bg-white flex flex-col  items-center w-full">
     
    
         
@@ -24,7 +24,7 @@
         
     <div class="py-10 px-5   h-[160vh] w-full bg-white m-10 flex flex-col">
 
-        <div class="flex flex-row justify-between ">
+        <div class="flex flex-row justify-between w-full ">
             <div>
                 <img src="./image/Cra.png" alt="" class="w-48 ">
                 <p class="FP-titre hidden">Votre Partenaire Fidel</p>
@@ -38,7 +38,7 @@
 
             </div>
         </div>
-        <div class="flex body flex-col  justify-center">
+        <div class="flex body flex-col  justify-center w-full">
             <div class="mt-4  flex flex-col justify-between items-center  ">
 
         
