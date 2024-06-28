@@ -17,6 +17,15 @@
 
                 </div>
 
+                <div class="flex flex-row h-5 w-5 mb-5 mt-3 cursor-pointer">
+
+                    <img src="image/panier.png" alt="" class="mr-2">
+
+                   <a href="{{route('PageVente')}}"> <h2 class="FP-Menu Menu hover:text-indigo-500">Vente</h2></a>
+
+                    
+                </div>
+
 
                 <div class="flex flex-row h-5 w-5 mb-5 mt-3 cursor-pointer">
 
@@ -29,14 +38,7 @@
 
                 </div>
 
-                <div class="flex flex-row h-5 w-5 mb-5 mt-3 cursor-pointer">
-
-                    <img src="image/panier.png" alt="" class="mr-2">
-
-                   <a href="route('PageVente')"> <h2 class="FP-Menu Menu hover:text-indigo-500">Vente</h2></a>
-
-                    
-                </div>
+                
 
 
                 <div class="flex flex-row  mb-5 mt-3  cursor-pointer R1 hidden">
