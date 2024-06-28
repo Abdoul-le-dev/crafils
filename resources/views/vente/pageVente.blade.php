@@ -116,7 +116,7 @@
                      </div>
 
 
-                    <div class="mt-10 flex p-2 w-full " style="min-width: 200px">
+                    <div class="mt-10 flex p-2 w-full " style="min-width:3000px">
                         <table class="TB border-separate border border-slate-300 hidden md:block">
                             <thead>
                                 <tr class="bg-[#F8FAFC]">
@@ -151,17 +151,17 @@
                         </table>
                     </div>
 
-                    <div class="mt-10 flex p-2 w-full " style="min-width: 250px">
+                    <div class="mt-10 flex p-2 w-full " style="min-width:300px">
                         <table class="border-separate border border-slate-300 hidden md:block">
                             <thead>
                                 <tr class="bg-[#F8FAFC]">
-                                 <th class="FP-error text-xs font-thin border border-slate-300 py-3 px-5  text-xs">
+                                 <th class="FP-error text-base font-thin border border-slate-300 py-3 px-5  text-xs">
                                     Categorie
                                  </th>
-                                 <th class="FP-error text-xs font-thin border border-slate-300 py-3 px-7  text-xs">
+                                 <th class="FP-error text-base font-thin border border-slate-300 py-3 px-7  text-xs">
                                     Marque
                                  </th>
-                                 <th class="FP-error text-xs font-thin border border-slate-300 py-3 px-5  text-xs">
+                                 <th class="FP-error text-base font-thin border border-slate-300 py-3 px-5  text-xs">
                                     Quantité disponible
                                  </th>
 
