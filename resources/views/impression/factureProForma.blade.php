@@ -116,29 +116,29 @@
 
            <div class="flex flex-row " >
 
-                <button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:mx-5 hover:text-white" id="{{$facture->num_factures}}">
+                <button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black  hover:text-white" id="{{$facture->num_factures}}">
                     <a href="{{ route('modifier_facture', ['numero_facture' =>$facture->num_factures])}}" class="FP-error pointer">Modifier la facture</a>
                 </button>
-                <button class="flex p-2 bg-red-300 rounded-lg mx-3 hover:bg-red-500  hover:p-3 hover:mx-5 hover:text-white">
+                <button class="flex p-2 bg-red-300 rounded-lg mx-3 hover:bg-red-500  hover:p-3  hover:text-white">
                     <a href="{{ route('visualiser',['numero_facture'=>$facture->num_factures])}}"  class="FP-error pointer">Annuler</a>
                 </button>
 
-                <button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:mx-5  hover:text-white">
+                <button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black   hover:text-white">
                     <a href="{{route('details',['numero_facture'=>$facture->num_factures]) }}" class="details{{$facture->num_factures}} FP-error pointer">Détails</a>
                 </button>
 
-                <button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:mx-5  hover:text-white">
+                <button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black   hover:text-white">
                     <a href="{{ route('visualiser',['numero_facture'=>$facture->num_factures])}}" target="_blank" class="FP-error pointer">Visualiser</a>
                 </button>
 
                 
-                <button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:mx-5  hover:text-white">
+                <button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black   hover:text-white">
                     <a href="{{ route('visualisers',['numero_facture'=>$facture->num_factures])}}" target="_blank" class="FP-error pointer">Télecharger</a>
                 </button>
 
                
 
-                <button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:mx-5 hover:text-white">
+                <button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black  hover:text-white">
                     <a   onclick="Pops('{{ $facture->num_factures }}')" class="FP-error pointer">Normaliser la facture</a>
                 </button>
                 
