@@ -98,28 +98,32 @@
         
         @forelse ($derniere_facture as $facture )
 
-       <div class="flex flex-row p-5 m-5  align-center bg-stone-300 justify-between">
+       <div class="flex flex-row p-2 m-5  align-center bg-stone-300 justify-between">
            
-            <div class="flex flex-row ">
-                   <h3 class="flex flex-row FP-error m-2"><img src="Icons/play.png"  alt="">
-                    <span>N°</span> {{$facture->num_factures}}
-                    </h3>
-                   <h3 class="FP-error m-2"><span class="">Client-</span>{{$facture->client_anonyme}}
-                    @if ($facture->client_id != null)
+        <div class="flex flex-row ">
+            <h3 class="flex flex-row FP-error m-2"><img src="Icons/play.png"  alt="">
+             <span>N°</span> {{$facture->num_factures}}
+             </h3>
+            <h3 class="FP-error m-2"><span class="">Client-</span>
+             
 
-                    {{$facture->client->nom}}-{{$facture->client->n_societe}}
-                        
-                    @endif
-                </h3>
-                   
-            </div>
+             @if ($facture->client_anonyme !=null )
+             {{$facture->client_anonyme  }}
+
+             @else
+
+             {{$facture->client->nom}}
+            
+         
+             @endif
+         </h3>
+            
+     </div>
 
            <div class="flex flex-row " >
 
-                <button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black  hover:text-white" id="{{$facture->num_factures}}">
-                    <a href="{{ route('modifier_facture', ['numero_facture' =>$facture->num_factures])}}" class="FP-error pointer">Modifier la facture</a>
-                </button>
-                <button class="flex p-2 bg-red-300 rounded-lg mx-3 hover:bg-red-500  hover:p-3  hover:text-white">
+               
+                <button class="flex p-2 bg-red-300 rounded-lg mx-3 hover:bg-red-500   hover:text-white">
                     <a href="{{ route('visualiser',['numero_facture'=>$facture->num_factures])}}"  class="FP-error pointer">Annuler</a>
                 </button>
 
