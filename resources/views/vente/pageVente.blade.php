@@ -104,7 +104,7 @@
                       <div class="flex flex-row p-2 w-full ">
                         <label for="" class="p-2 FP-error font-bold text-xs ">N° Reférence</label>
                         <div class="w-1/2">
-                            <input type="text" name="reference" id="Rp" class="Rp FP-error Ref border-2 p-2 w-full focus:outline-none focus:border-2 focus:border-blue-400 ">
+                            <input type="text" name="reference" id="Rp" class="Rp FP-error Ref border-2 p-2 w-full focus:outline-none focus:border-2 focus:border-blue-400 " placeholder="entrez le nmero de réference" >
                         </div>
 
                         <div class="">

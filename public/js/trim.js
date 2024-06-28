@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const quantite = document.getElementById("quantite");
     const montant = document.getElementById("prix");
     const Search = document.getElementById("search");
+    const reference = document.getElementById("reference");
 
     if(champDeSaisie)
     {
@@ -84,6 +85,24 @@ document.addEventListener("DOMContentLoaded", function() {
             }
             Search.value = Search.value.toUpperCase();
         });
-        }  
+        } 
+        
+    if(reference )
+    {
+                reference .addEventListener("input", function() {
+                // Définir les caractères autorisés (par exemple, uniquement alphanumériques)
+                const caracteresValides = /^[a-zA-Z0-9]*$/;
+        
+                // Obtenir la valeur actuelle de la saisie
+                let valeur = reference .value;
+        
+                // Supprimer les caractères invalides
+                if (!caracteresValides.test(valeur)) {
+                    reference .value = valeur.replace(/[^a-zA-Z0-9]/g, '');
+                   
+                }
+                reference .value = reference .value.toUpperCase();
+            });
+    }    
     
 });
