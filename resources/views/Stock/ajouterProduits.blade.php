@@ -15,11 +15,11 @@
         monDiv.style.display = "none";
     });
 </script>
-<div class="container p-10 ">
+<div class="container p-10  ">
 
 
 
-    <div class="bg-white rounded-sm mt-5 flex flex-col sm:h-full ">
+ <div class="bg-white rounded-sm mt-5 flex flex-col sm:h-full ">
 
     <div class="flex justify-center mt-4 text-green-600 ">
      <h2 class="FP-Menu ">Ajouter Produits</h2>
@@ -163,6 +163,6 @@
      </form>
 
     </div>
- </div>
+</div>
 
  @endsection

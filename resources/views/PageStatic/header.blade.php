@@ -217,6 +217,7 @@
 
                         <div class="bg-[#CDD0D4] rounded-full w-10 h-10 ">
 
+                            <img src="image/ll.png" alt="clock" class="ml-3 mr-10 cursor-pointer w-4 h-4">
 
 
                         </div>
