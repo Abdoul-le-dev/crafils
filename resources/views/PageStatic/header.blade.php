@@ -11,7 +11,7 @@
 
                 <div class="flex flex-row h-5 w-5 mb-5 mt-3">
 
-                    <img src="image/maison.png" alt="" class="mr-2">
+                    <img src="image/maison.png" alt="dashboard" class="mr-2">
 
                     <h2 class="FP-Menu hover:text-indigo-500" ><a href="{{route('Dashboard')}}">Dashboard</a></h2>
 
@@ -19,7 +19,7 @@
 
                 <div class="flex flex-row h-5 w-5 mb-5 mt-3 cursor-pointer">
 
-                    <img src="image/panier.png" alt="" class="mr-2">
+                    <img src="image/panier.png" alt="Vente" class="mr-2">
 
                    <a href="{{route('PageVente')}}"> <h2 class="FP-Menu Menu hover:text-indigo-500">Vente</h2></a>
 
@@ -29,9 +29,9 @@
 
                 <div class="flex flex-row h-5 w-5 mb-5 mt-3 cursor-pointer">
 
-                    <img src="image/produit.png" alt="" class="mr-2">
+                    <img src="image/produit.png" alt="Produit" class="mr-2" onclick="Activez()" >
 
-                    <h2 class="FP-Menu Menu hover:text-indigo-500">Produit</h2>
+                    <h2 class="FP-Menu Menu hover:text-indigo-500" onclick="Activez()">Produit</h2>
 
                     <i  class="principale" onclick="Activez()" ><img src="image/bas.png" alt="" class="ml-10 mt-1 h-5 w-5 cursor-pointer" ></i>
                     <i onclick="Desactivez()" class="secondaire hidden " ><img src="image/haut.png" alt="" class="ml-10 mt-1 h-5 w-5 cursor-pointer " ></i>
@@ -42,15 +42,15 @@
 
 
                 <div class="flex flex-row  mb-5 mt-3  cursor-pointer R1 hidden">
-                    <img src="image/ajouter.png" alt="" class="mr-2 ml-3 h-5 w-5">
+                    <img src="image/ajouter.png" alt="ListeProduit" class="mr-2 ml-3 h-5 w-5">
 
-                   <a href="{{route('ListeProduit')}}"><h2 class="FP-Menu Menu hover:text-indigo-500" id="">Rechercher</h2></a> 
+                   <a href="{{route('ListeProduit')}}"><h2 class="FP-Menu Menu hover:text-indigo-500" id="">Liste Produits</h2></a> 
 
                 </div>
                 <div class="flex flex-row  mb-5 mt-3 cursor-pointer A1 hidden">
                     <a href="{{route('AjouterProduit')}}"><img src="image/ajouter.png" alt=""   class="mr-2 ml-3 h-5 w-5"></a>
 
-                    <h2 class="FP-Menu Menu " id="S_Menuv" ><a href="{{route('AjouterProduit')}}">Ajouter</a>  </h2>
+                    <h2 class="FP-Menu Menu " id="S_Menuv" ><a href="{{route('AjouterProduit')}}">Ajouter</a></h2>
 
                </div>
                
@@ -59,9 +59,9 @@
 
                 <div class="flex flex-row h-5 w-5 mb-5 mt-3 cursor-pointer">
 
-                    <img src="image/impression1.png" alt="" class="mr-2 h-5 w-5">
+                    <img src="image/impression1.png" alt="Impression" onclick="Activeez()" class="mr-2 h-5 w-5">
 
-                    <h2 class="FP-Menu hover:text-indigo-500">Impression</h2><!--Faux format & Factures normaliser-->
+                    <h2 class="FP-Menu hover:text-indigo-500" onclick="Activeez()">Impression</h2><!--Faux format & Factures normaliser-->
 
                     <i  class="principales" onclick="Activeez()" ><img src="image/bas.png" alt="" class="ml-10 mt-1 h-5 w-5 cursor-pointer" ></i>
                     <i onclick="Desactiveez()" class="secondaires hidden " ><img src="image/haut.png" alt="" class="ml-10 mt-1 h-5 w-5 cursor-pointer " ></i>
@@ -84,7 +84,7 @@
 
                 </div>
                <div class="flex flex-row  mb-5 mt-3 cursor-pointer A12 hidden">
-                    <img src="image/ajouter.png" alt="" class="mr-2 ml-3 h-5 w-5">
+                    <img src="image/ajouter.png" alt="facture_simple" class="mr-2 ml-3 h-5 w-5">
 
                     <h2 class="FP-Menu Menu hover:text-indigo-500" id=""><a href="{{route('facture_simple')}}">Facture simple </a> </h2>
 
@@ -92,7 +92,7 @@
 
                 <div class="flex flex-row h-5 w-5 mb-5 mt-3 cursor-pointer">
 
-                    <img src="image/revoir.png" alt="" class="mr-2">
+                    <img src="image/revoir.png" alt="Client" class="mr-2">
         
                     <h2 class="FP-Menu Menu hover:text-indigo-500"><a href="{{ route('Ajout_Client')}}">Client</a></h2>
         
@@ -136,7 +136,7 @@
 
                  <div class="flex flex-row h-5 w-5 mb-5 mt-3 cursor-pointer">
 
-                    <img src="image/utilisateur.png" alt="" class="mr-2 w-8">
+                    <img src="image/utilisateur.png" alt="Profil" class="mr-2 w-8">
 
                     <h2 class="FP-Menu hover:text-indigo-500"><a href="{{route('Profil')}}">Profil</a> </h2>
 
@@ -154,8 +154,8 @@
 
                     <div class="flex h-5 w-5 mb-5 mt-3 items-center">
 
-                        <img src="Icons/menu-burger.svg" onclick="ActiveHeader()" alt="" class="hA ml-3 mr-10 cursor-pointer">
-                        <img src="Icons/menu-burger.svg" onclick="DesactiveHeader()" alt="" class="hD hidden ml-3 mr-10 cursor-pointer">
+                        <img src="Icons/menu-burger.svg" onclick="ActiveHeader()" alt="menu-burger" class="hA ml-3 mr-10 cursor-pointer">
+                        <img src="Icons/menu-burger.svg" onclick="DesactiveHeader()" alt="menu-burger" class="hD hidden ml-3 mr-10 cursor-pointer">
 
                           <!--Formulaire-->
                         <div>
@@ -200,7 +200,7 @@
 
                         <div class="bg-[#CDD0D4]  rounded-full w-10 h-10 flex items-center">
 
-                        <img src="Icons/bell-regular.svg" alt="" class="ml-3 mr-10 cursor-pointer w-4 h-4">
+                        <img src="Icons/bell-regular.svg" alt="Notification" class="ml-3 mr-10 cursor-pointer w-4 h-4">
 
                         </div>
 
@@ -208,7 +208,7 @@
 
                         <div class="bg-[#CDD0D4] rounded-full w-10 h-10 flex items-center ">
 
-                        <img src="Icons/envelope-regular.svg" alt="" class="ml-3 mr-10 cursor-pointer w-4 h-4">
+                        <img src="Icons/envelope-regular.svg" alt="-Message" class="ml-3 mr-10 cursor-pointer w-4 h-4">
 
                         </div>
 
@@ -224,7 +224,7 @@
                         <!---time-->
 
                         <div>
-                            <p class="FP-Menu">Time</p>
+                            <p class="FP-Menu Times text-blue-400" id="current-time">Time:</p>
                         </div>
                  </div>
 
@@ -243,6 +243,25 @@
                     </p>
 
                     <script>
+                       // Sélectionnez l'élément où l'heure sera affichée
+                        const currentTimeElement = document.getElementById('current-time');
+
+                        // Fonction pour mettre à jour l'heure
+                        function updateTime() {
+                            const now = new Date();
+                            const hours = now.getHours().toString().padStart(2, '0');
+                            const minutes = now.getMinutes().toString().padStart(2, '0');
+                            const seconds = now.getSeconds().toString().padStart(2, '0');
+                            const timeString = `${hours}:${minutes}:${seconds}`;
+                            currentTimeElement.textContent = timeString;
+                        }
+
+                        // Mettre à jour l'heure initiale
+                        updateTime();
+
+                        // Mettre à jour l'heure toutes les secondes
+                        setInterval(updateTime, 1000);
+
                         setTimeout(() => {
 
                             var success = document.querySelector('.Success_result');
@@ -259,6 +278,29 @@
                     @yield('page')
              </div>
             </div>
+
+            <script>
+                // Sélectionnez l'élément où l'heure sera affichée
+                 const currentTimeElement = document.getElementById('current-time');
+
+                 // Fonction pour mettre à jour l'heure
+                 function updateTime() {
+                     const now = new Date();
+                     const hours = now.getHours().toString().padStart(2, '0');
+                     const minutes = now.getMinutes().toString().padStart(2, '0');
+                     const seconds = now.getSeconds().toString().padStart(2, '0');
+                     const timeString = `${hours}:${minutes}:${seconds}`;
+                     currentTimeElement.textContent = timeString;
+                 }
+
+                 // Mettre à jour l'heure initiale
+                 updateTime();
+
+                 // Mettre à jour l'heure toutes les secondes
+                 setInterval(updateTime, 1000);
+
+                
+             </script>
 
 
 

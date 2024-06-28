@@ -54,7 +54,7 @@
 
     <div class="p-5 border-2 border-black  rounded-lg flex flex-col justify-center items-center m-10 ">
         <img src="Icons/trait.png" alt="" class="mr-2 ml-3 h-10 w-10 my-4 cursor-pointer">
-        <a href="{{route('ListeProduit')}}">Liste Produits<h3 class="FP-Menu bg-indigo-200 p-2 rounded-md cursor-pointer hover:bg-indigo-300"></h3></a>
+        <a href="{{route('ListeProduit')}}"><h3 class="FP-Menu bg-indigo-200 p-2 rounded-md cursor-pointer hover:bg-indigo-300">Liste Produits</h3></a>
     </div>
 
 
