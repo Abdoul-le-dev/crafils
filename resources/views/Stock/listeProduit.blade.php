@@ -25,7 +25,7 @@
 
             <div class="flex flex-row p-3 w-full  flex-wrap">
                <div class="flex flex-row mx-4 my-4 md:w-1/2  ">
-                   <label for="nom" class="FP-Menu ml-2 p-2 justify-center  " ><span class="mx-1 text-start"> Réference </span></label>
+                   <label for="reference" class="FP-Menu ml-2 p-2 justify-center  " ><span class="mx-1 text-start"> Réference </span></label>
 
                    <div class="w-full flex flex-row">
                       <input type="text" id="searchInput" class="searchInput FP-Menu  border-2 p-2  focus:outline-none focus:border-2 focus:border-blue-400 " id="searchInput" placeholder="Rechercher ">
