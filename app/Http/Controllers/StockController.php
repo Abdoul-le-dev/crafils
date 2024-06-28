@@ -28,7 +28,7 @@ class StockController extends Controller
         //$post = produit::factory(900)->create();
         //$user = User::factory()
         $Categories = categorie::all();
-        $Produits = produit::query()->latest()->paginate(5);
+        $Produits = produit::query()->latest()->paginate(10);
 
         $Produitss = produit::all();
         $read =1;
