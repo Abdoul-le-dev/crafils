@@ -44,17 +44,17 @@
 
     <div class="p-5 border-2 border-black  rounded-lg flex flex-col justify-center items-center m-10 w-48">
         <img src="Icons/ajouter-le-fichier.png" alt="" class="mr-2 ml-3 h-10 w-10 my-4 cursor-pointer">
-        <h3 class="FP-Menu bg-indigo-200 p-2 rounded-md cursor-pointer hover:bg-indigo-300"><a href="{{route('AjouterProduit')}}">Ajouter Produit</a></h3>
+        <a href="{{route('AjouterProduit')}}"> <h3 class="FP-Menu bg-indigo-200 p-2 rounded-md cursor-pointer hover:bg-indigo-300">Ajouter Produit</h3></a>
     </div>
 
     <div class="p-5 border-2 border-black  rounded-lg flex flex-col justify-center items-center m-10">
-        <img src="Icons/categories.png" alt="" class="mr-2 ml-3 h-10 w-10 my-4 cursor-pointer">
+        <img src="Icons/categories.png" alt="" onclick="Pop()"  class="mr-2 ml-3 h-10 w-10 my-4 cursor-pointer">
         <h3 class="FP-Menu bg-indigo-200 p-2 rounded-md cursor-pointer hover:bg-indigo-300" onclick="Pop()" ><a onclick="Pop()">Ajouter Catégorie</a></h3>
     </div>
 
     <div class="p-5 border-2 border-black  rounded-lg flex flex-col justify-center items-center m-10 ">
         <img src="Icons/trait.png" alt="" class="mr-2 ml-3 h-10 w-10 my-4 cursor-pointer">
-        <h3 class="FP-Menu bg-indigo-200 p-2 rounded-md cursor-pointer hover:bg-indigo-300"><a href="{{route('ListeProduit')}}">Liste Produits</a></h3>
+        <a href="{{route('ListeProduit')}}">Liste Produits<h3 class="FP-Menu bg-indigo-200 p-2 rounded-md cursor-pointer hover:bg-indigo-300"></h3></a>
     </div>
 
 

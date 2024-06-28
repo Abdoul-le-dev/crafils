@@ -44,7 +44,7 @@
                 <div class="flex flex-row  mb-5 mt-3  cursor-pointer R1 hidden">
                     <img src="image/ajouter.png" alt="" class="mr-2 ml-3 h-5 w-5">
 
-                    <h2 class="FP-Menu Menu hover:text-indigo-500" id="">Rechercher</h2>
+                   <a href="{{route('ListeProduit')}}"><h2 class="FP-Menu Menu hover:text-indigo-500" id="">Rechercher</h2></a> 
 
                 </div>
                 <div class="flex flex-row  mb-5 mt-3 cursor-pointer A1 hidden">
