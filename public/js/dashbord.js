@@ -1059,9 +1059,9 @@ function calculeTotal()
 
     if(Totaux !== null)
     {
-        Total.textContent = total + 'FCFA' ;
-        Tva.textContent = tvaa+ 'FCFA' ;
-        Ttc.textContent = ttcc+ 'FCFA' ;
+        Total.textContent = total + ' '+'FCFA' ;
+        Tva.textContent = tvaa+ +' '+'FCFA' ;
+        Ttc.textContent = ttcc+ ' FCFA' ;
     }
 
 

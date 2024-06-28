@@ -6,6 +6,7 @@
     <title>CRA & Fils @yield('page_titre')</title>
 
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/styles.css">
     <link rel="shortcut icon" type="x-icon" href="./image/ccra.png">
     <script src="jquery/jquery.js"></script>
     <script src="js/dashbord.js"></script>
@@ -13,8 +14,7 @@
     <script src="js/facture.js"></script>
     <script src="js/trim.js"></script>
     <script src="js/normalisation.js"></script>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
-
+   
     {{--@vite('resources/css/app.css')--}}
 
 </head>

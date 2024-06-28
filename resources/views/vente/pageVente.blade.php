@@ -81,7 +81,7 @@
      <img src="image/aa.gif" alt="" class="absolute p-10 top-32">
     </div>
 
-    <div class="bg-white rounded-sm  flex flex-col sm:h-full " style="min-height: 80vh">
+    <div class="bg-white rounded-sm  flex flex-col sm:h-full h-[80vh] " style="">
 
 
 

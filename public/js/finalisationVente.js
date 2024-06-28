@@ -380,7 +380,7 @@ function validationFormulaire()
                         if(reglement === 'tranche')
                             
                             {   if(typeClient ==='Client Anonyme')
-                                {   alert("Vous ne pouverz pas vendre à crédit a un client anonyme, veuillez enregistré le client");
+                                {   alert("Vous ne pouvez pas vendre à crédit a un client anonyme, veuillez enregistré le client");
                                     e.preventDefault();
                                     return;
 
@@ -395,6 +395,7 @@ function validationFormulaire()
                                 total += parseFloat(e.total );
 
                                 })
+                                total = total + (total*18)/100
                                 if(montant > total )
                                 {
                                     alert('Le montant en tranche ne peut être supérieur au total de la facture');
