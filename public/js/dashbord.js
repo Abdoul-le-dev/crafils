@@ -1050,12 +1050,18 @@ function calculeTotal()
        total += parseFloat(e.total );
 
     })
+    var tvaa= (total*18)/100;
+    var ttcc = tvaa + total;
     var Total = document.querySelector('.Total');
+    var Tva = document.querySelector('.TVA');
+    var Ttc = document.querySelector('.TTC');
     var Totaux = document.querySelector('.Totaux');
 
     if(Totaux !== null)
     {
         Total.textContent = total + 'FCFA' ;
+        Tva.textContent = tvaa+ 'FCFA' ;
+        Ttc.textContent = ttcc+ 'FCFA' ;
     }
 
 

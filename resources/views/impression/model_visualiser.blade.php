@@ -61,7 +61,8 @@
 
                    <span class="text-[#4287f5]">Rataché Facture Normaliser:</span>
                     @endif
-                     </span>n°{{$donne_facture->num_factures}}</p>
+                     </span>n°{{$donne_facture->num_factures}}
+                </p>
             
                 <p class="border-2 p-2 mx-4 border-[#4287f5] FP-error rounded-md namefacture"><span class="font-bold ">Client: </span> 
                 @if ($donne_facture->client_anonyme !=null )
@@ -224,7 +225,24 @@
         
         <div class="secondpart mt-8 flex flex-row justify-end p-8 ">
 
-        
+                <div>
+                    <p class="FP-error"><span class="font-bold">
+                        @if($donne_facture->type_facture == 1 && $donne_facture->normaliser ===0)
+    
+                        Proforma
+                        @endif
+                        @if($donne_facture->type_facture == 2 && $donne_facture->normaliser ===0)
+    
+                        total_payer: {{$donne_facture->total_payer}}
+                        
+                        @endif
+                        @if($donne_facture->normaliser ===1)
+    
+                        total_payer: {{$donne_facture->total_payer}}
+                        @endif
+                         
+                    </p>
+                </div>
             
                 <div class="flex flex-col border-2 rounded-md border-[#4287f5] " >
                     <p class="text-xl FP-error font-bold text-[#4287f5]">Sté CRA & FILS</p>
@@ -415,7 +433,7 @@
         //alert("e")
         var taille = document.querySelector('.body');
 
-        taille.classList.add('h-[40vh]');
+        taille.classList.add('h-[60vh]');
         taille.classList.add('mt-[30px]');
 
         var tailles = document.querySelector('.secondpart');

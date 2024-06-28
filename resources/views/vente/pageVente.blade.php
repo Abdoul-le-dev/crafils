@@ -120,13 +120,13 @@
                         <table class="TB border-separate border border-slate-300 hidden md:block">
                             <thead>
                                 <tr class="bg-[#F8FAFC]">
-                                 <th class="FP-error text-xs font-thin border border-slate-300 py-3 px-5  text-xs">
+                                 <th class="FP-error text-base font-thin border border-slate-300 py-3 px-5  ">
                                     Nom du produit
                                  </th>
-                                 <th class="FP-error text-xs font-thin border border-slate-300 py-3 px-5  text-xs">
+                                 <th class="FP-error text-base font-light border border-slate-300 py-3 px-5  ">
                                     N° Référence
                                  </th>
-                                 <th class="FP-error text-xs font-thin border border-slate-300 py-3 px-5  text-xs">
+                                 <th class="FP-error text-base font-light border border-slate-300 py-3 px-5  ">
                                     Prix produit
                                  </th>
 
@@ -137,13 +137,13 @@
                             <tbody>
                                <tr>
 
-                                  <td class="FP-error text-xs  font-thin border border-slate-300 p-2">
+                                  <td class="FP-error text-base  font-light border border-slate-300 p-2">
                                     <p class="P1"></p>
                                   </td>
-                                  <td class="FP-error text-xs font-thin text-blue-600 border border-slate-300 p-2">
+                                  <td class="FP-error text-base font-light text-blue-600 border border-slate-300 p-2">
                                     <p class="P2"></p>
                                   </td>
-                                  <td class="FP-error text-xs font-thin border border-slate-300 p-2">
+                                  <td class="FP-error text-base font-light border border-slate-300 p-2">
                                     <p class="P3"></p>
                                   </td>
                                </tr>
@@ -155,13 +155,13 @@
                         <table class="border-separate border border-slate-300 hidden md:block">
                             <thead>
                                 <tr class="bg-[#F8FAFC]">
-                                 <th class="FP-error text-xs font-thin border border-slate-300 py-3 px-5  text-xs">
+                                 <th class="FP-error text-base font-light border border-slate-300 py-3 px-5 ">
                                     Categorie
                                  </th>
-                                 <th class="FP-error text-xs font-thin border border-slate-300 py-3 px-7  text-xs">
+                                 <th class="FP-error text-base font-light border border-slate-300 py-3 px-7 ">
                                     Marque
                                  </th>
-                                 <th class="FP-error text-xs font-thin border border-slate-300 py-3 px-5  text-xs">
+                                 <th class="FP-error text-base font-light border border-slate-300 py-3 px-5 ">
                                     Quantité disponible
                                  </th>
 
@@ -172,13 +172,13 @@
                             <tbody>
                                <tr>
 
-                                  <td class="FP-error text-xs  font-thin border border-slate-300 p-2">
+                                  <td class="FP-error text-base font-light border border-slate-300 p-2">
                                     <p class="P4"></p>
                                   </td>
-                                  <td class="FP-error text-xs font-thin border border-slate-300 p-2">
+                                  <td class="FP-error text-base font-light border border-slate-300 p-2">
                                     <p class="P5"></p>
                                   </td>
-                                  <td class="FP-error text-xs font-thin border border-slate-300 p-2">
+                                  <td class="FP-error text-base font-light border border-slate-300 p-2">
                                     <p class="P6"></p>
                                   </td>
                                </tr>
@@ -294,11 +294,11 @@
                             </tbody>
                         </table>
                     </div> --}}
-                  <div class=" flex justify-center mb-4" >
-                        <div class="flex  mt-4 w-full">
+                  <div class=" flex mb-4" >
+                        <div class="flex flex-row justify-between mt-4 w-[400px]">
 
                             <a onclick="addProduit()"><button type="" class="FP-error font-bold bg-indigo-200 p-2 mx-1 rounded-sm hover:bg-green-400">Ajouter </button></a>
-                            <a onclick="" class="FP-error font-bold bg-indigo-200 p-2 rounded-sm 0 hover:bg-red-400 hover:cursor-pointer" style="margin-left: 150px" href="{{ route('Dashboard')}}">Annuler </a>
+                            <a onclick="" class="FP-error font-bold bg-indigo-200 p-2 rounded-sm 0 hover:bg-red-400 hover:cursor-pointer" style="" href="{{ route('Dashboard')}}">Annuler </a>
 
 
                         </div>
@@ -321,8 +321,19 @@
                 <div class=" FP-error flex flex-row justify-center"><h3 class="FP-error font-bold">Panier</h3></div>
                 
                 
-               <div class="Totaux ">
-                    <p class=" FP-error font-bold p-2 ">Totaux: <a  class="Total text-blue-400"></a></p>
+               <div class="flex flex-row Totaux">
+
+                   
+                    <p class=" FP-error font-bold p-2 ">Total Hors Taxe: <a  class="Total text-blue-400"></a></p>
+                   
+
+                   
+                    <p class=" FP-error font-bold p-2 ">TVA: <a  class="TVA text-blue-400"></a></p>
+                   
+
+                   
+                    <p class=" FP-error font-bold p-2 ">Total TTC: <a  class="TTC text-blue-400"></a></p>
+                   
                 </div>
                 <div class="Generates">
 
@@ -333,10 +344,10 @@
                 <div class=" Evalue flex  flex-row items-center mt-10  rounded-sm Buttonse">
                    <div class="flex  flex-row ">
                     <a onclick="prevPage()" class="FP-error bg-indigo-200 p-2 mx-1 rounded-sm cursor-pointer  hover:bg-green-400">
-                        <h4 class="FP-error">Prev</h4>
+                        <h4 class="FP-error">Précédent</h4>
                     </a>
                     <a onclick="nextPage()" class="FP-error bg-indigo-200 p-2 mx-1 cursor-pointer  rounded-sm hover:bg-green-400 ">
-                        <h4 class="FP-error">Next</h4>
+                        <h4 class="FP-error">Suivant</h4>
                     </a>
                    </div>
 
