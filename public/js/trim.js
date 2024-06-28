@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const quantite = document.getElementById("quantite");
     const montant = document.getElementById("prix");
     const Search = document.getElementById("search");
-    const reference = document.getElementById("reference");
+    const reference = document.getElementById("Rp");
 
     if(champDeSaisie)
     {
