@@ -275,8 +275,34 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+function pop1()
+{
+    var pop1 =document.querySelector('.Pop1');
+
+    if(pop1)
+    {
+        pop1.classList.remove('hidden');
+        pop1.classList.add('block');
+    }
+
+}
+
+function pop2()
+{
+    var pop1 =document.querySelector('.Pop1');
+
+    if(pop1)
+    {
+        pop1.classList.remove('block');
+        pop1.classList.add('hidden');
+    }
+
+}
+
 function validationFormulaire()
 {   
+    //
+
     
     var Form =document.querySelector('.Formulaire');
     
@@ -418,7 +444,7 @@ function validationFormulaire()
             }
             if(typeClient != null && facture != null )
             {
-                
+                pop1();
             var   finalisationVente =
             {  "TypeClient"  :  typeClient ,
                 "nomCLients" : nameCLients ,
@@ -453,10 +479,21 @@ function validationFormulaire()
             {   
                
                 e.preventDefault();
+                pop2();
                 PopR();
                 localStorage.removeItem('Panier');
-                var url = 'http://www.crafils.com/visualiser?numero_facture=' + data;
-                window.location.href = url;
+
+                // Recharge la page actuelle
+                
+
+                // Dirige vers une autre URL dans un nouvel onglet après le rechargement
+               
+                    var url = 'http://www.crafils.com/visualiser?numero_facture=' + data;
+                    window.open(url, '_blank');
+
+
+                    location.reload();
+                
                 
             }
             

@@ -107,14 +107,15 @@
                 <div class="flex flex-row mx-4 my-4 md:w-1/2  ">
                     <label for="reference" class="FP-Menu ml-2 p-2 justify-center text-start" ><span class="">N° Référence</span></label>
                     <div class="w-40">
-                    <input type="text" name="reference"  class="border-2 w-full p-2 focus:outline-none focus:border-2 focus:border-blue-400 " required>
+                    <input type="text" name="reference" id="champDeSaisie" class="border-2 w-full p-2 focus:outline-none focus:border-2 focus:border-blue-400 " required>
                     </div>
+                    
                 </div>
 
                 <div class="flex flex-row mx-4 my-4 md:w-1/3 justify-center  ">
                     <label for="nom" class="FP-Menu ml-2 p-2 text-start" >Nom produit</label>
                     <div class="w-40">
-                    <input type="text" name="nom" class="border-2  w-full p-2  focus:outline-none focus:border-2 focus:border-blue-400 rf" required>
+                    <input type="text" name="nom" id="nom" class="border-2  w-full p-2  focus:outline-none focus:border-2 focus:border-blue-400 rf" required>
                     </div>
                 </div>
 
@@ -123,14 +124,14 @@
                 <div class="flex flex-row mx-4 my-4 md:w-1/2  ">
                     <label for="prix" class="FP-Menu ml-2 p-2 justify-center text-start" ><span class="">Prix Produit</span></label>
                     <div class="w-40">
-                    <input type="text" name="prix"  class="border-2 w-full p-2 focus:outline-none focus:border-2 focus:border-blue-400 " required>
+                    <input type="text" name="prix" id="prix"  class="border-2 w-full p-2 focus:outline-none focus:border-2 focus:border-blue-400 " required>
                     </div>
                 </div>
 
                 <div class="flex flex-row mx-4 my-4 md:w-1/3 justify-center  ">
                     <label for="quantite" class="FP-Menu ml-2 p-2 text-start" >Quantité</label>
                     <div class="w-40">
-                    <input type="text" name="quantite" class="border-2  w-full p-2  focus:outline-none focus:border-2 focus:border-blue-400 rf" required>
+                    <input type="text" name="quantite" id="quantite" class="border-2  w-full p-2  focus:outline-none focus:border-2 focus:border-blue-400 rf" required>
                     </div>
                 </div>
 

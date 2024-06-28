@@ -7,10 +7,10 @@
 @section('page')
 <div class="container p-10 ">
 
-
+    
     <div class="w-full h-full flex flex-row justify-center items-center ">
 
-        <div class="Pop hidden absolute bg-indigo-50 p-10 top-32  shadow-2xl flex flex-col justify-center items-center " style="width: 500px">
+        <div class="Pop  hidden absolute bg-indigo-50 p-10 top-32  shadow-2xl flex flex-col justify-center items-center " style="width: 500px">
 
             <div class="static flex flex-col justify-center items-center w-full">
 
@@ -76,8 +76,12 @@
         </div>
 
     </div>
+    <div class="flex Pop1 hidden w-full h-full justify-center items-center">
+      
+     <img src="image/aa.gif" alt="" class="absolute p-10 top-32">
+    </div>
 
-    <div class="bg-white rounded-sm  flex flex-col sm:h-full " style="min-height: 60vh">
+    <div class="bg-white rounded-sm  flex flex-col sm:h-full " style="min-height: 80vh">
 
 
 
@@ -86,7 +90,7 @@
         </div>
 
 
-        <div class="flex flex-row  " style="min-width: 600px ,">
+        <div class="flex flex-row  " style="min-width:600px ,">
 
             <div class="w-1/2 p-2" >
 
@@ -94,13 +98,13 @@
                 <div class=" FP-error flex flex-row justify-center">
                     <h3 class="FP-error font-bold">Ajout produit</h3>
                 </div>
-                <div class="p-2 ">
+                <div class="p-2 mt-10 ">
 
 
                       <div class="flex flex-row p-2 w-full ">
                         <label for="" class="p-2 FP-error font-bold text-xs ">N° Reférence</label>
                         <div class="w-1/2">
-                            <input type="text" name="reference" id="Rp" class="Rp FP-error Ref border-2 p-2 w-full focus:outline-none focus:border-2 focus:border-blue-400 ">
+                            <input type="text" name="reference" id="search" class="Rp FP-error Ref border-2 p-2 w-full focus:outline-none focus:border-2 focus:border-blue-400 ">
                         </div>
 
                         <div class="">
@@ -112,7 +116,7 @@
                      </div>
 
 
-                    <div class="mt-5 flex p-2 w-full " style="min-width: 200px">
+                    <div class="mt-10 flex p-2 w-full " style="min-width: 200px">
                         <table class="TB border-separate border border-slate-300 hidden md:block">
                             <thead>
                                 <tr class="bg-[#F8FAFC]">
@@ -147,7 +151,7 @@
                         </table>
                     </div>
 
-                    <div class="mt-5 flex p-2 w-full " style="min-width: 200px">
+                    <div class="mt-10 flex p-2 w-full " style="min-width: 200px">
                         <table class="border-separate border border-slate-300 hidden md:block">
                             <thead>
                                 <tr class="bg-[#F8FAFC]">

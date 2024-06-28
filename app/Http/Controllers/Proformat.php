@@ -210,7 +210,7 @@ class Proformat extends Controller
         if($donne_facture != null)
         {   
             
-        return view('impression.model_visualiser', compact('donne_facture', 'premiere','deuxieme_session','nombre','ttc', 'tht', 'tva', 'date'));
+        return view('impression.visualiser_dowload', compact('donne_facture', 'premiere','deuxieme_session','nombre','ttc', 'tht', 'tva', 'date'));
             
         }
 

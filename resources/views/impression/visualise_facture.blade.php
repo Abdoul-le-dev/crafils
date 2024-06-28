@@ -126,11 +126,11 @@
                         </button>
 
                         <button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:text-white">
-                            <a href="{{ route('visualiser',['numero_facture'=>$facture->num_factures])}}" class="FP-error pointer">Visualiser</a>
+                            <a href="{{ route('visualiser',['numero_facture'=>$facture->num_factures])}}" target="_blank" class="FP-error pointer">Visualiser</a>
                         </button>
 
                         <button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:text-white">
-                            <a href="{{ route('visualisers',['numero_facture'=>$facture->num_factures])}}" class="FP-error pointer">Télécharger</a>
+                            <a href="{{ route('visualisers',['numero_facture'=>$facture->num_factures])}}" target="_blank" class="FP-error pointer">Télécharger</a>
                         </button>
 
                         <button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:text-white">

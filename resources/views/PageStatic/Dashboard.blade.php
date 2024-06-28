@@ -11,6 +11,7 @@
     <script src="js/dashbord.js"></script>
     <script src="js/finalisationVente.js"></script>
     <script src="js/facture.js"></script>
+    <script src="js/trim.js"></script>
     <script src="js/normalisation.js"></script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
 

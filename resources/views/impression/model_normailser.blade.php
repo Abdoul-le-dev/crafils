@@ -56,12 +56,15 @@
                 <button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:text-white">
                     <a href="{{route('details',['numero_facture'=>$facture->num_factures]) }}" class="details{{$facture->num_factures}} FP-error pointer">Détails</a>
                 </button>
+                <button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:text-white">
+                    <a href="{{ route('visualiser',['numero_facture'=>$facture->num_factures])}}"  class="FP-error pointer">Annuler</a>
+                </button>
 
                 <button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:text-white">
-                    <a href="{{ route('visualiser',['numero_facture'=>$facture->num_factures])}}" class="FP-error pointer">Visualiser</a>
+                    <a href="{{ route('visualiser',['numero_facture'=>$facture->num_factures])}}" target="_blank" class="FP-error pointer">Visualiser</a>
                 </button>
                 <button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:text-white">
-                    <a href="{{ route('visualisers',['numero_facture'=>$facture->num_factures])}}" class="FP-error pointer">Visualiser et télecharger</a>
+                    <a href="{{ route('visualisers',['numero_facture'=>$facture->num_factures])}}" target="_blank" class="FP-error pointer">Visualiser et télecharger</a>
                 </button>
 
                 
