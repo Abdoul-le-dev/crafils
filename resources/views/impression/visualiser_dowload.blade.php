@@ -22,7 +22,7 @@
         
     
         
-    <div class="py-10 px-5   h-[160vh]  bg-white m-10 flex flex-col">
+    <div class="py-10 px-5    bg-white m-10 flex flex-col">
 
         <div class="flex flex-row justify-between ">
             <div>
