@@ -11,15 +11,15 @@
 
                 <div class="flex flex-row h-5 w-5 mb-5 mt-3">
 
-                    <img src="image/maison.png" alt="" class="mr-2">
+                    <a href="{{route('Dashboard')}}"> <img src="image/maison.png" alt="" class="mr-2"></a>
 
-                    <h2 class="FP-Menu hover:text-indigo-500" ><a href="{{route('Dashboard')}}">Dashboard</a></h2>
+                    <a href="{{route('Dashboard')}}"> <h2 class="FP-Menu hover:text-indigo-500" >Dashboard</h2></a>
 
                 </div>
 
                 <div class="flex flex-row h-5 w-5 mb-5 mt-3 cursor-pointer">
 
-                    <img src="image/panier.png" alt="" class="mr-2">
+                   <a href="{{route('PageVente')}}"> <img src="image/panier.png" alt="" class="mr-2"></a>
 
                    <a href="{{route('PageVente')}}"> <h2 class="FP-Menu Menu hover:text-indigo-500">Vente</h2></a>
 
@@ -29,9 +29,9 @@
 
                 <div class="flex flex-row h-5 w-5 mb-5 mt-3 cursor-pointer">
 
-                    <img src="image/produit.png" alt="" class="mr-2">
+                    <i  class="principale" onclick="Activez()" > <img src="image/produit.png" alt="" class="mr-2"></i>
 
-                    <h2 class="FP-Menu Menu hover:text-indigo-500">Produit</h2>
+                    <i  class="principale" onclick="Activez()" > <h2 class="FP-Menu Menu hover:text-indigo-500">Produit</h2> </i>
 
                     <i  class="principale" onclick="Activez()" ><img src="image/bas.png" alt="" class="ml-10 mt-1 h-5 w-5 cursor-pointer" ></i>
                     <i onclick="Desactivez()" class="secondaire hidden " ><img src="image/haut.png" alt="" class="ml-10 mt-1 h-5 w-5 cursor-pointer " ></i>
@@ -50,7 +50,7 @@
                 <div class="flex flex-row  mb-5 mt-3 cursor-pointer A1 hidden">
                     <a href="{{route('AjouterProduit')}}"><img src="image/ajouter.png" alt=""   class="mr-2 ml-3 h-5 w-5"></a>
 
-                    <h2 class="FP-Menu Menu " id="S_Menuv" ><a href="{{route('AjouterProduit')}}">Ajouter</a>  </h2>
+                    <a href="{{route('AjouterProduit')}}"><h2 class="FP-Menu Menu " id="S_Menuv" >Ajouter </h2></a> 
 
                </div>
                
@@ -92,16 +92,16 @@
 
                 <div class="flex flex-row h-5 w-5 mb-5 mt-3 cursor-pointer">
 
-                    <img src="image/revoir.png" alt="" class="mr-2">
+                    <a href="{{ route('Ajout_Client')}}"><img src="image/revoir.png" alt="" class="mr-2"></a>
         
-                    <h2 class="FP-Menu Menu hover:text-indigo-500"><a href="{{ route('Ajout_Client')}}">Client</a></h2>
+                    <a href="{{ route('Ajout_Client')}}"><h2 class="FP-Menu Menu hover:text-indigo-500">Client</h2></a>
         
                  </div>
                 <div class="flex flex-row h-5 w-5 mb-5 mt-3 cursor-pointer">
 
                     <img src="image/dette.png" alt="" class="mr-2">
         
-                    <h2 class="FP-Menu Menu hover:text-indigo-500"><a href="{{route('PageCreancier')}}">Creancier</a></h2>
+                    <a href="{{route('PageCreancier')}}"> <h2 class="FP-Menu Menu hover:text-indigo-500">Creancier</h2></a>
         
                     
                 </div>

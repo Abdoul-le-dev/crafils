@@ -197,6 +197,11 @@ function rechercheProduits() {
         P4.innerHTML = nada;
         P5.innerHTML = nada;
         P6.innerHTML = nada;
+        P1.classList.add('text-red');
+        P3.classList.add('text-red');
+        P4.classList.add('text-red');
+        P5.classList.add('text-red');
+        P6.classList.add('text-red');
 
         produitStock = null;
 

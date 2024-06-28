@@ -151,7 +151,7 @@
                         </table>
                     </div>
 
-                    <div class="mt-10 flex p-2 w-full " style="min-width: 200px">
+                    <div class="mt-10 flex p-2 w-full " style="min-width: 250px">
                         <table class="border-separate border border-slate-300 hidden md:block">
                             <thead>
                                 <tr class="bg-[#F8FAFC]">
