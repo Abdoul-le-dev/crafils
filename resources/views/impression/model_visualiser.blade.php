@@ -466,7 +466,7 @@
         //alert("e")
         var taille = document.querySelector('.body');
 
-        taille.classList.add('h-[70vh]');
+        taille.classList.add('h-[50vh]');
         taille.classList.add('mt-[30px]');
 
         var tailles = document.querySelector('.secondpart');
@@ -480,7 +480,7 @@
         //alert("e")
         var taille = document.querySelector('.body');
 
-        taille.classList.add('h-[100vh]');
+        taille.classList.add('h-[70vh]');
         taille.classList.add('mt-[30px]');
 
         var tailles = document.querySelector('.secondpart');
