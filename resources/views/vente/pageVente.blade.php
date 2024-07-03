@@ -95,7 +95,7 @@
 
       </div>
 
-        <div class="flex mt-4 text-blue-600 ">
+        <div class="flex justify-center mt-4 text-blue-600 ">
             <h2 class="FP-error font-bold ">Vendre Produits</h2>
         </div>
 
