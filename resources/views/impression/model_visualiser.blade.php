@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="/css/style.css">
-   
+    <link rel="stylesheet" href="/css/styles.css">
     <script src="jquery/jquery.js"></script>
     <script src="js/dashbord.js"></script>
     <script src="js/finalisationVente.js"></script>
@@ -16,13 +16,13 @@
 
     
 </head>
-<body class=" bg-slate-300 flex flex-col  items-center element">
+<body class=" bg-white flex flex-col  items-center element">
     
    
         
     
         
-    <div class="py-10 px-5   h-[160vh]  bg-white m-10 flex flex-col">
+    <div class="py-10    h-[160vh]  bg-white m-10 flex flex-col">
 
         <div class="flex flex-row justify-between ">
             <div>
@@ -65,17 +65,27 @@
                 </p>
             
                 <p class="border-2 p-2 mx-4 border-[#4287f5] FP-error rounded-md namefacture"><span class="font-bold ">Client: </span> 
-                @if ($donne_facture->client_anonyme !=null )
+                    @if ($donne_facture->client_id != null)
 
-                {{$donne_facture->client_anonyme }}
-                
+                          
 
-                @else
-                {{$donne_facture->client->nom }}-{{$donne_facture->client->n_societe }}
-               
+                        
+                    @if ($donne_facture->num_ifu != null)
+
+                    {{$donne_facture->client->n_societe}}
+
+                    @else
+
+                    {{$donne_facture->client->nom}}-{{$donne_facture->client->prenom}}
+
+                    @endif
+
+                @else 
+
+                {{$donne_facture->client_anonyme}}
+
+
                 @endif
-
-                
                 </p>
             
         
@@ -225,23 +235,33 @@
         
         <div class="secondpart mt-8 flex flex-row justify-end p-8 ">
 
-                <div>
-                    <p class="FP-error"><span class="font-bold">
+                <div class="mr-[150px] flex flex-col ">
+                    
                         @if($donne_facture->type_facture == 1 && $donne_facture->normaliser ===0)
     
-                        Proforma
-                        @endif
-                        @if($donne_facture->type_facture == 2 && $donne_facture->normaliser ===0)
-    
-                        total_payer: {{$donne_facture->total_payer}}
                         
                         @endif
+                        @if($donne_facture->type_facture == 2 && $donne_facture->normaliser ===0)
+                        <p class=" FP-titre text-blue-400">  Total Payer: {{$donne_facture->total_payer}} FCFA</p>
+                        <p class=" FP-titre text-base">
+                            Montant Due : {{$donne_facture->Due($donne_facture->montant_facture,$donne_facture->total_payer)}} FCFA
+                        
+                        </p>
+                        
+            
+                        @endif
                         @if($donne_facture->normaliser ===1)
+
+                        <p class=" FP-titre text-blue-400">  Total Payer: {{$donne_facture->total_payer}} FCFA</p>
+                        <p class=" FP-titre text-base">
+                            Montant Due : {{$donne_facture->Due($donne_facture->montant_facture,$donne_facture->total_payer,$donne_facture->tva)}} FCFA
+                        
+                        </p>
     
-                        total_payer: {{$donne_facture->total_payer}}
+                       
                         @endif
                          
-                    </p>
+                   
                 </div>
             
                 <div class="flex flex-col border-2 rounded-md border-[#4287f5] " >
@@ -387,7 +407,34 @@
 
         <div class=" mt-8 flex flex-row justify-end p-8 ">
 
+                <div class="mr-[150px] flex flex-col ">
+                        
+                    @if($donne_facture->type_facture == 1 && $donne_facture->normaliser ===0)
+
+                    
+                    @endif
+                    @if($donne_facture->type_facture == 2 && $donne_facture->normaliser ===0)
+                    <p class=" FP-titre text-blue-400">  Total Payer: {{$donne_facture->total_payer}} FCFA</p>
+                    <p class=" FP-titre text-base">
+                        Montant Due : {{$donne_facture->Due($donne_facture->montant_facture,$donne_facture->total_payer)}} FCFA
+                    
+                    </p>
+                    
         
+                    @endif
+                    @if($donne_facture->normaliser ===1)
+
+                    <p class=" FP-titre text-blue-400">  Total Payer: {{$donne_facture->total_payer}} FCFA</p>
+                    <p class=" FP-titre text-base">
+                        Montant Due : {{$donne_facture->Due($donne_facture->montant_facture,$donne_facture->total_payer,$donne_facture->tva)}} FCFA
+                    
+                    </p>
+
+                
+                    @endif
+                    
+            
+                </div>
             
                 <div class="flex flex-col border-2 rounded-md border-[#4287f5] " >
                     <p class="text-xl FP-error font-bold text-[#4287f5]">Sté CRA & FILS</p>
@@ -419,7 +466,7 @@
         //alert("e")
         var taille = document.querySelector('.body');
 
-        taille.classList.add('h-[40vh]');
+        taille.classList.add('h-[70vh]');
         taille.classList.add('mt-[30px]');
 
         var tailles = document.querySelector('.secondpart');
@@ -433,7 +480,7 @@
         //alert("e")
         var taille = document.querySelector('.body');
 
-        taille.classList.add('h-[60vh]');
+        taille.classList.add('h-[100vh]');
         taille.classList.add('mt-[30px]');
 
         var tailles = document.querySelector('.secondpart');
@@ -448,7 +495,7 @@
         //alert("e")
         var taille = document.querySelector('.body');
 
-        taille.classList.add('h-[80vh]');
+        taille.classList.add('h-[100vh]');
         taille.classList.add('mt-[80px]');
         taille.classList.add('z-10');
 
@@ -469,7 +516,7 @@
         //alert("e")
         var taille = document.querySelector('.body');
 
-        taille.classList.add('h-[100vh]');
+        taille.classList.add('h-[90vh]');
         taille.classList.add('mt-[20px]');
         taille.classList.add('z-10');
 
@@ -570,11 +617,13 @@
     let now = new Date();
 
  
+    var namefacture = document.querySelector('.namefacture').textContent.trim();
+    namefacture = namefacture.replace(/Client/g, '').replace(/_/g, '').replace(/\s+/g, '');
+    
+    namefacture = namefacture + now.toISOString().slice(0, 10) + '.pdf';
 
-    var namefacture =document.querySelector('.namefacture').textContent.trim() ;
-    namefacture = namefacture.replace(/Client/g,'').replace(/_/g, '').trim();
-    namefacture= namefacture + '_' + now.toISOString().slice(0, 10) + '.pdf';
 
+   
     
 
 
@@ -590,7 +639,8 @@
     // element.classList.add('bg-slate-300');
 
     // Génération et sauvegarde du PDF
-    //html2pdf().set(opt).from(element).save();
+    setTimeout(15000);
+    html2pdf().set(opt).from(element).save();
 
    // element.classList.remove('bg-slate-300');
 </script>

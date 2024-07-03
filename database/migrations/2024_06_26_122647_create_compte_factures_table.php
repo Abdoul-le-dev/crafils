@@ -21,9 +21,11 @@ return new class extends Migration
             $table->boolean('normaliser')->default(false);
             $table->String('type_reglement')->nullable();
             $table->String('montant_facture');
+            $table->String('tva');
             $table->String('total_payer');
             $table->string('total');
             $table->boolean('modifier')->default(false); 
+            $table->boolean('annuler')->default(false); 
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('client_id')->references('id')->on('clients');
             

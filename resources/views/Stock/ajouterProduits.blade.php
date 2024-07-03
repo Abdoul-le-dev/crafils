@@ -97,7 +97,7 @@
 
                     <label for="nom" class="FP-Menu ml-2 p-2 justify-center text-start " >Marque <span class="mx-3"></span></label>
                     <div class="w-40">
-                       <input type="text" name="marque"  class="border-2 w-full p-2 focus:outline-none focus:border-2 focus:border-blue-400 " required>
+                       <input type="text" name="marque" id="marque"  class="border-2 w-full p-2 focus:outline-none focus:border-2 focus:border-blue-400 " required>
 
                     </div>
                 </div>

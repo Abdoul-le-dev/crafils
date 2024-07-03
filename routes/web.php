@@ -10,7 +10,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CreancierController;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\Proformat;
-
+use App\Http\Controllers\ReturnBack;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,11 +33,15 @@ Route::get('/', function () {
 Route::middleware(['auth'])->group(function()
 {
 
-            //Dashboard
+        //Dashboard
         Route::get('/dashboard',[UserController::class,'Dashboard'])->name('Dashboard');
 
         //tâche principale
         Route::get('/stock',[UserController::class,'Stock'])->name('Stock');
+
+        // Annuler
+
+        Route::get('/return',[ReturnBack::class,'return'])->name('ReturnBack');
 
 
 
@@ -110,6 +114,12 @@ Route::middleware(['auth'])->group(function()
 
         // ajout client
 
+        Route::get('/section_client',[clients::class,'section_client'])->name('section_client');
+
+        Route::get('/client_entreprise',[clients::class,'Ajout_entreprise'])->name('Ajout_entreprise');
+
+        Route::post('/client_entreprise',[clients::class,'Ajout_entrepriset'])->name('Ajout_entreprise');
+
         Route::post('/client',[clients::class,'Ajout_client'])->name('Ajout_Client');
 
         Route::post('/stock',[CategoriesController::class,'AjouterCategorie'])->name('Add_Categorie');
@@ -160,6 +170,11 @@ Route::middleware(['auth'])->group(function()
 
         //Alerte admin 
         Route::get('/alerte_facture',[Proformat::class,'alerte_facture']);
+
+        //Annuler facture 
+        Route::get('/annuler',[VenteController::class,'Annuler'])->name('Annuler');
+       
+
 
 
 

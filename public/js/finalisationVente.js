@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
         client = getClient();
 
 
-        divQ.innerHTML = '<div class="w-full flex flex-row"><input type="text" id="searchInput" class="FP-Menu  border-2 p-2  focus:outline-none focus:border-2 focus:border-blue-400 " id="searchInput" placeholder="Rechercher "> <select id="Clients" name="Clients"  class="Clients idClients FP-Menu w-40 border-2 p-2  text-xs focus:outline-none focus:border-2 focus:border-blue-400 " required><option value="">Search</option></select></div>'
+        divQ.innerHTML = '<div class="w-full flex flex-row"><input type="text" id="searchInput" class="FP-Menu  border-2 p-2  focus:outline-none focus:border-2 focus:border-blue-400 " id="searchInput" placeholder="Rechercher "> <select id="Clients" name="Clients"  class="Clients idClients FP-Menu w-40 border-2 p-2  text-xs focus:outline-none focus:border-2 focus:border-blue-400 " required><option value="">Selectionnez le client</option></select></div>'
 
         var selected = document.querySelector('.Clients');
 
@@ -172,8 +172,23 @@ document.addEventListener('DOMContentLoaded', function () {
             childtranche.className = "childTranche";
             var childTranche = document.querySelector('.childTranche');
 
-            childTranche.innerHTML = '<div class="flex flex-row mx-4 my-4 w-full " > <label for="description" class="FP-Menu ml-2 py-2 text-xs " >Montant<span class="ml-2"></span></label><input type="text" name="montant" required  class="ClientName border-2 FP-error p-2 focus:outline-none focus:border-2 focus:border-blue-400 " required></div>';
-  
+            childTranche.innerHTML = '<div class="flex flex-row mx-4 my-4 w-full " > <label for="montant" class="FP-Menu ml-2 py-2 text-xs " >Montant<span class="ml-2"></span></label><input type="text" id="montant" name="montant" required  class="ClientName border-2 FP-error p-2 focus:outline-none focus:border-2 focus:border-blue-400 " required></div>';
+            var montantdiv = document.querySelector('input[name="montant"]');
+            if( montantdiv)
+                {
+                             montantdiv.addEventListener("input", function() {
+                                // Définir les caractères autorisés (par exemple, uniquement alphanumériques)
+                                const caracteresValides = /^[0-9]*$/;
+                        
+                                // Obtenir la valeur actuelle de la saisie
+                                let valeur = montantdiv.value;
+                        
+                                // Supprimer les caractères invalides
+                                if (!caracteresValides.test(valeur)) {
+                                    montantdiv.value = valeur.replace(/[^0-9]/g, '');
+                                }
+                            });
+                }  
         });
 
         var Ac = document.querySelector('.Ac');
@@ -239,8 +254,23 @@ document.addEventListener('DOMContentLoaded', function () {
             childtranche.className = "childTranche";
             var childTranche = document.querySelector('.childTranche');
 
-            childTranche.innerHTML = '<div class="flex flex-row mx-4 my-4 w-full " > <label for="description" class="FP-Menu ml-2 py-2 text-xs " >Montant<span class="ml-2"></span></label><input type="number" name="montant" required  class="ClientName border-2 FP-error p-2 focus:outline-none focus:border-2 focus:border-blue-400 " required></div>';
-  
+            childTranche.innerHTML = '<div class="flex flex-row mx-4 my-4 w-full " > <label for="montant" class="FP-Menu ml-2 py-2 text-xs " >Montant<span class="ml-2"></span></label><input type="text" name="montant" id="montant"  required  class="ClientName border-2 FP-error p-2 focus:outline-none focus:border-2 focus:border-blue-400 " required></div>';
+            var montantdiv = document.querySelector('input[name="montant"]');
+            if( montantdiv)
+                {
+                             montantdiv.addEventListener("input", function() {
+                                // Définir les caractères autorisés (par exemple, uniquement alphanumériques)
+                                const caracteresValides = /^[0-9]*$/;
+                        
+                                // Obtenir la valeur actuelle de la saisie
+                                let valeur = montantdiv.value;
+                        
+                                // Supprimer les caractères invalides
+                                if (!caracteresValides.test(valeur)) {
+                                    montantdiv.value = valeur.replace(/[^0-9]/g, '');
+                                }
+                            });
+                } 
         });
         var Ac = document.querySelector('.Ac');
         var Pc = document.querySelector('.Pc');
@@ -395,8 +425,15 @@ function validationFormulaire()
                                 total += parseFloat(e.total );
 
                                 })
-                                total = total + (total*18)/100
-                                if(montant > total )
+                                if(facture ==='simple')
+                                {
+                                    total = total
+                                }else
+                                {
+                                    total = total + (total*18)/100
+                                } 
+                                
+                                if(montant > total  )
                                 {
                                     alert('Le montant en tranche ne peut être supérieur au total de la facture');
                                         e.preventDefault();
@@ -458,8 +495,6 @@ function validationFormulaire()
             var _token = $('input[type="hidden"]').attr('value');
     
             e.preventDefault();
-           
-           
             var panier = getPanier();
     
            $.ajax({
@@ -478,26 +513,83 @@ function validationFormulaire()
             },
             success:  function(data)
             {   
-               
-                e.preventDefault();
-                pop2();
-                PopR();
-                localStorage.removeItem('Panier');
-
-                // Recharge la page actuelle
-                
-
-                // Dirige vers une autre URL dans un nouvel onglet après le rechargement
-               
-                    var url = 'http://www.crafils.com/visualiser?numero_facture=' + data;
-                    window.open(url, '_blank');
-
-
+                function destroy(motif)
+                {   
+                    alert(motif)
+                    localStorage.removeItem('Panier');
                     location.reload();
+                    
+
+                   
+                }
+            
+               var motif ='';
+               if(data == 201)
+                {
+                    motif ='type factures non identifié';
+
+                    destroy(motif);
+
+                }
+               else if(data == 202)
+                {
+                    motif ='quantite insuffisantes';
+                    destroy(motif);
+
+                }
+                else if(data == 203)
+                {
+                    motif ="le produit n'existe pas";
+                    destroy(motif);
+
+                }else if(data == 204)
+                {
+                    motif="manipulation de donnée type facture annonyme";
+                    destroy(motif);
+                }else if(data == 205)
+                {
+                    motif ='manipulation de donnée  type facture clients enregistré';
+                    destroy(motif);
+
+                }else if(data == 206)
+                {
+                     motif ='erreur serveur veuillez reprendre generation facture';
+                     destroy(motif);
+    
+                }else if(data == 207)
+                {
+                    motif ='impossible de determiner le type de facture';
+                    destroy(motif);
+    
+                }else if(data == 208)
+                {
+                     motif ='impossible de determiner le type de facture';
+                     destroy(motif);
+        
+                }else
+                {
+                    e.preventDefault();
+                    pop2();
+                    PopR();
+                    localStorage.removeItem('Panier');
+    
+                    // Recharge la page actuelle
+                    
+    
+                    // Dirige vers une autre URL dans un nouvel onglet après le rechargement
+                   
+                        var url = 'http://127.0.0.1:8000/visualiser?numero_facture=' + data;
+                        window.open(url, '_blank');
+    
+    
+                        location.reload();
+                }
+              
+               
                 
                 
             }
-            
+           
     
            });
     

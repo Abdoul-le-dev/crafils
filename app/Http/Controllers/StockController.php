@@ -108,35 +108,35 @@ class StockController extends Controller
         );
 
     }
-public function essaie()
-{   if(isset($_GET["produit"]) && $_GET["produit"] == 1 )
-    {
+    public function essaie()
+    {   if(isset($_GET["produit"]) && $_GET["produit"] == 1 )
+        {
 
-        $produit = produit::all();
-        return response()->json(["Produit" => $produit]);
+            $produit = produit::all();
+            return response()->json(["Produit" => $produit]);
 
-        //var_dump($produit);
-        //die();
+            //var_dump($produit);
+            //die();
+        }
+
+
+            // return view('vente.getdata',compact('produit'));
     }
 
+    public function client()
+    {   if(isset($_GET["client"]) && $_GET["client"] == 1 )
+        {
 
-        // return view('vente.getdata',compact('produit'));
-}
+            $clients = Client::select('id', 'nom','n_societe','prenom')->get();
+            return response()->json(["Client" => $clients]);
 
-public function client()
-{   if(isset($_GET["client"]) && $_GET["client"] == 1 )
-    {
+            //var_dump($produit);
+            //die();
+        }
 
-        $clients = Client::select('id', 'nom','n_societe','prenom')->get();
-        return response()->json(["Client" => $clients]);
 
-        //var_dump($produit);
-        //die();
+            // return view('vente.getdata',compact('produit'));
     }
-
-
-        // return view('vente.getdata',compact('produit'));
-}
 
 }
 

@@ -26,7 +26,7 @@
 
       <div class="flex flex-col shadow-lg border-2 border-black w-48  justify-center items-center rounded-lg mx-2 m-10">
          <img src="Icons/customer.png" alt="" class="mr-2 ml-3 h-10 w-10 my-4 cursor-pointer">
-         <a href="{{ route('Ajout_Client')}}" class="bg-indigo-200 p-2 rounded-lg my-4 FP-Menu">Nouveau client</a>
+         <a href="{{ route('section_client')}}" class="bg-indigo-200 p-2 rounded-lg my-4 FP-Menu">Nouveau client</a>
       </div>
 
       <div class="flex flex-col shadow-lg border-2 border-black w-48  justify-center items-center rounded-lg mx-2 m-10">

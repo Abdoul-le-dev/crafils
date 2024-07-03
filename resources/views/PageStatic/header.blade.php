@@ -86,15 +86,17 @@
                <div class="flex flex-row  mb-5 mt-3 cursor-pointer A12 hidden">
                     <img src="image/ajouter.png" alt="facture_simple" class="mr-2 ml-3 h-5 w-5">
 
-                    <h2 class="FP-Menu Menu hover:text-indigo-500" id=""><a href="{{route('facture_simple')}}">Facture simple </a> </h2>
+                    <h2 class="FP-Menu Menu hover:text-indigo-500" id=""><a href="{{route('facture_simple')}}">Facture Hors taxe </a> </h2>
 
                 </div>
+
+               
 
                 <div class="flex flex-row h-5 w-5 mb-5 mt-3 cursor-pointer">
 
                     <img src="image/revoir.png" alt="Client" class="mr-2">
         
-                    <h2 class="FP-Menu Menu hover:text-indigo-500"><a href="{{ route('Ajout_Client')}}">Client</a></h2>
+                    <h2 class="FP-Menu Menu hover:text-indigo-500"><a href="{{ route('section_client')}}">Client</a></h2>
         
                  </div>
                 <div class="flex flex-row h-5 w-5 mb-5 mt-3 cursor-pointer">
@@ -132,7 +134,7 @@
 
                     <h2 class="FP-Menu hover:text-indigo-500"><a href="{{ route('Historique')}}">Historique</a> </h2>
 
-                 </div>
+                </div>
 
                  <div class="flex flex-row h-5 w-5 mb-5 mt-3 cursor-pointer">
 
@@ -233,6 +235,16 @@
              </nav>
 
             <div>
+                <div class="hidden mt-10" id="errors">
+
+                    <div class="p-3 absolute bg-white m-2 right-0 mr-10 text-base">
+
+
+                        <li class="text-red-500 FP-error Message"></li>
+
+                    </div>
+
+                </div>
                 @if(Session::has('success'))
 
                 <div class="p-3 absolute bg-white m-2 right-0 mr-10">
@@ -276,7 +288,30 @@
                 </div>
 
                 @endif
-                    @yield('page')
+                @if ($errors)
+
+
+
+
+                    @foreach ($errors ->all()  as $error )
+
+                        <div class="p-3 absolute bg-white m-2 right-0 mr-10">
+
+
+                                <li class="text-red-300 FP-error"> {{ $error}}</li>
+
+                        </div>
+
+
+
+                    @endforeach
+
+                @endif
+                
+
+            
+                
+                @yield('page')
              </div>
             </div>
 

@@ -11,22 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('clients', function (Blueprint $table) {
+        Schema::create('proformats', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-
-            $table->string('nom')->nullable();
-            $table->string('n_societe')->nullable();
-            $table->string('prenom')->nullable();
-            $table->string('num_ifu')->nullable();
-           $table->string('rcm')->nullable();
-
-            $table->string('email');
-            $table->string('telephone');
-            $table->string('address');
-            $table->timestamps();
-
+            $table->string('num_facture');
+            $table->unsignedBigInteger('produit_id');
+            $table->bigInteger('quantite');
+            $table->string('total');
+            $table->bigInteger('edit')->default(false);
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('produit_id')->references('id')->on('produits');
+            $table->timestamps();
         });
     }
 
@@ -35,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('clients');
+        Schema::dropIfExists('proformats');
     }
 };

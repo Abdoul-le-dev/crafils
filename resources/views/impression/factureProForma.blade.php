@@ -88,7 +88,7 @@
             <form action="" method="post">
                 @csrf
                 <label for="num-facture" class="FP-Menu">Numero Facture</label>
-                <input type="number" class="Recherchefacture border-2 border-indigo-500/50 p-2 rounded-lg focus:outline-none focus:border-indigo-500/100 w-60 FP-error" placeholder="Rechercher">
+                <input type="text" id="numfacture" class="Recherchefacture border-2 border-indigo-500/50 p-2 rounded-lg focus:outline-none focus:border-indigo-500/100 w-60 FP-error" placeholder="Rechercher">
                 <input type="number" class="hidden type" value="1">
             </form>
         </div>
@@ -124,7 +124,7 @@
 
                
                 <button class="flex p-2 bg-red-300 rounded-lg mx-3 hover:bg-red-500   hover:text-white">
-                    <a href="{{ route('visualiser',['numero_facture'=>$facture->num_factures])}}"  class="FP-error pointer">Annuler</a>
+                    <a href="{{ route('Annuler',['numero_facture'=>$facture->num_factures])}}"  class="FP-error pointer">Annuler</a>
                 </button>
 
                 <button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black   hover:text-white">

@@ -186,6 +186,18 @@ function rechercheProduits() {
 
         produitStock = produitRecherche;
 
+        P1.classList.remove('text-red-500');
+        P3.classList.remove('text-red-500');
+        P4.classList.remove('text-red-500');
+        P5.classList.remove('text-red-500');
+        P6.classList.remove('text-red-500');
+
+        P1.classList.add('text-black');
+        P3.classList.add('text-black');
+        P4.classList.add('text-black');
+        P5.classList.add('text-black');
+        P6.classList.add('text-black');
+
 
 
     } else {
@@ -233,6 +245,31 @@ function savePanier(Panier) {
 }
 
 var lt = 3;
+function gestionStatus()
+{
+    var total = document.querySelector('.Produit');
+       
+    if(total )
+    {
+        total.classList.remove('hidden');
+        total.classList.add('block');
+    }
+    var Evalue = document.querySelector('.Evalue');
+   
+    if(Evalue )
+    {
+        Evalue.classList.add('hidden');
+     
+    }
+
+    var Totaux = document.querySelector('.Totaux');
+   
+    if(Totaux)
+    {
+        Totaux.classList.add('hidden');
+     
+    }
+}
 
 window.addEventListener('load', function (event) {
 
@@ -244,32 +281,24 @@ window.addEventListener('load', function (event) {
     calculeTotal();
     if(paniers.length ==  0)
     {
-        var total = document.querySelector('.Totaux');
-        var Evalue = document.querySelector('.Evalue')
-
-        if(total !== null)
-        {
-            total.classList.add('hidden');
-        }
-        if(Evalue !== null)
-        {
-            Evalue.classList.add('hidden');
-        }
+       
+        gestionStatus()
 
        
         
     }
    
      
-
-    
+        
         // Votre code ici
         paniers.forEach(function(produitStock) {
 
             var divP = document.querySelector('.Generates');
 
             if(alpha <3 && divP)
-            {
+            {   
+               
+    
                // var divP = document.querySelector('.Generates');
                 alpha++;
            
@@ -524,9 +553,6 @@ function   addProduit() {
                     alfa++;
                 });
         
-                
-        
-            
                 //alert(alfa)
                 
                 if ( alfa % 4 == 0) {
@@ -548,7 +574,7 @@ calculeTotal();
 }
 }
 
-function  create()
+function  creates()
 {
 
     Produit =
@@ -582,7 +608,7 @@ function  create()
     var tr1 = document.createElement('tr');
     var tr2 = document.createElement('tr');
 
-    table.className = "border-separate border  hidden md:block";
+    table.className = "border-separate border  hidden md:block";  
     tr1.className = "bg-[#F8FAFC]";
 
     divT.appendChild(table);
@@ -728,21 +754,182 @@ function  create()
 
     calculeTotal();
 
- }
- if(paniers.length >  0)
- {
-     var total = document.querySelector('.Totaux');
-     var Evalue = document.querySelector('.Evalue')
+     }
+    if(paniers.length >  0)
+    {
+        var total = document.querySelector('.Produit');
+        var Evalue = document.querySelector('.Evalue')
 
-     total.classList.remove('hidden');
-     Evalue.classList.remove('hidden');
- }
+        total.classList.remove('hidden');
+        Evalue.classList.remove('hidden');
+    }
 
     Panier = getPanier();
     Panier.push(Produit);
     savePanier(Panier);
 
 }
+function create() {
+   
+
+    var Produit = {
+        nom: produitStock.nom,
+        reference: produitStock.reference,
+        prix: produitStock.prix,
+        quantite: 1,
+        quantiteStock: produitStock.quantiteStock,
+        total: produitStock.prix,
+    };
+
+    var paniers = getPanier();
+    paniers.push(Produit);
+    savePanier(paniers);
+    if( paniers.length <=3 )
+    {
+        var divP = document.querySelector('.Generates');
+        var divS = document.createElement('div');
+        divP.appendChild(divS);
+        divS.className = "flex flex-row panierContainer w-full my-3 P" + produitStock.reference;
+    
+        var divT = document.createElement('div');
+        var divQ = document.createElement('div');
+        divS.appendChild(divT);
+        divS.appendChild(divQ);
+    
+        var table = document.createElement('table');
+        var thead = document.createElement('thead');
+        var tbody = document.createElement('tbody');
+        var tr1 = document.createElement('tr');
+        var tr2 = document.createElement('tr');
+        table.className = "border-separate border hidden md:block";
+        tr1.className = "bg-[#F8FAFC]";
+        divT.appendChild(table);
+        table.appendChild(thead);
+        table.appendChild(tbody);
+        thead.appendChild(tr1);
+        tbody.appendChild(tr2);
+    
+        var th1 = document.createElement('th');
+        var th2 = document.createElement('th');
+        var th3 = document.createElement('th');
+        var th4 = document.createElement('th');
+        var th5 = document.createElement('th');
+        var td1 = document.createElement('td');
+        var td2 = document.createElement('td');
+        var td3 = document.createElement('td');
+        var td4 = document.createElement('td');
+        var td5 = document.createElement('td');
+    
+        th1.className = "FP-Menu text-xs font-thin border border-slate-300 py-2 px-2 text-xs";
+        th2.className = "FP-Menu text-xs font-thin border border-slate-300 py-2 px-3 text-xs";
+        th3.className = "FP-Menu text-xs font-thin border border-slate-300 py-2 px-3 text-xs";
+        th4.className = "FP-Menu text-xs font-thin border border-slate-300 py-2 px-1 text-xs";
+        th5.className = "FP-Menu text-xs font-thin border border-slate-300 py-2 px-3 text-xs";
+        var idth5 = 'total' + produitStock.reference;
+        td1.className = "FP-Menu text-xs font-thin border border-slate-300 p-2";
+        td2.className = "FP-Menu text-xs font-thin border border-slate-300 p-2";
+        td3.className = "FP-Menu text-xs font-thin border border-slate-300 p-2";
+        td4.className = "FP-Menu text-xs font-thin border border-slate-300 p-2";
+        td5.className = idth5 + " FP-Menu text-xs font-thin border border-slate-300 p-2 total";
+    
+        th1.textContent = 'Nom du produit';
+        th2.textContent = 'Référence';
+        th3.textContent = 'Prix';
+        th4.textContent = 'Quantité';
+        th5.textContent = 'Total';
+    
+        td1.textContent = produitStock.nom;
+        td2.textContent = produitStock.reference;
+        td3.textContent = produitStock.prix;
+        td5.textContent = produitStock.prix;
+    
+        var inputQuantite = document.createElement('input');
+        inputQuantite.className = "quantity";
+        var ids = "quantity" + produitStock.reference;
+    
+        inputQuantite.type = 'number';
+        inputQuantite.id = produitStock.reference;
+        inputQuantite.name = 'quantite';
+        inputQuantite.min = '1';
+        inputQuantite.max = produitStock.quantiteStock;
+        inputQuantite.value = 1;
+        inputQuantite.className = ids + ' w-16 focus:outline-none';
+        td4.appendChild(inputQuantite);
+    
+        inputQuantite.addEventListener('input', function (event) {
+            var value = event.target.value;
+            var max = event.target.max;
+            var nombre = produitStock.prix * parseInt(value);
+    
+            if (nombre % 1 !== 0) {
+                td5.textContent = parseFloat(nombre.toFixed(2));
+            } else {
+                td5.textContent = nombre;
+            }
+    
+            if (parseInt(value) > parseInt(max)) {
+                value = 1;
+                inputQuantite.value = value;
+                td5.textContent = produitStock.prix * 1;
+                total = produitStock.prix * 1;
+                alert('Stock insuffisant');
+            }
+    
+            var id = event.target.id;
+            panier = getPanier();
+            panier.forEach(function (e) {
+                if (e.reference == id) {
+                    e.quantite = parseInt(value);
+                    e.total = parseInt(total);
+                    savePanier(panier);
+                }
+            });
+    
+            calculeTotal();
+        });
+    
+        tr1.appendChild(th1);
+        tr1.appendChild(th2);
+        tr1.appendChild(th3);
+        tr1.appendChild(th4);
+        tr1.appendChild(th5);
+        tr2.appendChild(td1);
+        tr2.appendChild(td2);
+        tr2.appendChild(td3);
+        tr2.appendChild(td4);
+        tr2.appendChild(td5);
+    
+        divQ.className = 'm-2 mt-5';
+        var imgTrash = document.createElement('img');
+        imgTrash.src = 'Icons/trash.png';
+        imgTrash.alt = 'image';
+        imgTrash.className = 'w-12 h-12 cursor-pointer trash' + produitStock.reference;
+        divQ.appendChild(imgTrash);
+    
+        var im = '.trash' + produitStock.reference;
+        var img = document.querySelector(im);
+        img.addEventListener('click', function () {
+            deleteProduits(produitStock.reference);
+            calculeTotal();
+        });
+    
+        calculeTotal();
+    
+    }
+ 
+    
+    if (paniers.length > 0) {
+        var total = document.querySelector('.Produit');
+        var Evalue = document.querySelector('.Evalue');
+        total.classList.remove('hidden');
+        Evalue.classList.remove('hidden');
+    }
+
+    Panier = getPanier();
+    //Panier.push(Produit);
+    savePanier(Panier);
+}
+
 
 var tabInput = document.getElementsByName('quantite');
 
@@ -795,6 +982,7 @@ function deleteProduits(id)
 
   
   calculeTotal();
+  gestionStatus();
 }
 
 function deletePanier()
@@ -1045,24 +1233,41 @@ function calculeTotal()
 {
     var panier = getPanier();
     var total = 0;
-    panier.forEach(function(e)
+    
+    if(panier.length >=1)
     {
-       total += parseFloat(e.total );
+        panier.forEach(function(e){
+        total += parseFloat(e.total );
 
-    })
-    var tvaa= (total*18)/100;
-    var ttcc = tvaa + total;
-    var Total = document.querySelector('.Total');
-    var Tva = document.querySelector('.TVA');
-    var Ttc = document.querySelector('.TTC');
-    var Totaux = document.querySelector('.Totaux');
-
-    if(Totaux !== null)
-    {
-        Total.textContent = total + ' '+'FCFA' ;
-        Tva.textContent = tvaa +' '+'FCFA' ;
-        Ttc.textContent = ttcc + ' FCFA' ;
+        })
+        var tvaa= (total*18)/100;
+        var ttcc = tvaa + total;
+        ttcc =parseFloat(ttcc.toFixed(2));
+        var Total = document.querySelector('.Total');
+        var Tva = document.querySelector('.TVA');
+        var Ttc = document.querySelector('.TTC');
+        var Totaux = document.querySelector('.Totaux');
+        var status = document.querySelector('.Produit');
+        var Evalue = document.querySelector('.Evalue');
+        if(status)
+        {
+            status.classList.add('hidden');
+        }
+        if(Evalue)
+        {
+            Evalue.classList.remove('hidden')
+            Evalue.classList.add('block'); 
+        }
+        if(Totaux)
+            { Totaux.classList.remove('hidden')
+               Totaux.classList.add('block'); 
+                Total.textContent = total + ' '+'FCFA' ;
+                Tva.textContent = tvaa +' '+'FCFA' ;
+                Ttc.textContent = ttcc + ' FCFA' ;
+            }
     }
+
+    
 
 
     

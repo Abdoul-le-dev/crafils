@@ -45,6 +45,14 @@ class User extends Authenticatable
 
     public function vente()
     {
-        return $this->hasMany(vente::class);
+        return $this->hasMany(Sale::class);
+    }
+    public function sales()
+    {
+        return $this->hasMany(Proformat::class);
+    }
+    public function facture()
+    {
+        return $this->hasMany(CompteFacture::class);
     }
 }

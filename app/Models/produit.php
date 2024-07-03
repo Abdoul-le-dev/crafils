@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Controllers\Proformat;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\categorie;
@@ -20,6 +21,10 @@ class produit extends Model
     public function ventes()
     {
         return $this->hasMany(Sale::class);
+    }
+    public function sales()
+    {
+        return $this->hasMany(Proformat::class);
     }
 
     public function scopeFilter(

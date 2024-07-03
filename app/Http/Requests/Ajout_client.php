@@ -22,8 +22,6 @@ class Ajout_client extends FormRequest
     public function rules(): array
     {
         return [
-            'nom'    => 'required|min:3',
-            'prenom' => 'required|min:3',
             'email'  => 'email|required',
             'telephone' => 'required|min:8',
             'address' =>'required'
@@ -33,11 +31,7 @@ class Ajout_client extends FormRequest
     public function messages()
     {
         return [
-            'nom.required' => 'Le  nom du client est requis',
-            'nom.min' => 'Le nom du client doit comporter au moins trois caractères.',
-
-            'prenom.required' => 'Le prenom du client est requis',
-            'prenom.min' => 'Le prenom du client doit comporter au moins trois caractères.',
+           
 
 
 

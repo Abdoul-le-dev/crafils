@@ -14,8 +14,8 @@
             
             <form action="" method="post">
                 @csrf
-                <label for="num-facture" class="FP-Menu">Numero Facture</label>
-                <input type="number" class="Recherchefacture border-2 border-indigo-500/50 p-2 rounded-lg focus:outline-none focus:border-indigo-500/100 w-60 FP-error" placeholder="Rechercher">
+                <label for="numfacture" class="FP-Menu">Numero Facture</label>
+                <input type="text" id="numfacture" class="Recherchefacture border-2 border-indigo-500/50 p-2 rounded-lg focus:outline-none focus:border-indigo-500/100 w-60 FP-error" placeholder="Rechercher">
                 <input type="number" class="hidden type" value="3">
             </form>
         </div>
@@ -23,7 +23,7 @@
 
        <div class="Contenu">
         
-        @foreach ($derniere_facture as $facture )
+        @forelse($derniere_facture as $facture )
 
        <div class="flex flex-row p-5 m-5  align-center bg-stone-300 justify-between">
            
@@ -57,7 +57,7 @@
                     <a href="{{route('details',['numero_facture'=>$facture->num_factures]) }}" class="details{{$facture->num_factures}} FP-error pointer">Détails</a>
                 </button>
                 <button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:text-white">
-                    <a href="{{ route('visualiser',['numero_facture'=>$facture->num_factures])}}"  class="FP-error pointer">Annuler</a>
+                    <a href="{{ route('Annuler',['numero_facture'=>$facture->num_factures])}}"  class="FP-error pointer">Annuler</a>
                 </button>
 
                 <button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:text-white">
@@ -107,8 +107,17 @@
          
         </script>
        
+        @empty
+
+        <div class="next-contenu hidden flex p-5 mt-8 justify-center align-center">
+
+            <h3 class="FP-error  text-red-400">Auccune facture trouvé</h3>
+
+        </div>
+       
             
-        @endforeach 
+        @endforelse    
+       
        </div>
 
        

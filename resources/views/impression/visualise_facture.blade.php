@@ -80,15 +80,15 @@
     <div class="mt-6 bg-white min-h-[300px] p-4">
         
         <div class="flex justify-center p-2 mb-2">
-            <h1 class="FP-Menu">Factures Simples</h1>
+            <h1 class="FP-Menu">Factures Hors taxe</h1>
         </div>
         <div class="p-3 ml-5 flex flex-row">
 
             
             <form action="" method="post">
                 @csrf
-                <label for="num-facture" class="FP-Menu">Numero Facture</label>
-                <input type="number" class="Recherchefacture border-2 border-indigo-500/50 p-2 rounded-lg focus:outline-none focus:border-indigo-500/100 w-60 FP-error" placeholder="Rechercher">
+                <label for="numfacture" class="FP-Menu">Numero Facture</label>
+                <input type="text" id="numfacture" class="Recherchefacture border-2 border-indigo-500/50 p-2 rounded-lg focus:outline-none focus:border-indigo-500/100 w-60 FP-error" placeholder="Rechercher">
                 <input type="number" class="hidden type " value="2">
 
             </form>
@@ -105,11 +105,27 @@
                     <h3 class="flex flex-row FP-error m-2"><img src="Icons/play.png"  alt="">
                         <span>N°</span> {{$facture->num_factures}}
                         </h3>
-                    <h3 class="FP-error m-2"><span class="">Client-</span>{{$facture->client_anonyme}}
+                    <h3 class="FP-error m-2"><span class="">Client-</span>
                         @if ($facture->client_id != null)
 
-                        {{$facture->client->nom}}-{{$facture->client->n_societe}}
-                            
+                          
+
+                        
+                            @if ($facture->num_ifu != null)
+
+                            {{$facture->client->n_societe}}
+
+                            @else
+
+                            {{$facture->client->nom}}-{{$facture->client->prenom}}
+
+                            @endif
+
+                        @else 
+
+                        {{$facture->client_anonyme}}
+
+
                         @endif
                     </h3>
                     
@@ -117,16 +133,14 @@
 
                 <div class="flex flex-row " >
 
-                        <button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:text-white" id="{{$facture->num_factures}}">
-                            <a href="{{ route('modifier_facture', ['numero_facture' =>$facture->num_factures])}}" class="FP-error pointer">Modifier la facture</a>
-                        </button>
+                       
 
                         <button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:text-white">
                             <a href="{{route('details',['numero_facture'=>$facture->num_factures]) }}" class="details{{$facture->num_factures}} FP-error pointer">Détails</a>
                         </button>
 
                         <button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:text-white">
-                            <a href="{{ route('visualiser',['numero_facture'=>$facture->num_factures])}}" target="_blank" class="FP-error pointer">Visualiser</a>
+                            <a href="{{ route('Annuler',['numero_facture'=>$facture->num_factures])}}" target="_blank" class="FP-error pointer">Visualiser</a>
                         </button>
 
                         <button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:text-white">

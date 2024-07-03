@@ -83,16 +83,26 @@
 
     <div class="bg-white rounded-sm  flex flex-col sm:h-full h-[80vh] " style="">
 
+      <div class="hidden" id="errors">
+
+        <div class="p-3 absolute bg-white m-2 right-0 mr-10 my-10">
 
 
-        <div class="flex justify-center mt-4 text-blue-600 ">
+            <li class="text-red-300 FP-error Message"></li>
+            <li>p</li>
+
+        </div>
+
+      </div>
+
+        <div class="flex mt-4 text-blue-600 ">
             <h2 class="FP-error font-bold ">Vendre Produits</h2>
         </div>
 
 
         <div class="flex flex-row  " style="min-width:600px ,">
 
-            <div class="w-1/2 p-2" >
+            <div class="w-[250px] p-2" >
 
 
                 <div class=" FP-error flex flex-row justify-center">
@@ -102,7 +112,7 @@
 
 
                       <div class="flex flex-row p-2 w-full ">
-                        <label for="" class="p-2 FP-error font-bold text-xs ">N° Reférence</label>
+                        <label for="Rp" class="p-2 FP-error font-bold text-xs ">N° Reférence</label>
                         <div class="w-1/2">
                             <input type="text" name="reference" id="Rp" class="Rp FP-error Ref border-2 p-2 w-full focus:outline-none focus:border-2 focus:border-blue-400 " placeholder="Entrez le numéro de réference" >
                         </div>
@@ -321,27 +331,34 @@
                 <div class=" FP-error flex flex-row justify-center"><h3 class="FP-error font-bold">Panier</h3></div>
                 
                 
-               <div class="flex flex-row Totaux">
+               <div class="flex flex-row Totaux hidden">
 
                    
                     <p class=" FP-error font-bold p-2 ">Total Hors Taxe: <a  class="Total text-blue-400"></a></p>
                    
 
                    
-                    <p class=" FP-error font-bold p-2 ">TVA: <a  class="TVA text-blue-400"></a></p>
+                    <p class=" FP-error font-bold p-2 TVAP ">TVA: <a  class="TVA text-blue-400"></a></p>
                    
 
                    
-                    <p class=" FP-error font-bold p-2 ">Total TTC: <a  class="TTC text-blue-400"></a></p>
+                    <p class=" FP-error font-bold p-2 TTCP">Total TTC: <a  class="TTC text-blue-400"></a></p>
                    
                 </div>
                 <div class="Generates">
 
+                 
+
+                </div>
+                <div class="flex flex-col justify-center items-center h-full Produit">
+                  <span class="FP-error text-base text-green-400">
+                    Auccun produit ajouter au panier 
+                  </span>
                 </div>
 
 
 
-                <div class=" Evalue flex  flex-row items-center mt-10  rounded-sm Buttonse">
+                <div class="Evalue flex  flex-row items-center mt-10  rounded-sm Buttonse hidden">
                    <div class="flex  flex-row ">
                     <a onclick="prevPage()" class="FP-error bg-indigo-200 p-2 mx-1 rounded-sm cursor-pointer  hover:bg-green-400">
                         <h4 class="FP-error">Précédent</h4>
