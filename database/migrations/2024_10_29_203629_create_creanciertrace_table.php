@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('creancier_traçabilities', function (Blueprint $table) {
+        Schema::create('creanciertrace', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->String('numero_facture')->unique();
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('creancier_traçabilities');
+        Schema::dropIfExists('creanciertrace');
     }
 };

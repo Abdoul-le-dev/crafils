@@ -19,7 +19,7 @@ return new class extends Migration
             $table->String('reference')->unique();
             $table->String('nom');
            
-            $table->float('prix');
+            $table->decimal('prix',10,2);
             $table->bigInteger('quantite');
             $table->timestamps();
 
