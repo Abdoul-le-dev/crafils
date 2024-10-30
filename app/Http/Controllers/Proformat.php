@@ -110,7 +110,7 @@ class Proformat extends Controller
         }
         $tva =  ($tht * 18)/100;
         $ttc = $tht + $tva;
-        $date = '2024-10-19 16:32:17';
+        $date = '2024-10-19 16:37:07';
         $nombre_facture = $produits->count();
         $nombre = 2;
         $premiere =[];
