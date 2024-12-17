@@ -58,9 +58,9 @@ $(document).ready(function () {
                                                   '</div>' +
                                                   '<div class="flex flex-row">' +
                                                   '<button onclick="redirection_modif(' + item.num_factures + ')" class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:text-white" id="' + item.num_factures + '"><a href="" class="FP-error pointer">Modifier la facture</a></button>' +
-                                                  '<button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:text-white"><a href="http://127.0.0.1:8000/details?numero_facture=' + item.num_factures + '" class="FP-error pointer">Détails</a></button>' +
-                                                  '<button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:text-white"><a href="http://127.0.0.1:8000/visualiser?numero_facture=' + item.num_factures + '" class="FP-error pointer">Visualiser</a></button>' +
-                                                  '<button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:text-white"><a href="http://127.0.0.1:8000/visualisers?numero_facture=' + item.num_factures + '" class="FP-error pointer">Télécharger</a></button>' +
+                                                  '<button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:text-white"><a href="https://www.crafils.com/details?numero_facture=' + item.num_factures + '" class="FP-error pointer">Détails</a></button>' +
+                                                  '<button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:text-white"><a href="https://www.crafils.com/visualiser?numero_facture=' + item.num_factures + '" class="FP-error pointer">Visualiser</a></button>' +
+                                                  '<button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:text-white"><a href="https://www.crafils.com/visualisers?numero_facture=' + item.num_factures + '" class="FP-error pointer">Télécharger</a></button>' +
                                                   '<button class="flex p-2 bg-white rounded-lg mx-3 hover:bg-black hover:text-white"><a onclick="Pops(' + item.num_factures + ')" class="FP-error pointer">Normaliser la facture</a></button>' +
                                                   '</div>' +
                                                   '</div>';
