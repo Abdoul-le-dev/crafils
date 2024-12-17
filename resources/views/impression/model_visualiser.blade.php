@@ -31,10 +31,10 @@
             </div>
             <div class="flex flex-col ">
 
-                <p class=" FP-error text-xs"># Benin, Cotonou,Gbedjromede</p>
-                <p class=" FP-error text-xs">Industrie automobile de pièces détachées</p>
-                <p class="text-xs text-[#4287f5]  FP-error">Logistique | | 229 974 110 00</p>
-                <P class=" FP-error text-[#4287f5]"><span>www.crafils.com </span><span class="text-black">-</span><span> contact@crafils.com</span></P>
+                <p class=" FP-error text-lg font-bold"># Benin, Cotonou,Gbedjromede</p>
+                <p class=" FP-error text-lg font-bold">Industrie automobile de pièces détachées</p>
+                <p class="text-lg text-[#4287f5] font-bold FP-error">Logistique | | 229 974 110 00</p>
+                <P class=" FP-error text-[#4287f5] font-bold"><span>www.crafils.com </span><span class="text-black">-</span><span> contact@crafils.com</span></P>
 
             </div>
         </div>
@@ -50,16 +50,16 @@
                 <p class="FP-error"><span class="font-bold">
                     @if($donne_facture->type_facture == 1 && $donne_facture->normaliser ===0)
 
-                   <span class="text-[#4287f5]"> Proforma:</span>
+                   <span class="text-[#4287f5] font-bold"> Proforma:</span>
                     @endif
                     @if($donne_facture->type_facture == 2 && $donne_facture->normaliser ===0)
 
-                    <span class="text-[#4287f5]">Facture ratachée</span>
+                    <span class="text-[#4287f5] font-bold">Facture ratachée</span>
                     
                     @endif
                     @if($donne_facture->normaliser ===1)
 
-                   <span class="text-[#4287f5]">Rataché Facture Normaliser:</span>
+                   <span class="text-[#4287f5] font-bold">Rataché Facture Normaliser:</span>
                     @endif
                      </span>n°{{$donne_facture->num_factures}}
                 </p>
@@ -117,20 +117,20 @@
 
                     <tbody>
                         <tr>
-                        <td class="text-sm FP-error font-thin  border  border-slate-300 py-1 md:px-4 text-black-100">
+                        <td class="text-sm FP-error font-bold border  border-slate-300 py-1 md:px-4 text-black-100">
                             {{ $produit->produit->nom}}
                         </td>
-                        <td class="text-sm FP-error  font-thin border border-slate-300 py-1 md:px-4 text-blue-400">
+                        <td class="text-sm FP-error  font-bold border border-slate-300 py-1 md:px-4 text-blue-400">
                             {{ $produit->produit->reference}}
                         </td>
-                        <td class="text-sm FP-error font-thin border border-slate-300 py-1 md:px-4">
+                        <td class="text-sm FP-error font-bold border border-slate-300 py-1 md:px-4">
                                 {{ $produit->quantite}}
                         </td>
                         
-                        <td class="text-sm FP-error font-thin border border-slate-300 py-1 md:px-4">
+                        <td class="text-sm FP-error font-bold border border-slate-300 py-1 md:px-4">
                                 {{ $produit->produit->prix}}
                         </td>
-                        <td class="text-sm FP-error font-thin border border-slate-300 py-3 md:px-8">
+                        <td class="text-sm FP-error font-bold border border-slate-300 py-3 md:px-8">
                                 {{ $produit->total}}
                         </td>
                         
@@ -145,20 +145,20 @@
 
                         <tbody>
                             <tr>
-                            <td class="text-sm FP-error font-thin  border  border-slate-300 py-3 md:px-8 text-black-100">
+                            <td class="text-sm FP-error font-bold border  border-slate-300 py-3 md:px-8 text-black-100">
                                 {{ $produit->produit->nom}}
                             </td>
-                            <td class="text-sm FP-error  font-thin border border-slate-300 py-3 md:px-8 text-blue-400">
+                            <td class="text-sm FP-error  font-boldborder border-slate-300 py-3 md:px-8 text-blue-400">
                                 {{ $produit->produit->reference}}
                             </td>
-                            <td class="text-sm FP-error font-thin border border-slate-300 py-3 md:px-8">
+                            <td class="text-sm FP-error font-boldborder border-slate-300 py-3 md:px-8">
                                     {{ $produit->quantite}}
                             </td>
                             
-                            <td class="text-sm FP-error font-thin border border-slate-300 py-3 md:px-8">
+                            <td class="text-sm FP-error font-boldborder border-slate-300 py-3 md:px-8">
                                     {{ $produit->produit->prix}}
                             </td>
-                            <td class="text-sm FP-error font-thin border border-slate-300 py-3 md:px-8">
+                            <td class="text-sm FP-error font-boldborder border-slate-300 py-3 md:px-8">
                                     {{ $produit->total}}
                             </td>
                             
@@ -278,9 +278,9 @@
 
         <div class="flex flex-col mt-[50px] justify-center items-center troisiemepart ">
 
-            <p class="FP-error text-xs mb-2 text-black">C/1090 Mininkpo Cotonou Tel: 97 41 10 00 64 86 29 06</p>
-            <p class="FP-error text-xs mb-2 text-black">RCCM: RB/COT/16B 16829 || IFU: 3201642255315 || Email: rcaetfils@gmail.com</p>
-            <p class="FP-error text-xs  text-black">Depuis 10 ans, qualité et prix compétitifs demeurent notre engagement pour vous satisfaire.</p>
+            <p class="FP-error text-lg mb-2 text-black font-bold">C/1090 Mininkpo Cotonou Tel: 97 41 10 00 64 86 29 06</p>
+            <p class="FP-error text-lg mb-2 text-black font-bold">RCCM: RB/COT/16B 16829 || IFU: 3201642255315 || Email: rcaetfils@gmail.com</p>
+            <p class="FP-error text-lg  text-black font-bold">Depuis 10 ans, qualité et prix compétitifs demeurent notre engagement pour vous satisfaire.</p>
 
         </div>
 
@@ -319,20 +319,20 @@
 
                 <tbody>
                     <tr>
-                    <td class="text-sm FP-error font-thin  border  border-slate-300 py-1 md:px-4 text-black-100">
+                    <td class="text-sm FP-error font-bold border  border-slate-300 py-1 md:px-4 text-black-100">
                         {{ $produit->produit->nom}}
                     </td>
-                    <td class="text-sm FP-error  font-thin border border-slate-300 py-1 md:px-4 text-blue-400">
+                    <td class="text-sm FP-error  font-boldborder border-slate-300 py-1 md:px-4 text-blue-400">
                         {{ $produit->produit->reference}}
                     </td>
-                    <td class="text-sm FP-error font-thin border border-slate-300 py-1 md:px-4">
+                    <td class="text-sm FP-error font-boldborder border-slate-300 py-1 md:px-4">
                             {{ $produit->quantite}}
                     </td>
                     
-                    <td class="text-sm FP-error font-thin border border-slate-300 py-1 md:px-4">
+                    <td class="text-sm FP-error font-boldborder border-slate-300 py-1 md:px-4">
                             {{ $produit->produit->prix}}
                     </td>
-                    <td class="text-sm FP-error font-thin border border-slate-300 py-3 md:px-8">
+                    <td class="text-sm FP-error font-boldborder border-slate-300 py-3 md:px-8">
                             {{ $produit->total}}
                     </td>
                     

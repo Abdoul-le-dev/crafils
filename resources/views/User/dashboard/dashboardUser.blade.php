@@ -15,7 +15,7 @@
 
       <div class="flex flex-col shadow-lg border-2 border-black w-48 justify-center items-center rounded-lg mx-2 m-3p-2 m-10  ">
          <img src="Icons/filtre.png" alt="" class="mr-2 ml-3 h-10 w-10 my-4 cursor-pointer">
-         <a href="{{route('PageVente')}}" class="bg-indigo-200 p-2 rounded-lg m-4 FP-Menu">Vente</a>
+         <a href="{{route('PageVente')}}" class="bg-indigo-200 p-2 rounded-lg m-4 FP-Menu">Pro format</a>
       </div>
 
       <div class="flex flex-col shadow-lg border-2 border-black w-48  justify-center items-center rounded-lg mx-2 m-10">

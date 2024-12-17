@@ -31,9 +31,9 @@
             </div>
             <div class="flex flex-col ">
 
-                <p class=" FP-error text-xs"># Benin, Cotonou,Gbedjromede</p>
-                <p class=" FP-error text-xs">Industrie automobile de pièces détachées</p>
-                <p class="text-xs text-[#4287f5]  FP-error">Logistique | | 229 974 110 00</p>
+                <p class=" FP-error text-lg"># Benin, Cotonou,Gbedjromede</p>
+                <p class=" FP-error text-lg">Industrie automobile de pièces détachées</p>
+                <p class="text-lg text-[#4287f5]  FP-error">Logistique | | 229 974 110 00</p>
                 <P class=" FP-error text-[#4287f5]"><span>www.crafils.com </span><span class="text-black">-</span><span> contact@crafils.com</span></P>
 
             </div>
@@ -240,9 +240,9 @@
 
         <div class="flex flex-col mt-[50px] justify-center items-center troisiemepart ">
 
-            <p class="FP-error text-xs mb-2 text-black">C/1090 Mininkpo Cotonou Tel: 97 41 10 00 64 86 29 06</p>
-            <p class="FP-error text-xs mb-2 text-black">RCCM: RB/COT/16B 16829 || IFU: 3201642255315 || Email: rcaetfils@gmail.com</p>
-            <p class="FP-error text-xs  text-black">Depuis 10 ans, qualité et prix compétitifs demeurent notre engagement pour vous satisfaire.</p>
+            <p class="FP-error text-lg mb-2 text-black">C/1090 Mininkpo Cotonou Tel: 97 41 10 00 64 86 29 06</p>
+            <p class="FP-error text-lg mb-2 text-black">RCCM: RB/COT/16B 16829 || IFU: 3201642255315 || Email: rcaetfils@gmail.com</p>
+            <p class="FP-error text-lg  text-black">Depuis 10 ans, qualité et prix compétitifs demeurent notre engagement pour vous satisfaire.</p>
 
         </div>
 

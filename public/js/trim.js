@@ -19,14 +19,15 @@ document.addEventListener("DOMContentLoaded", function() {
         {
             nom.addEventListener("input", function() {
             // Définir les caractères autorisés (par exemple, uniquement alphanumériques)
-            const caracteresValides = /^[a-zA-Z]*$/;
+            const caracteresValides = /^[a-zA-Z0-9 /]*$/;
     
             // Obtenir la valeur actuelle de la saisie
             let valeur = nom.value;
     
             // Supprimer les caractères invalides
             if (!caracteresValides.test(valeur)) {
-                nom.value = valeur.replace(/[^a-zA-Z]/g, '');
+                nom.value = valeur.replace(/[^a-zA-Z0-9 /]/g, '');
+
                
             }
             nom.value = nom.value.toUpperCase();
