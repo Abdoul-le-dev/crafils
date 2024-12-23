@@ -110,7 +110,7 @@ class Proformat extends Controller
         }
         $tva =  ($tht * 18)/100;
         $ttc = $tht + $tva;
-        $date = '2024-10-23 09:22:59';
+        $date = Carbon::now();
         $nombre_facture = $produits->count();
         $nombre = 2;
         $premiere =[];
